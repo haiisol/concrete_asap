@@ -17,8 +17,14 @@ class APILoginController extends Controller
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
-    //
-    public function login(){
+    /**
+     * Get a JWT token via given credentials.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function login(Request $request){
     	$credentials = $request->only('email', 'password');
 
         if ($token = $this->guard()->attempt($credentials)) {
