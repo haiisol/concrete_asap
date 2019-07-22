@@ -2,6 +2,9 @@
 
 namespace App\Repositories;
 
-class UserRepositoryInterface implements Interfaces\UserRepositoryInterface{
-	public function save();
+class UserRepository implements Interfaces\UserRepositoryInterface{
+
+	public function save(){
+
+	}
 }
