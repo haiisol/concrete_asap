@@ -49,12 +49,9 @@ class APILoginController extends Controller
     public function register(Request $request){
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company');
 
-        $user=new User();
-        $user->email=$request->input("email");
-        $user->password=$request->input("password");
-        $user->status="verified";
+        $this->user_repo($user_details);        
 
-        return response()->json(['details' => $details], 200);
+        return response()->json(['details' => $user_details], 200);
     }
 
         /**
