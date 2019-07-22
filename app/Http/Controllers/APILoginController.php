@@ -43,8 +43,14 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request){
-    	$details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company');
+    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company');
 
+        $user=new User();
+        $user->email=$request->input("email");
+        $user->password=$request->input("password");
+        $user->status="verified";
+        
+        return response()->json(['details' => $details], 200);
     }
 
         /**
