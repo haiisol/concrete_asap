@@ -22,4 +22,8 @@ class APILoginController extends Controller
             
         ]);
     }
+
+    public function register(){
+    	
+    }
 }
