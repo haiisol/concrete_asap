@@ -51813,7 +51813,8 @@ Vue.component('passport-personal-access-tokens', __webpack_require__(/*! ./compo
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  template: '<example-component></example-component>'
 });
 
 /***/ }),

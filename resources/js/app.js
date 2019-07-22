@@ -44,4 +44,5 @@ Vue.component(
 
 const app = new Vue({
     el: '#app',
+    template: '<example-component></example-component>'
 });
