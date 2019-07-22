@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //Third party references
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,        
+        // Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,        
 
     ],
 
