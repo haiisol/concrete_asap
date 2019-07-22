@@ -8,6 +8,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
+use App\Role;
+
 class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens,Notifiable;
@@ -74,7 +76,7 @@ class User extends Authenticatable implements JWTSubject
     {
       return null !== $this->roles()->whereIn(‘name’, $roles)->first();
     }
-    
+
     /**
     * Check one role
     * @param string $role

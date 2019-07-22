@@ -43,7 +43,7 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request){
-
+    	$credentials = $request->only('email', 'password');
     }
 
         /**
