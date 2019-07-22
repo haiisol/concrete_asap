@@ -6,11 +6,11 @@ use App\User;
 
 class UserRepository implements Interfaces\UserRepositoryInterface{
 
-	public function save($user){
+	public function save($user_details){
 		$user=new User();
-	    $user->email=$request->input("email");
-	    $user->password=$request->input("password");
-	    $user->status="verified";	    
+	    // $user->email=$->input("email");
+	    // $user->password=$request->input("password");
+	    // $user->status="verified";	    
 	}
 
 }

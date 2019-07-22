@@ -48,7 +48,7 @@ class APILoginController extends Controller
      */
     public function register(Request $request){
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company');
-
+        
         $this->user_repo->save($user_details);        
 
         return response()->json(['details' => $user_details], 200);
