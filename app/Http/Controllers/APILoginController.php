@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class APILoginController extends Controller
 {
@@ -37,7 +38,7 @@ class APILoginController extends Controller
     public function register(){
 
     }
-    
+
     /**
      * Get the guard to be used during authentication.
      *
