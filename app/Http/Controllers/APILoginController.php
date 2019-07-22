@@ -15,7 +15,7 @@ class APILoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login']]);
+        $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
     /**
@@ -34,8 +34,15 @@ class APILoginController extends Controller
 
         return response()->json(['error' => 'Unauthorized'], 401);
     }
-
-    public function register(){
+    
+    /**
+     * Get a JWT token via given credentials.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request){
 
     }
 

@@ -23,9 +23,8 @@ Route::group([
 
 ], function ($router) {
     Route::post('login', 'APILoginController@login');
-    Route::post('login', 'APILoginController@login');
+    Route::post('register', 'APILoginController@register');
     Route::post('logout', 'APILoginController@logout');
     Route::post('refresh', 'APILoginController@refresh');
     Route::post('me', 'APILoginController@me');
-
 });
