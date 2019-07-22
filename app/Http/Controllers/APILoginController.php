@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Repositories\UserRepositoryInterface;
 
 class APILoginController extends Controller
 {
+    private $user_repo;
 
 	 /**
      * Create a new AuthController instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct(UserRepositoryInterface $user_repo){
+        $this->user_repo=$user_repo;
+
         $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
@@ -49,7 +52,7 @@ class APILoginController extends Controller
         $user->email=$request->input("email");
         $user->password=$request->input("password");
         $user->status="verified";
-        
+
         return response()->json(['details' => $details], 200);
     }
 
