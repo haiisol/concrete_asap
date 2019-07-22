@@ -175,8 +175,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        //Third party references
-        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,        
 
     ],
 
