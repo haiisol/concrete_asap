@@ -28,7 +28,7 @@ class APILoginController extends Controller
     public function login(Request $request){
     	$credentials = $request->only('email', 'password');
 
-        if ($token = $this->guard()->attempt($credentials)) {
+        if ($token = auth('api')->attempt($credentials)) {
             return $this->respondWithToken($token);
         }
 
@@ -46,7 +46,7 @@ class APILoginController extends Controller
      */
     public function me()
     {
-        return response()->json($this->guard()->user());
+        return response()->json(auth('api')->user());
     }
 
     /**
@@ -68,7 +68,7 @@ class APILoginController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken($this->guard()->refresh());
+        return $this->respondWithToken(auth('api')->refresh());
     }
 
     /**
