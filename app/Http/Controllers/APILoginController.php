@@ -37,4 +37,14 @@ class APILoginController extends Controller
     public function register(){
 
     }
+    
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return Auth::guard();
+    }
 }
