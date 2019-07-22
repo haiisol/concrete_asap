@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models\Users;
+
+use Illuminate\Database\Eloquent\Model;
+
+use App\User;
+
+class User_Details extends Model{
+	
+	public function user(){
+        return $this->belongsTo('App\User');
+    }
+    
+}

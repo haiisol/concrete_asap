@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 use App\Role;
+use App\Models\Users\User_Details;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -53,6 +54,10 @@ class User extends Authenticatable implements JWTSubject
 
     public function roles(){
         return $this->belongsToMany(Role::class);
+    }
+
+    public function details(){
+        return $this->hasOne(User_Details::class);
     }
 
     /**
