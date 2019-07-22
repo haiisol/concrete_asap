@@ -12,4 +12,5 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	    $user->password=$request->input("password");
 	    $user->status="verified";	    
 	}
+
 }
