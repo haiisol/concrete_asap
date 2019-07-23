@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Hash;
 class UserRepository implements Interfaces\UserRepositoryInterface{
 
 	public function save($user_details){
-		$user=new User();
+		// $user=new User();
 		$user_detail=new User_Details();
 
-	    $user->email=$user_details->email;
-	    $user->password=Hash::make($user_details->password);
-	    $user->status="verified";	
-	    $user->save();
+	    // $user->email=$user_details->email;
+	    // $user->password=Hash::make($user_details->password);
+	    // $user->status="verified";	
+	    // $user->save();
 
 	    $user_detail->abn=$user_details->abn;
 	    $user_detail->company=$user_details->company;
@@ -25,7 +25,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	    $user_details->state=$user_details->state;
 	    $user_details->city=$user_details->city;
 
-	    return $user->detail()->save($user_detail);
+	    // return $user->detail()->save($user_detail);
 	}
 
 }
