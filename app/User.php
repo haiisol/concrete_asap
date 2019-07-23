@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 use App\Role;
-use App\Models\Users\User_Details;
+use App\Models\User\User_Details;
 
 class User extends Authenticatable implements JWTSubject
 {

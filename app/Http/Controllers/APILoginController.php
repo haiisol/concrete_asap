@@ -47,9 +47,14 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request){
-    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company');        
+    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city'); 
 
-        return response()->json(['details' => $this->user_repo->save($user_details)], 200);
+        if($this->user_repo->save($user_details)){
+            if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
+                return $this->respondWithToken($token);
+            }
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }              
     }
 
         /**
