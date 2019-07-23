@@ -20,10 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group([
     'middleware' => ['cors','api'],
     'prefix' => 'auth'
-], function ($router) {
-    Route::post('login', 'APILoginController@login');
+], function ($router) {    
     Route::post('register', 'APILoginController@register');
-    Route::post('logout', 'APILoginController@logout');
-    Route::post('refresh', 'APILoginController@refresh');
+    Route::post('logout', 'APILoginController@logout');    
     Route::post('me', 'APILoginController@me');
 });
+
+Route::post('/login', 'APILoginController@login');
+Route::post('refresh', 'APILoginController@refresh');
