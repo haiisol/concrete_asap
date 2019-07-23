@@ -56,7 +56,7 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Role::class);
     }
 
-    public function details(){
+    public function detail(){
         return $this->hasOne(User_Details::class);
     }
 

@@ -47,11 +47,9 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request){
-    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company');
-        
-        $this->user_repo->save($user_details);        
+    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company');        
 
-        return response()->json(['details' => $user_details], 200);
+        return response()->json(['details' => $this->user_repo->save($user_details)], 200);
     }
 
         /**
