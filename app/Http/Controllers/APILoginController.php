@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 
 class APILoginController extends Controller
 {
@@ -48,6 +49,23 @@ class APILoginController extends Controller
      */
     public function register(Request $request){
 
+        $validator = Validator::make($request->all(), [
+            'email' => 'required',
+            'password' => 'required',
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'phone_number'=>'required',
+            'abn'=>'required',
+            'company'=>'required',
+            'state'=>'required',
+            'city'=>'required'
+        ]);
+
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return response()->json(['error'=>$errors,401);
+        }
+
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city'); 
 
         if($this->user_repo->save($user_details)){
@@ -55,9 +73,6 @@ class APILoginController extends Controller
                 return $this->respondWithToken($token);
             }
             return response()->json(['error' => 'Unauthorized'], 401);
-        }                
-        else{
-            return response()->json(['error'=>"Some Fields is Missing"],401);
         } 
     }
 
