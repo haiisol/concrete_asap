@@ -47,6 +47,7 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request){
+
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city'); 
 
         if($this->user_repo->save($user_details)){
@@ -54,7 +55,10 @@ class APILoginController extends Controller
                 return $this->respondWithToken($token);
             }
             return response()->json(['error' => 'Unauthorized'], 401);
-        }              
+        }                
+        else{
+            return response()->json(['error'=>"Some Fields is Missing"],401);
+        } 
     }
 
         /**
