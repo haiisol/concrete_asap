@@ -63,7 +63,7 @@ class APILoginController extends Controller
 
         if($validator->fails()){
             $errors = $validator->errors();
-            return response()->json(['error'=>$errors,401);
+            return response()->json(['error'=>$errors],401);
         }
 
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city'); 
