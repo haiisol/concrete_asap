@@ -13,7 +13,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 		$user=new User();
 		$user_detail=new User_Details();
 		$user_role=new Role();
-		$user = Role::firstOrCreate(['name' => 'contractor'], ['description' => 'Contractor']);
+		$user = Role::firstOrCreate(['name' => $user_details['role']], ['description' => 'Contractor']);
 	    $user->email=$user_details["email"];
 	    $user->password=Hash::make($user_details["password"]);
 	    $user->status="verified";	
@@ -30,7 +30,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	    $user_detail->state=$user_details["state"];
 	    $user_detail->city=$user_details["city"];
 
-	    $user->detail()->save($user_detail)
+	    $user->detail()->save($user_detail);
 	    
 	    return $user->roles()->save();
 	}
