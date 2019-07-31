@@ -32,7 +32,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 
 	    $user->detail()->save($user_detail);
 	    
-	    return $user->roles()->save();
+	    return $user->roles()->save($user_role);
 	}
 
 }
