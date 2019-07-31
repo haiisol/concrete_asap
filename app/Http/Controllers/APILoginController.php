@@ -37,7 +37,7 @@ class APILoginController extends Controller
             return $this->respondWithToken($token);
         }
 
-        return response()->json(['error' => $token], 401);
+        return response()->json(['error' =>'Wrong Username and password'], 401);
     }
     
     /**
