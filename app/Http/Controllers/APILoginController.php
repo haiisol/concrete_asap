@@ -50,7 +50,7 @@ class APILoginController extends Controller
     public function register(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'password' => 'required',
             'first_name'=>'required',
             'last_name'=>'required',
@@ -66,8 +66,7 @@ class APILoginController extends Controller
             return response()->json(['error'=>$errors],401);
         }
 
-    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city'); 
-
+    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','role');         
         if($this->user_repo->save($user_details)){
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
                 return $this->respondWithToken($token);
