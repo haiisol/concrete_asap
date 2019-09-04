@@ -27,3 +27,10 @@ Route::group([
     Route::post('refresh', 'APILoginController@refresh');
     Route::post('me', 'APILoginController@me');
 });
+
+Route::group([
+    'middleware' => ['cors','api'],
+    'prefix' => 'contractor'
+], function ($router) {
+    Route::resource('order', 'Concrete\OrderController');
+});

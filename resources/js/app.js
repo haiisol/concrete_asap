@@ -21,20 +21,20 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-Vue.component(
-    'passport-clients',
-    require('./components/passport/Clients.vue').default
-);
+// Vue.component(
+//     'passport-clients',
+//     require('./components/passport/Clients.vue').default
+// );
 
-Vue.component(
-    'passport-authorized-clients',
-    require('./components/passport/AuthorizedClients.vue').default
-);
+// Vue.component(
+//     'passport-authorized-clients',
+//     require('./components/passport/AuthorizedClients.vue').default
+// );
 
-Vue.component(
-    'passport-personal-access-tokens',
-    require('./components/passport/PersonalAccessTokens.vue').default
-);
+// Vue.component(
+//     'passport-personal-access-tokens',
+//     require('./components/passport/PersonalAccessTokens.vue').default
+// );
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -44,5 +44,18 @@ Vue.component(
 
 const app = new Vue({
     el: '#app',
-    template: '<example-component></example-component>'
+    data: {
+    	a: 1
+  	},
+    template: '<example-component></example-component>',
+    mounted(){
+    	axios
+	      .get('http://38972365.ngrok.io/auth/api')
+	      .then(response => (this.info = response))
+    },
+ 	created: function () {
+ 		console.log('ok');
+	    // `this` points to the vm instance
+	    console.log('a is: ' + this.a);
+  	}
 });
