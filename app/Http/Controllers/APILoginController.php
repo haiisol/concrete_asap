@@ -69,7 +69,14 @@ class APILoginController extends Controller
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','role');         
         if($this->user_repo->save($user_details)){
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
-                return $this->respondWithToken($token);
+                $user=User::where('email',$user_details["email"]) -> first();
+                var_dump($user);
+                // return response()->json([
+                //     'access_token' => $token,
+                //     'token_type' => 'bearer',
+                //     'expires_in' => auth('api')->factory()->getTTL()* 60,
+
+                // ]);
             }
             return response()->json(['message' => 'Unauthorized'], 401);
         } 
@@ -115,7 +122,7 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     protected function respondWithToken($token)
-    {
+    {        
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',

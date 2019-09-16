@@ -19,6 +19,7 @@ class OrderController extends Controller
     public function index()
     {
         //
+        // $order=Order::
 
     }
 
