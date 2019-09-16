@@ -33,11 +33,18 @@ class APILoginController extends Controller
     public function login(Request $request){
     	$credentials = $request->only('email', 'password');
 
-        if ($token = auth('api')->attempt($credentials)) {
-            return $this->respondWithToken($token);
+        if ($token = auth('api')->attempt($credentials)) {  
+            $user=auth('api')->user(); 
+            // $user->roles()->makeHidden('pivot');
+            return response()->json([
+                'access_token' => $token,
+                'token_type' => 'bearer',
+                'expires_in' => auth('api')->factory()->getTTL()* 60,
+                'roles'=>$user->getRoleNames()
+            ]);
         }
 
-        return response()->json(['message' =>'Wrong Username and password'], 401);
+        return response()->json(['message' =>'Wrong Username and password'], 200);
     }
     
     /**
@@ -58,7 +65,8 @@ class APILoginController extends Controller
             'abn'=>'required',
             'company'=>'required',
             'state'=>'required',
-            'city'=>'required'
+            'city'=>'required',
+            'roles'=>'required'
         ]);
 
         if($validator->fails()){
@@ -69,14 +77,14 @@ class APILoginController extends Controller
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','role');         
         if($this->user_repo->save($user_details)){
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
-                $user=User::where('email',$user_details["email"]) -> first();
-                var_dump($user);
-                // return response()->json([
-                //     'access_token' => $token,
-                //     'token_type' => 'bearer',
-                //     'expires_in' => auth('api')->factory()->getTTL()* 60,
-
-                // ]);
+                // $user=User::where('email',$user_details["email"]) -> first();
+                $user=auth('api')->user(); 
+                return response()->json([
+                    'access_token' => $token,
+                    'token_type' => 'bearer',
+                    'expires_in' => auth('api')->factory()->getTTL()* 60,
+                    'roles'=>$user->getRoleNames()
+                ]);
             }
             return response()->json(['message' => 'Unauthorized'], 401);
         } 

@@ -12,8 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $user=App\User::where('id',2)->first();
+ //    $roles=
+	// var_dump($roles);
 });
+
+
 
 Auth::routes();
 

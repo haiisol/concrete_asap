@@ -32,5 +32,5 @@ Route::group([
     'middleware' => ['cors','api'],
     'prefix' => 'contractor'
 ], function ($router) {
-    Route::resource('order', 'Concrete\OrderController');
+    Route::resource('order/concrete', 'Concrete\OrderController');
 });
