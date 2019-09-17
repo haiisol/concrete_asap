@@ -92,14 +92,16 @@ class APILoginController extends Controller
         } 
     }
 
-        /**
+    /**
      * Get the authenticated User
      *
      * @return \Illuminate\Http\JsonResponse
      */
     public function me()
     {
-        return response()->json(auth('api')->user());
+        $user=auth('api')->user();
+        $user->roles=auth('api')->user()->getRoleNames();
+        return response()->json($user);
     }
 
     /**
