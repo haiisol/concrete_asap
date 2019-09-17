@@ -74,8 +74,10 @@ class APILoginController extends Controller
             return response()->json(['message'=>$errors],401);
         }
 
-    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','role');         
+    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','roles');         
+
         if($this->user_repo->save($user_details)){
+
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
                 // $user=User::where('email',$user_details["email"]) -> first();
                 $user=auth('api')->user(); 

@@ -12,7 +12,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	public function save($user_details){
 		$user=new User();
 		$user_detail=new User_Details();
-		$user_role = Role::firstOrCreate(['name' => $user_details['role']], ['description' => 'Contractor']);
+		$user_role = Role::firstOrCreate(['name' => $user_details['roles']], ['description' => 'Contractor']);
 	    $user->email=$user_details["email"];
 	    $user->password=Hash::make($user_details["password"]);
 	    $user->status="verified";	

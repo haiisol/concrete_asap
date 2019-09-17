@@ -20,7 +20,7 @@ class OrderController extends Controller
     {
         //
         // $order=Order::
-
+        
     }
 
     /**
@@ -43,7 +43,6 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         //
-
         $validator = Validator::make($request->all(), [
             'suburb' => 'required|max:255',
             'mpa' => 'required',
@@ -109,6 +108,7 @@ class OrderController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**
