@@ -13,11 +13,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
-        // config()->set('jwt.ttl',null);
+        config()->set("jwt.required_claims",[
+            'iss',
+            'iat',
+            // 'exp',
+            'nbf',
+            'sub',
+            'jti',
+        ]);
+        config()->set('jwt.ttl',null);
+        // var_dump();
+        
         $this->app->register(RepositoryServiceProvider::class);
-       
-        // var_dump(config()->get('jwt.ttl'));
     }
 
     /**

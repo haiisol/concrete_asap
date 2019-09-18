@@ -12,9 +12,9 @@ class Order extends Model
 {
     
     //
-    public function concrete()
+    public function orderConcrete()
     {
-        return $this->hasOne(orderConcrete::class);
+        return $this->hasOne(orderConcrete::class,"order_id","id");
     }
 
     public function user(){

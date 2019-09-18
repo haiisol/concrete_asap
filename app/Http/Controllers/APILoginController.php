@@ -20,7 +20,7 @@ class APILoginController extends Controller
     public function __construct(UserRepositoryInterface $user_repo){
         $this->user_repo=$user_repo;
 
-        $this->middleware('auth:api', ['except' => ['login','register']]);
+        $this->middleware('jwt.verify', ['except' => ['login','register']]);
     }
 
     /**
@@ -39,7 +39,7 @@ class APILoginController extends Controller
             return response()->json([
                 'access_token' => $token,
                 'token_type' => 'bearer',
-                // 'expires_in' => auth('api')->factory()->getTTL()* 60,
+                // 'expires_in' => auth('api')->factory()->getTTL(),
                 'roles'=>$user->getRoleNames()
             ]);
         }
@@ -79,8 +79,9 @@ class APILoginController extends Controller
         if($this->user_repo->save($user_details)){
 
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
-                // $user=User::where('email',$user_details["email"]) -> first();
+                
                 $user=auth('api')->user(); 
+                
                 return response()->json([
                     'access_token' => $token,
                     'token_type' => 'bearer',
@@ -138,7 +139,7 @@ class APILoginController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth('api')->factory()->getTTL()* 60
+            // 'expires_in' => auth('api')->factory()->getTTL()* 60
         ]);
     }
 

@@ -42,7 +42,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 	}
 
 	public function getUserConcreteOrder($user_id){
-		$order=Order::with(['orderConcrete'])->get();
+		$order=Order::with(["orderConcrete"])->get();
 		// var_dump($order);
 		return $order;
 	}
