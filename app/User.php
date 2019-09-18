@@ -10,6 +10,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 
 use App\Role;
 use App\Models\User\User_Details;
+use App\Models\Order\Order;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -93,5 +94,9 @@ class User extends Authenticatable implements JWTSubject
     public function hasRole($role)
     {
       return null !== $this->roles()->where(‘name’, $role)->first();
+    }
+
+    public function order(){
+      return $this->hasMany(Order::class);
     }
 }

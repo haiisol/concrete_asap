@@ -5,9 +5,12 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\UserRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
+use App\Repositories\OrderRepository;
+use App\Repositories\Interfaces\OrderRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
+
     /**
      * Register services.
      *
@@ -20,6 +23,12 @@ class RepositoryServiceProvider extends ServiceProvider
             UserRepositoryInterface::class,
             UserRepository::class
         );
+
+        $this->app->bind(            
+            OrderRepositoryInterface::class,
+            OrderRepository::class
+        );
+
     }
 
     /**

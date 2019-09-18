@@ -14,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+        // config()->set('jwt.ttl',null);
         $this->app->register(RepositoryServiceProvider::class);
+       
+        // var_dump(config()->get('jwt.ttl'));
     }
 
     /**
@@ -25,6 +28,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        $this->app['request']->server->set('HTTPS', true);
+        $this->app['request']->server->set('HTTPS', false);
      }
 }

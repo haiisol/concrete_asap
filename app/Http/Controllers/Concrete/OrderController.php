@@ -7,10 +7,18 @@ use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\orderConcrete;
 
+use App\Repositories\Interfaces\OrderRepositoryInterface;
+// use App\Repositories\OrderRepository;
+
 use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
-{
+{   
+    private $orderRep;
+
+    public function __construct(OrderRepositoryInterface $orderRep){
+        $this->orderRep=$orderRep;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,9 +26,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
-        // $order=Order::
-        
+        $user=auth('api')->user();  
+        return response()->json($this->orderRep->getUserConcreteOrder($user->id),200);
     }
 
     /**
@@ -52,50 +59,30 @@ class OrderController extends Controller
             "placement_type" => 'required',  
             "quantity" => 'required',    
             "time_preference1" => 'required',        
-            "time_preference2" => 'required',        
-            "time_preference3" => 'required',       
+            // "time_preference2" => 'required',        
+            // "time_preference3" => 'required',       
             "time_deliveries" => 'required', 
             "urgency" => 'required', 
             "message_required" => 'required',    
             "preference" => 'required',  
             "colours" => 'required', 
-            "delivery_instructions" => 'required',   
-            "special_instructions" => 'required',    
-            "order_id" => 'required',    
-            "created_at" => 'required', 
-            "updated_at" => 'required'
+            // "delivery_instructions" => 'required',   
+            // "special_instructions" => 'required',    
+            // "order_id" => 'required',    
+            // "created_at" => 'required', 
+            // "updated_at" => 'required'
         ]);
 
         if(!$validator->fails()){
-            $order=new Order();
-            $order->touch();
-            $order=$order->save();
-
-            $order_concrete=new orderConcrete();
-            $order_concrete->suburb=$request->suburb;
-            $order_concrete->mpa=$request->mpa;
-            $order_concrete->agg=$request->agg;
-            $order_concrete->slump=$request->slump;
-            $order_concrete->acc=$request->acc;
-            $order_concrete->placement_type=$request->placement_type;
-            $order_concrete->quantity=$request->quantity;
-            $order_concrete->time_preference1=$request->time_preference1;
-            $order_concrete->time_preference2=$request->time_preference2;
-            $order_concrete->time_preference3=$request->time_preference3;
-            $order_concrete->time_deliveries=$request->time_deliveries;
-            $order_concrete->urgency=$request->urgency;
-            $order_concrete->message_required=$request->message_required;
-            $order_concrete->preference=$request->preference;
-            $order_concrete->colours=$request->colours;
-            $order_concrete->delivery_instructions=$request->delivery_instructions;
-            $order_concrete->special_instructions=$request->special_instructions;
-            $order_concrete->touch();
-
-            $order->concrete()->save($order_concrete);    
+            $user=auth('api')->user();            
+            if($this->orderRep->createConcrete($request->all(),$user->id)){
+                return response()->json(array("message"=>"Successfully Inserted"),200);
+            }
+              
         }
         else{
             return response()->json($validator->errors(),401);
-        }
+        }    
         
     }
 
@@ -108,7 +95,9 @@ class OrderController extends Controller
     public function show($id)
     {
         //
-        
+
+
+
     }
 
     /**
@@ -143,5 +132,9 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function search(){
+
     }
 }

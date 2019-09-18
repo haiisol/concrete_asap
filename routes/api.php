@@ -29,7 +29,7 @@ Route::group([
 });
 
 Route::group([
-    'middleware' => ['cors','api'],
+    'middleware' => ['cors','api','jwt.auth'],
     'prefix' => 'contractor'
 ], function ($router) {
     Route::resource('order/concrete', 'Concrete\OrderController');
