@@ -44,7 +44,7 @@ class APILoginController extends Controller
             ]);
         }
 
-        return response()->json(['message' =>'Wrong Username and password'], 200);
+        return response()->json(['message' =>'Wrong Username and password'], 401);
     }
     
     /**
