@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Order\Order;
 use App\Models\Order\orderConcrete;
 use Illuminate\Support\Facades\Hash;
+// use Hashids\Hashids;
 
 class OrderRepository implements Interfaces\OrderRepositoryInterface{
 
@@ -42,8 +43,14 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 	}
 
 	public function getUserConcreteOrder($user_id){
-		$order=Order::with(["orderConcrete"])->get();
-		// var_dump($order);
-		return $order;
+        $order=Order::with(["orderConcrete"])->get();
+        // var_dump($order);
+        return $order;
 	}
+
+    public function getAllOrder(){
+        $order=Order::with(["orderConcrete"])->get();
+        
+        return $order;
+    }
 }

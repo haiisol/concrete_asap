@@ -23,10 +23,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('/order','Admin\OrderController');
+
+Route::get('/api/orders/getAll','Admin\OrderController@getOrders');
+
+
 Route::get('/app',function(){
 	return view('spa');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

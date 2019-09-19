@@ -19,7 +19,7 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('order-table-component', require('./components/table/OrderTableComponent.vue').default);
 
 // Vue.component(
 //     'passport-clients',
@@ -47,11 +47,9 @@ const app = new Vue({
     data: {
     	a: 1
   	},
-    template: '<example-component></example-component>',
+    // template: '<example-component></example-component>',
     mounted(){
-    	axios
-	      .get('http://38972365.ngrok.io/auth/api')
-	      .then(response => (this.info = response))
+    	
     },
  	created: function () {
  		console.log('ok');
