@@ -16,12 +16,13 @@ class CreateOrderConcretesTable extends Migration
         Schema::create('order_concretes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("suburb");
+            $table->string("placement_type");
             $table->string("mpa");
             $table->string("agg");
             $table->string("slump");
             $table->string("acc");
-            $table->string("placement_type");
             $table->integer("quantity");
+            $table->date("delivery_date");
             $table->time('time_preference1');
             $table->time('time_preference2');
             $table->time('time_preference3');
