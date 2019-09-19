@@ -13,10 +13,20 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //        
         $roles = factory("App\Role")->create([
         	'name'=>"administrator",
         	"description"=>"administrator"
+        ]);
+
+        factory("App\Role")->create([
+        	'name'=>"contractor",
+        	"description"=>"Contractor Role"
+        ]);
+
+        factory("App\Role")->create([
+        	'name'=>"rep",
+        	"description"=>"Rep Role"
         ]);
 
         $user = factory("App\User")->create([
