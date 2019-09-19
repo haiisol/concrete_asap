@@ -11,7 +11,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 
 	public function createConcrete($order_request,$user_id){
 		$order=new Order();		
-        $order->order_hash_id=uuid("order_");
+        $order->order_hash_id=uniqid("order_");
         $order->user_id=$user_id;
         $order->order_type="concrete";
         $order->status="Pending";
@@ -26,6 +26,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
         $order_concrete->slump=$order_request["slump"];
         $order_concrete->acc=$order_request["acc"];
         $order_concrete->placement_type=$order_request["placement_type"];
+        $order_concrete->delivery_date=$order_request["delivery_date"];
         $order_concrete->quantity=$order_request["quantity"];
         $order_concrete->time_preference1=$order_request["time_preference1"];
         $order_concrete->time_preference2=isset($order_request["time_preference2"])?$order_request["time_preference2"]:"";
@@ -40,7 +41,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
         $order_concrete->order_id=$order->id;
         $order_concrete->touch();
 
-        return $order->concrete()->save($order_concrete);
+        return $order->orderConcrete()->save($order_concrete);
 	}
 
 	public function getUserConcreteOrder($user_id){
