@@ -11,6 +11,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 
 	public function createConcrete($order_request,$user_id){
 		$order=new Order();		
+        $order->order_hash_id=uuid("order_");
         $order->user_id=$user_id;
         $order->order_type="concrete";
         $order->status="Pending";
