@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    $user=App\User::where('id',2)->first();
- //    $roles=
-	// var_dump($roles);
+Route::get('/',function(){
+	return redirect('login');
 });
 
 
