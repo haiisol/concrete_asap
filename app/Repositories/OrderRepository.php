@@ -21,6 +21,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
         // die;
         $order_concrete=new orderConcrete();
         $order_concrete->suburb=$order_request["suburb"];
+        $order_concrete->type=$order_request["type"];
         $order_concrete->mpa=$order_request["mpa"];
         $order_concrete->agg=$order_request["agg"];
         $order_concrete->slump=$order_request["slump"];
@@ -51,8 +52,12 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 	}
 
     public function getAllOrder(){
-        $order=Order::with(["orderConcrete"])->get();
-        
+        $order=Order::with(["orderConcrete"])->get();        
+        return $order;
+    }
+
+    public function getOrder($id){
+        $order=Order::with(["orderConcrete"])->where("id",$id)->first();
         return $order;
     }
 }

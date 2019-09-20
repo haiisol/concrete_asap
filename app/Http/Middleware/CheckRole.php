@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 
+use Illuminate\Support\Facades\Auth;
+
 class CheckRole
 {
     /**
@@ -16,8 +18,13 @@ class CheckRole
     public function handle($request, Closure $next)
     {
         $user = $request->user();
-        var_dump($user->roles);
-        die;
-        return $next($request);
+        if($user->hasRole('administrator')){
+            return $next($request);
+        }
+        else{
+            Auth::logout();
+           return \Redirect::back()->withWarning( 'Please check with administrator' );
+        }
+        
     }
 }

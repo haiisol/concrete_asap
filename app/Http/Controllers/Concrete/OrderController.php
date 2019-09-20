@@ -52,6 +52,7 @@ class OrderController extends Controller
         //
         $validator = Validator::make($request->all(), [
             'suburb' => 'required|max:255',
+            'type'=>'required',
             'mpa' => 'required',
             'agg' => 'required',
             'slump' => 'required',            

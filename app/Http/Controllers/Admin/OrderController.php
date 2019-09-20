@@ -55,7 +55,12 @@ class OrderController extends Controller
     public function show($id)
     {
         //
-        var_dump($id);
+        $order=$this->order_repo->getOrder($id);
+        // echo "<pre>";
+        // var_dump($order);
+        // echo "</pre>";
+        // die;
+        return view('admin.order.show',['order'=>$order]);
     }
 
     /**

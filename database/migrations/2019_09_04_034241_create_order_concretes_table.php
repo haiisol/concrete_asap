@@ -16,6 +16,7 @@ class CreateOrderConcretesTable extends Migration
         Schema::create('order_concretes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("suburb");
+            $table->string("type");
             $table->string("placement_type");
             $table->string("mpa");
             $table->string("agg");

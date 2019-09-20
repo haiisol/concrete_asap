@@ -84,7 +84,7 @@ class User extends Authenticatable implements JWTSubject
     */
     public function hasAnyRole($roles)
     {
-      return null !== $this->roles()->whereIn(‘name’, $roles)->first();
+      return null !== $this->roles()->whereIn('name', $roles)->first();
     }
 
     /**
@@ -93,7 +93,7 @@ class User extends Authenticatable implements JWTSubject
     */
     public function hasRole($role)
     {
-      return null !== $this->roles()->where(‘name’, $role)->first();
+      return null !== $this->roles()->where('name', $role)->first();
     }
 
     public function order(){
