@@ -32,5 +32,15 @@ Route::group([
     'middleware' => ['cors','api','jwt.verify'],
     'prefix' => 'contractor'
 ], function ($router) {
-    Route::resource('order/concrete', 'Concrete\OrderController');
+    Route::resource('order/concrete', 'Contractor\OrderController');
+    Route::get('orders/{id}/bids', 'Contractor\BidController@getOrderBid');
+//    Route::get('bid', 'Contractor\BidController');
+});
+
+Route::group([
+    'middleware' => ['cors','api','jwt.verify'],
+    'prefix' => 'rep'
+], function ($router) {
+    Route::post('bid', 'Rep\BidController@saveBid');
+    Route::get('bids', 'Rep\BidController@getUserBid');
 });

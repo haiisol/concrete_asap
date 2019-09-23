@@ -12,6 +12,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	public function save($user_details){
 		$user=new User();
 		$user_detail=new User_Details();
+		$user_role=null;
 		if($user_details['roles']=='contractor'||$user_details['roles']=='rep'){
 			$user_role = Role::where('name', '=',$user_details['roles'])->first();			
 		}

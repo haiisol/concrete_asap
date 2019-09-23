@@ -2,6 +2,7 @@
 
 namespace App\Models\Order;
 
+use App\Models\Bids\Bids;
 use Illuminate\Database\Eloquent\Model;
 
 use App\User;
@@ -19,5 +20,9 @@ class Order extends Model
 
     public function user(){
     	return $this->belongsTo(User::class);
+    }
+
+    public function bids(){
+        return $this->hasMany(Bids::class);
     }
 }

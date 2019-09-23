@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\BidRepository;
+use App\Repositories\Interfaces\BidRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\UserRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
@@ -27,6 +29,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(            
             OrderRepositoryInterface::class,
             OrderRepository::class
+        );
+
+        $this->app->bind(
+            BidRepositoryInterface::class,
+            BidRepository::class
         );
 
     }

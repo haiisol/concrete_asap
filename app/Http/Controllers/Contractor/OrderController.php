@@ -1,11 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Concrete;
+namespace App\Http\Controllers\Contractor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Order;
-use App\Models\orderConcrete;
 
 use App\Repositories\Interfaces\OrderRepositoryInterface;
 // use App\Repositories\OrderRepository;
@@ -15,9 +13,10 @@ use Illuminate\Support\Facades\Validator;
 class OrderController extends Controller
 {   
     private $orderRep;
-
+    private $user;
     public function __construct(OrderRepositoryInterface $orderRep){
         $this->orderRep=$orderRep;
+        $this->user=auth('api')->user();
     }
     /**
      * Display a listing of the resource.
@@ -26,8 +25,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $user=auth('api')->user();  
-        return response()->json($this->orderRep->getUserConcreteOrder($user->id),200);
+        return response()->json($this->orderRep->getUserConcreteOrder($this->user->id),200);
     }
 
     /**
@@ -76,7 +74,8 @@ class OrderController extends Controller
         ]);
 
         if(!$validator->fails()){
-            $user=auth('api')->user();            
+            $user=auth('api')->user();
+            var_dump($user->id);
             if($this->orderRep->createConcrete($request->all(),$user->id)){
                 return response()->json(array("message"=>"Successfully Inserted"),200);
             }
@@ -133,9 +132,5 @@ class OrderController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function search(){
-
     }
 }

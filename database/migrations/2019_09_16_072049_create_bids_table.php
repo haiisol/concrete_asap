@@ -19,6 +19,7 @@ class CreateBidsTable extends Migration
             $table->double("price");
             $table->string("payment_type");
             $table->boolean("confirmed");
+            $table->string("status");
             $table->integer("order_id")->unsigned();
             $table->integer("user_id")->unsigned();
             $table->timestamps();

@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Hash;
 class OrderRepository implements Interfaces\OrderRepositoryInterface{
 
 	public function createConcrete($order_request,$user_id){
-		$order=new Order();		
-        $order->order_hash_id=uniqid("order_");
+		$order=new Order();
+		//generate order id
+        $order->order_hash_id=uniqid(rand (),true);
         $order->user_id=$user_id;
         $order->order_type="concrete";
         $order->status="Pending";
@@ -46,15 +47,10 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 	}
 
 	public function getUserConcreteOrder($user_id){
-        $order=Order::with(["orderConcrete"])->get();
+        $order=Order::with(["orderConcrete","bids"])->where("user_id",$user_id)->get();
         // var_dump($order);
         return $order;
 	}
-
-    public function getAllOrder(){
-        $order=Order::with(["orderConcrete"])->get();        
-        return $order;
-    }
 
     public function getOrder($id){
         $order=Order::with(["orderConcrete"])->where("id",$id)->first();

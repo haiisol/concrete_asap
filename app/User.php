@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Bids\Bids;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -98,5 +99,9 @@ class User extends Authenticatable implements JWTSubject
 
     public function order(){
       return $this->hasMany(Order::class);
+    }
+
+    public function bids(){
+        return $this->hasMany(Bids::class);
     }
 }
