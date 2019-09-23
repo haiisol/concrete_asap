@@ -57,6 +57,6 @@ class BidController extends Controller
 
 
     private function handle_exception($message){
-        return response()->json(["message"=>$message],401);
+        return response()->json(["message"=>"$message"],401);
     }
 }
