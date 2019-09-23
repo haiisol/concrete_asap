@@ -1737,7 +1737,7 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get('api/rep/orders').then(function (response) {
+    axios.get('api/orders/getAll').then(function (response) {
       console.log(response.data);
       _this.data = response.data;
     });

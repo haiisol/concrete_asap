@@ -106,6 +106,6 @@ class OrderController extends Controller
         // var_dump("ok");
         // var_dump($this->order_repo->getAllOrder());
         
-        return response()->json($this->order_repo->getAllOrder(),200);
+        return response()->json($this->order_repo->getAllOrders(),200);
     }
 }
