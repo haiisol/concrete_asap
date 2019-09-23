@@ -39,7 +39,7 @@
         created: function () {
             axios.get('api/rep/orders')
             .then(response => {
-                console.log(response);
+                console.log(response.data);
                 this.data=response.data;
             });
         },
