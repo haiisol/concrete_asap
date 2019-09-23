@@ -37,11 +37,12 @@ class BidController extends Controller
                 }
             }
             catch(\Exception $e){
-                $this->handle_exception($e->getMessage());
+                return response()->json(["message"=>$e->getMessage()],401);
             }
         }
         else{
-            $this->handle_exception($validator->errors());
+//            $this->handle_exception($validator->errors());
+            return response()->json(["message"=>$validator->errors()],401);
         }
 
     }
