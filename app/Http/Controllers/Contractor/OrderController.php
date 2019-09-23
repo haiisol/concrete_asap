@@ -75,7 +75,7 @@ class OrderController extends Controller
 
         if(!$validator->fails()){
             $user=auth('api')->user();
-            var_dump($user->id);
+//            var_dump($user->id);
             if($this->orderRep->createConcrete($request->all(),$user->id)){
                 return response()->json(array("message"=>"Successfully Inserted"),200);
             }
