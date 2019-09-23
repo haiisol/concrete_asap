@@ -37,7 +37,7 @@
             }
         },
         created: function () {
-            axios.get('http://localhost:8000//api/orders/getAll')
+            axios.get('api/orders/getAll')
             .then(response => {
                 this.data=response.data;
             });
