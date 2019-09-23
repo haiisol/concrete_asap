@@ -39,6 +39,7 @@
         created: function () {
             axios.get('api/rep/orders')
             .then(response => {
+                console.log(response);
                 this.data=response.data;
             });
         },

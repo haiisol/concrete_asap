@@ -1738,6 +1738,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get('api/rep/orders').then(function (response) {
+      console.log(response);
       _this.data = response.data;
     });
   },
