@@ -41,6 +41,7 @@ Route::group([
     'middleware' => ['cors','api','jwt.verify'],
     'prefix' => 'rep'
 ], function ($router) {
+    Route::get('orders','Rep\OrderController@getAllOrders');
     Route::post('bid', 'Rep\BidController@saveBid');
     Route::get('bids', 'Rep\BidController@getUserBid');
 });

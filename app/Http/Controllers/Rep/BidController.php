@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Rep;
 
 use App\Repositories\Interfaces\BidRepositoryInterface;
+use App\Repositories\Interfaces\OrderRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -36,11 +37,11 @@ class BidController extends Controller
                 }
             }
             catch(\Exception $e){
-                return response()->json(["message"=>$e->getMessage()],401);
+                $this->handle_exception($e->getMessage());
             }
         }
         else{
-            return response()->json($validator->errors(),401);
+            $this->handle_exception($validator->errors());
         }
 
     }
@@ -50,7 +51,12 @@ class BidController extends Controller
             return $this->bid_repo->getUserBids($this->user->id);
         }
         catch(\Exception $e){
-            return response()->json(["message"=>$e->getMessage()],401);
+            $this->handle_exception($e->getMessage());
         }
+    }
+
+
+    private function handle_exception($message){
+        return response()->json(["message"=>$message],401);
     }
 }
