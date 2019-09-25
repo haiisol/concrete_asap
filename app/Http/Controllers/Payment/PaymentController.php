@@ -33,7 +33,7 @@ class PaymentController extends Controller
                 return response()->json(['message'=>$errors],401);
             }
 
-            $charge = Charge::create(['amount' => 15, 'currency' => 'aud', 'source' => $request["token"]]);
+            $charge = Charge::create(['amount' => 0.10, 'currency' => 'usd', 'source' => $request["token"]]);
             return response()->json(['payment_token' => $charge],200);
         }
         catch(\Exception $e){
