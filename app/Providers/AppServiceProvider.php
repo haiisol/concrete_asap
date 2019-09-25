@@ -40,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         \Braintree_Configuration::merchantId("6ndm75pghr7mmd8m");
         \Braintree_Configuration::publicKey("kqs3g497hr9x9z6z");
         \Braintree_Configuration::privateKey("8698ac3a671fea6479a2206fa50b8e70");
-        Stripe::setApiKey('pk_test_wF2PcumUqSC8irnWWTAa4w9u00CIYe7HNL');
+        Stripe::setApiKey('sk_test_UqXCc0jBm9HEH5SBV3RRIc8M00lxPjucgl');
         $this->app['request']->server->set('HTTPS', false);
      }
 }
