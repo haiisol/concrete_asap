@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Stripe\Stripe;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -39,7 +40,7 @@ class AppServiceProvider extends ServiceProvider
         \Braintree_Configuration::merchantId("6ndm75pghr7mmd8m");
         \Braintree_Configuration::publicKey("kqs3g497hr9x9z6z");
         \Braintree_Configuration::privateKey("8698ac3a671fea6479a2206fa50b8e70");
-
+        Stripe::setApiKey('sk_test_BQokikJOvBiI2HlWgH4olfQ2');
         $this->app['request']->server->set('HTTPS', false);
      }
 }

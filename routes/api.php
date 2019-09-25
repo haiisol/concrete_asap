@@ -50,4 +50,5 @@ Route::group([
     Route::get('orders','Rep\OrderController@getAllOrders');
     Route::post('bid', 'Rep\BidController@saveBid');
     Route::get('bids', 'Rep\BidController@getUserBid');
+    Route::post('pay/bid','Payment\PaymentController@payBidAmount');
 });
