@@ -30,6 +30,12 @@ Route::group([
 
 Route::group([
     'middleware' => ['cors','api','jwt.verify'],
+],function($router){
+    Route::get('client/payment_token','Payment\PaymentController@getPaymentToken');
+});
+
+Route::group([
+    'middleware' => ['cors','api','jwt.verify'],
     'prefix' => 'contractor'
 ], function ($router) {
     Route::resource('order/concrete', 'Contractor\OrderController');

@@ -35,6 +35,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        \Braintree_Configuration::environment("sandbox");
+        \Braintree_Configuration::merchantId("6ndm75pghr7mmd8m");
+        \Braintree_Configuration::publicKey("kqs3g497hr9x9z6z");
+        \Braintree_Configuration::privateKey("8698ac3a671fea6479a2206fa50b8e70");
+
         $this->app['request']->server->set('HTTPS', false);
      }
 }
