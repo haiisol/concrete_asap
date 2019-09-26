@@ -29,6 +29,10 @@ Route::group([
 	Route::get('/api/orders/getAll','Admin\OrderController@getOrders');
 });
 
+Route::get('/handleUserPayment',function(){
+
+});
+
 
 
 
