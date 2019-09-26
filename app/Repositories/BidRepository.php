@@ -19,7 +19,7 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
 
     public function save($price,$order_id,$user_id){
         $price=(float)$price;
-        $order=Order::findOrFail($order_id);
+        $order=Order::find($order_id)->first();
         $bid=new Bids();
         $bid->rep_price=$price;
         $bid->payment_type="none";
