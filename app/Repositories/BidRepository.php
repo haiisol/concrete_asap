@@ -10,16 +10,14 @@ use Illuminate\Support\Facades\Hash;
 class BidRepository implements Interfaces\BidRepositoryInterface{
 
     private $bids;
-    private $order;
 
-    public function __construct(Bids $bids,Order $order){
+    public function __construct(Bids $bids){
         $this->bids=$bids;
-        $this->order=$order;
     }
 
     public function save($price,$order_id,$user_id){
         $price=(float)$price;
-        $order=Order::find($order_id)->first();
+        $order=Order::find(1)->first();
         $bid=new Bids();
         $bid->rep_price=$price;
         $bid->payment_type="none";
