@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Repositories\BidRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Braintree\ClientToken;
@@ -10,6 +11,13 @@ use Stripe\Charge;
 
 class PaymentController extends Controller
 {
+    private $bid_repo;
+    private $user;
+    public function __construct(BidRepository $bid_repo){
+        $this->bid_repo=$bid_repo;
+        $this->user=auth('api')->user();
+    }
+
     //
     public function getPaymentToken(){
         return response()->json(['payment_token' => ClientToken::generate()]);
@@ -26,6 +34,8 @@ class PaymentController extends Controller
         try{
             $validator = Validator::make($request->all(), [
                 'token' => 'required',
+                'price'=>'required',
+                'order_id'=>'required'
             ]);
 
             if($validator->fails()){
@@ -34,7 +44,11 @@ class PaymentController extends Controller
             }
 
             $charge = Charge::create(['amount' => 1500, 'currency' => 'aud', 'source' => $request["token"]["tokenId"]]);
-            return response()->json(['payment_token' => $charge],200);
+            if($charge){
+                if($this->bid_repo->save($request["price"],$request["order_id"],$this->user->id)){
+                    return response()->json(['message'=>"Bid Successfully","payment_complete"=>true,"payment_info"=>$charge],200);
+                }
+            }
         }
         catch(\Exception $e){
             return response()->json(['message'=>$e->getMessage()],401);

@@ -32,7 +32,7 @@ class BidController extends Controller
 
         if(!$validator->fails()){
             try{
-                if( $this->bid_repo->save($request["price"],$request["order_id"],$this->user->id)){
+                if($this->bid_repo->save($request["price"],$request["order_id"],$this->user->id)){
                     return response()->json(array("message"=>"Successfully Bid"),200);
                 }
             }
