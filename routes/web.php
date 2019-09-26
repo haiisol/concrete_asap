@@ -15,6 +15,8 @@ Auth::routes();
 
 //redirect index to login
 Route::get('/',function(){
+    var_dump(\App\Models\Order\Order::find(1));
+    die;
 	return redirect('login');
 });
 
