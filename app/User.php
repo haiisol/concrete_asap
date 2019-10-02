@@ -4,7 +4,6 @@ namespace App;
 
 use App\Models\Bids\Bids;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -15,7 +14,7 @@ use App\Models\Order\Order;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens,Notifiable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -72,10 +71,10 @@ class User extends Authenticatable implements JWTSubject
     public function authorizeRoles($roles)
     {
       if (is_array($roles)) {
-          return $this->hasAnyRole($roles) || 
+          return $this->hasAnyRole($roles) ||
                  abort(401, 'This action is unauthorized.');
       }
-      return $this->hasRole($roles) || 
+      return $this->hasRole($roles) ||
              abort(401, 'This action is unauthorized.');
     }
 

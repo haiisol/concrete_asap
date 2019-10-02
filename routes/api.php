@@ -32,6 +32,7 @@ Route::group([
     'middleware' => ['cors','api','jwt.verify'],
 ],function($router){
     Route::get('client/payment_token','Payment\PaymentController@getPaymentToken');
+    Route::post('user/save_device','Usercontroller@saveDeviceId');
 });
 
 Route::group([

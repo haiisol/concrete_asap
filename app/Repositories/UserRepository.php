@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\User\User_Payment_Account;
 use App\User;
 use App\Models\User\User_Details;
 use App\Role;
@@ -9,16 +10,20 @@ use Illuminate\Support\Facades\Hash;
 
 class UserRepository implements Interfaces\UserRepositoryInterface{
 
+    public function __construct(){
+
+    }
+
 	public function save($user_details){
 		$user=new User();
 		$user_detail=new User_Details();
 		$user_role=null;
 		if($user_details['roles']=='contractor'||$user_details['roles']=='rep'){
-			$user_role = Role::where('name', '=',$user_details['roles'])->first();			
+			$user_role = Role::where('name', '=',$user_details['roles'])->first();
 		}
 	    $user->email=$user_details["email"];
 	    $user->password=Hash::make($user_details["password"]);
-	    $user->status="verified";	
+	    $user->status="verified";
 	    $user->username="";
 	    $user->device_id="";
 	    $user->save();
@@ -33,8 +38,24 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	    $user_detail->city=$user_details["city"];
 
 	    $user->detail()->save($user_detail);
-	    
+
 	    return $user->roles()->save($user_role);
 	}
+
+    public function saveDevice($device_id,$user_id)
+    {
+        $user=User::find($user_id);
+        $user->device_id=$device_id;
+        return $user->save();
+    }
+
+    public function savePaymentDetail(string $payment_token,$user_id)
+    {
+        $user_payment=new User_Payment_Account();
+        $user_payment->payment_token=$id;
+        $user_payment->verified=true;
+        $user_payment->user_id=$user_id;
+        return $user_payment->save();
+    }
 
 }

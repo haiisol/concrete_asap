@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Payment;
 
 use App\Repositories\BidRepository;
+use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Braintree\ClientToken;
@@ -12,8 +13,11 @@ use Stripe\Charge;
 class PaymentController extends Controller
 {
     private $bid_repo;
+    private $user_repo;
     private $user;
-    public function __construct(BidRepository $bid_repo){
+
+    public function __construct(BidRepository $bid_repo,UserRepository $user_repo){
+        $this->user_repo=$user_repo;
         $this->bid_repo=$bid_repo;
         $this->user=auth('api')->user();
     }
@@ -35,7 +39,8 @@ class PaymentController extends Controller
             $validator = Validator::make($request->all(), [
                 'token' => 'required',
                 'price'=>'required',
-                'order_id'=>'required'
+                'order_id'=>'required',
+                'save_details'=>'required'
             ]);
 
             if($validator->fails()){
@@ -43,9 +48,34 @@ class PaymentController extends Controller
                 return response()->json(['message'=>$errors],401);
             }
 
-            $charge = Charge::create(['amount' => 1500, 'currency' => 'aud', 'source' => $request["token"]["tokenId"]]);
+            $is_save_details=$request->get("save_details");
+
+            //amount must be set in cents
+            $charge_details=[
+                'amount' => 1500,
+                'currency' => 'aud'
+            ];
+            $customer="";
+
+            if($is_save_details){
+                $customer = \Stripe\Customer::create([
+                    'source' => $request["token"]["tokenId"],
+                    'email' => $this->user->email
+                ]);
+                $charge_details["customer"]=$customer->id;
+
+            }
+            else{
+                $charge_details['source']=$request["token"]["tokenId"];
+            }
+
+            $charge = Charge::create($charge_details);
+
             if($charge){
                 if($this->bid_repo->save($request["price"],$request["order_id"],$this->user->id)){
+                    if($is_save_details){
+                        $this->user_repo->savePaymentDetail($customer->id,$this->user->id);
+                    }
                     return response()->json(['message'=>"Bid Successfully","payment_complete"=>true,"payment_info"=>$charge],200);
                 }
             }

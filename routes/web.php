@@ -35,8 +35,6 @@ Route::get('/handleUserPayment',function(){
 
 
 
-
-
 // Route::get('/app',function(){
 // 	return view('spa');
 // });

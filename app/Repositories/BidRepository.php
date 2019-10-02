@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Model\Bids\Bid_Transactions;
 use App\Models\Bids\Bids;
 use App\Models\Order\Order;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +27,13 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
         $bid->order_id=$order_id;
         $bid->user_id=$user_id;
         $bid->status="Pending";
-        return $bid->save();
+        $bid_transaction=new Bid_Transactions();
+        $bid->save();
+        $bid_transaction->bid_id=$bid->id;
+        $bid_transaction->transaction_id=
+        $bid_transaction->invoice_url="";
+        $bid_transaction->approved=true;
+        return $bid_transaction->save();
     }
 
     public function getUserBids($user_id,$paginate=5){
