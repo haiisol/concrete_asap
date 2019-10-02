@@ -15,8 +15,6 @@ Auth::routes();
 
 //redirect index to login
 Route::get('/',function(){
-//    var_dump(\App\Models\Order\Order::find(1)->first());
-//    die;
 	return redirect('login');
 });
 
@@ -28,15 +26,4 @@ Route::group([
 	Route::resource('/order','Admin\OrderController');
 	Route::get('/api/orders/getAll','Admin\OrderController@getOrders');
 });
-
-Route::get('/handleUserPayment',function(){
-
-});
-
-
-
-// Route::get('/app',function(){
-// 	return view('spa');
-// });
-
 

@@ -177,8 +177,6 @@ return [
 
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
-
-        NotificationChannels\ExpoPushNotifications\ExpoPushNotificationsServiceProvider::class,
     ],
 
     /*
@@ -230,7 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         //Third party references
-        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class, 
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
