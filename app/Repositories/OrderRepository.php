@@ -62,4 +62,10 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
         $order=Order::with(["orderConcrete"])->where("id",$id)->first();
         return $order;
     }
+
+    public function getOrderUser(int $order_id){
+        $order=Order::find($order_id);
+        $order_user=$order->user();
+        return $order_user;
+    }
 }
