@@ -230,7 +230,7 @@ return [
         //Third party references
         'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-        'OneSignal' => Berkayk\OneSignal\OneSignalFacade::class
+        'OneSignalFacade' => Berkayk\OneSignal\OneSignalFacade::class
     ],
 
 ];

@@ -4,11 +4,13 @@ namespace App\Http\Controllers\Payment;
 
 use App\Repositories\BidRepository;
 use App\Repositories\UserRepository;
+use Berkayk\OneSignal\OneSignalFacade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Braintree\ClientToken;
 use Illuminate\Support\Facades\Validator;
 use Stripe\Charge;
+
 
 class PaymentController extends Controller
 {
@@ -83,7 +85,7 @@ class PaymentController extends Controller
 
                     $user=$this->user_repo->getOrderUser($request["order_id"]);
 
-                    OneSignal::sendNotificationToUser(
+                    OneSignalFacade::sendNotificationToUser(
                         "You have received new bid",
                         $user->device_id
                     );
