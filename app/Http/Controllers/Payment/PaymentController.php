@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers\Payment;
 
-use App\Models\Order\Order;
 use App\Repositories\BidRepository;
 use App\Repositories\UserRepository;
-use Berkayk\OneSignal\OneSignalClient;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Braintree\ClientToken;
@@ -78,7 +76,7 @@ class PaymentController extends Controller
                     if($is_save_details){
                         $this->user_repo->savePaymentDetail($customer->id,$this->user->id);
                     }
-                    $user=$this->bid_repo->getOrderUser($request["order_id"]);
+                    $user=$this->user_repo->getOrderUser($request["order_id"]);
 
                     OneSignal::sendNotificationToUser(
                         "You have received new bid",

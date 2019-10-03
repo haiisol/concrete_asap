@@ -28,9 +28,9 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
         $bid->user_id=$user_id;
         $bid->status="Pending";
         $bid_transaction=new Bid_Transactions();
-        $bid->save();
+        $bid=$bid->save();
         $bid_transaction->bid_id=$bid->id;
-        $bid_transaction->transaction_id=
+        $bid_transaction->transaction_id="";
         $bid_transaction->invoice_url="";
         $bid_transaction->approved=true;
         return $bid_transaction->save();

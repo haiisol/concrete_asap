@@ -6,5 +6,4 @@ interface OrderRepositoryInterface{
     public function getUserConcreteOrder($user_id);
     public function getOrder($order_id);
     public function getAllOrders();
-    public function getOrderUser(int $order_id);
 }

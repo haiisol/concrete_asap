@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Order\Order;
 use App\Models\User\User_Payment_Account;
 use App\User;
 use App\Models\User\User_Details;
@@ -42,20 +43,26 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	    return $user->roles()->save($user_role);
 	}
 
-    public function saveDevice($device_id,$user_id)
+    public function saveDevice(string $device_id,int $user_id)
     {
         $user=User::find($user_id);
         $user->device_id=$device_id;
         return $user->save();
     }
 
-    public function savePaymentDetail(string $payment_token,$user_id)
+    public function savePaymentDetail(string $payment_token,int $user_id)
     {
         $user_payment=new User_Payment_Account();
         $user_payment->payment_token=$id;
         $user_payment->verified=true;
         $user_payment->user_id=$user_id;
         return $user_payment->save();
+    }
+
+    public function getOrderUser(int $order_id){
+        $order=Order::find($order_id);
+        $order_user=$order->user();
+        return $order_user;
     }
 
 }
