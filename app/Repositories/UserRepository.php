@@ -61,7 +61,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 
     public function getOrderUser(int $order_id){
         $order=Order::find($order_id);
-        $order_user=$order->user();
+        $order_user=$order->user()->get();
         return $order_user;
     }
 
