@@ -17,6 +17,7 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
     }
 
     public function save($price,$order_id,$user_id){
+        $result=false;
         $price=(float)$price;
         $order=Order::find(1)->first();
         $bid=new Bids();
@@ -29,11 +30,15 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
         $bid->status="Pending";
         $bid_transaction=new Bid_Transactions();
         $bid=$bid->save();
-        $bid_transaction->bid_id=$bid->id;
-        $bid_transaction->transaction_id="";
-        $bid_transaction->invoice_url="";
-        $bid_transaction->approved=true;
-        return $bid_transaction->save();
+        if($bid){
+            $bid_transaction->bid_id=$bid->id;
+            $bid_transaction->transaction_id="";
+            $bid_transaction->invoice_url="";
+            $bid_transaction->approved=true;
+            $result=$bid_transaction->save();
+        }
+
+        return $result;
     }
 
     public function getUserBids($user_id,$paginate=5){
