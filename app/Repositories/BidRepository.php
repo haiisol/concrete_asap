@@ -16,8 +16,7 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
         $this->bids=$bids;
     }
 
-    public function save($price,$order_id,$user_id){
-        $result=false;
+    public function save($price,$order_id,$user_id,$transaction){
         $price=(float)$price;
         $order=Order::find(1)->first();
         $bid=new Bids();
@@ -28,19 +27,13 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
         $bid->order_id=$order_id;
         $bid->user_id=$user_id;
         $bid->status="Pending";
-        $bid_transaction=new Bid_Transactions();
         $bid->save();
-        var_dump(json_encode($bid));
-        die;
-        if($bid){
-            $bid_transaction->bid_id=$bid->id;
-            $bid_transaction->transaction_id="";
-            $bid_transaction->invoice_url="";
-            $bid_transaction->approved=true;
-            $result=$bid_transaction->save();
-        }
-
-        return $result;
+        $bid_transaction=new Bid_Transactions();
+        $bid_transaction->bid_id=$bid->id;
+        $bid_transaction->transaction_id=$transaction["id"];
+        $bid_transaction->invoice_url=$transaction["invoice_url"];
+        $bid_transaction->approved=$transaction["approved"];
+        return $bid_transaction->save();
     }
 
     public function getUserBids($user_id,$paginate=5){

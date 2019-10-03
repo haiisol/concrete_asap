@@ -72,10 +72,16 @@ class PaymentController extends Controller
             $charge = Charge::create($charge_details);
 
             if($charge){
-                if($this->bid_repo->save($request["price"],$request["order_id"],$this->user->id)){
+                $transaction=[
+                    "id"=>"",
+                    "invoice_url"=>"",
+                    "approved"=>true
+                ];
+                if($this->bid_repo->save($request["price"],$request["order_id"],$this->user->id,$transaction)){
                     if($is_save_details){
                         $this->user_repo->savePaymentDetail($customer->id,$this->user->id);
                     }
+
                     $user=$this->user_repo->getOrderUser($request["order_id"]);
 
                     OneSignal::sendNotificationToUser(
