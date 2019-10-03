@@ -53,7 +53,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
     public function savePaymentDetail(string $payment_token,int $user_id)
     {
         $user_payment=new User_Payment_Account();
-        $user_payment->payment_token=$id;
+        $user_payment->payment_token=$payment_token;
         $user_payment->verified=true;
         $user_payment->user_id=$user_id;
         return $user_payment->save();

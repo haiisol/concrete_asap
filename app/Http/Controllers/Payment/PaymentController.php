@@ -63,7 +63,6 @@ class PaymentController extends Controller
                     'email' => $this->user->email
                 ]);
                 $charge_details["customer"]=$customer->id;
-
             }
             else{
                 $charge_details['source']=$request["token"]["tokenId"];
