@@ -22,7 +22,7 @@ class BidController extends Controller
      */
     public function getOrderBid($order_id){
        try{
-            return $this->bid_repo->getOrderBids($order_id);
+            return response()->json($this->bid_repo->getOrderBids($order_id),200);
         }
         catch(\Exception $e){
             return $this->handleError($e);
@@ -33,12 +33,12 @@ class BidController extends Controller
      * @param Request $request
      */
     public function acceptOrderBid(Request $request){
-        try{
-
-        }
-        catch(\Exception $e){
-            return $this->handleError($e);
-        }
+//        try{
+//
+//        }
+//        catch(\Exception $e){
+//            return $this->handleError($e);
+//        }
     }
 
     public function handleError(\Exception $e){
