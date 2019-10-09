@@ -35,6 +35,8 @@ Route::group([
     Route::post('user/save_device','UserController@saveDeviceId');
 });
 
+
+
 Route::group([
     'middleware' => ['cors','api','jwt.verify'],
     'prefix' => 'contractor'

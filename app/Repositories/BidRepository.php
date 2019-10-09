@@ -36,8 +36,19 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
         return $bid_transaction->save();
     }
 
+    public function acceptBid($order_id,$bid_id){
+
+    }
+
     public function getUserBids($user_id,$paginate=5){
         return Bids::with("order")->get();
     }
 
+    public function getOrderBids(int $order_id)
+    {
+        // TODO: Implement getOrderBids() method.
+        $bids=Bids::where("order_id",$order_id)->paginate(20);
+
+        return $bids;
+    }
 }

@@ -17,16 +17,31 @@ class BidController extends Controller
 
     /**
      * Store a newly created bid in storage.
-     *
+     * @param $order_id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function getOrderBid($order_id){
-
-        try{
-//            var_dump($this->bid_repo);
+       try{
             return $this->bid_repo->getOrderBids($order_id);
         }
         catch(\Exception $e){
-            return response()->json(["message"=>$e->getMessage()],401);
+            return $this->handleError($e);
         }
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function acceptOrderBid(Request $request){
+        try{
+
+        }
+        catch(\Exception $e){
+            return $this->handleError($e);
+        }
+    }
+
+    public function handleError(\Exception $e){
+        return response()->json(["message"=>$e->getMessage()],401);
     }
 }
