@@ -9,11 +9,11 @@ use App\Http\Controllers\Controller;
 class BidController extends Controller
 {
     private $bid_repo;
-    //
+    private $user;
     public function __construct(BidRepositoryInterface $bid_repo){
         $this->bid_repo=$bid_repo;
+        $this->user=auth('api')->user();
     }
-
 
     /**
      * Store a newly created bid in storage.
@@ -22,7 +22,7 @@ class BidController extends Controller
      */
     public function getOrderBid($order_id){
        try{
-            return response()->json($this->bid_repo->getOrderBids($order_id),200);
+            return response()->json($this->bid_repo->getOrderBids($order_id,$this->user->id),200);
         }
         catch(\Exception $e){
             return $this->handleError($e);
