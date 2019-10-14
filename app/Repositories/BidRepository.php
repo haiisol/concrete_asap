@@ -36,8 +36,13 @@ class BidRepository implements Interfaces\BidRepositoryInterface{
         return $bid_transaction->save();
     }
 
-    public function acceptBid($order_id,$bid_id){
-
+    public function acceptBid(int $bid_id){
+        $bid=Bids::find($bid_id);
+        $bid->confirmed=true;
+        $bid->status="Accepted";
+        if($bid->save()){
+            
+        }
     }
 
     public function getUserBids($user_id,$paginate=5){

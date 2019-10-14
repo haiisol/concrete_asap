@@ -9,13 +9,16 @@ use App\Http\Controllers\Controller;
 class OrderController extends Controller
 {
     private $order_repo;
+    private $user;
+
     public function __construct(OrderRepositoryInterface $order_repo){
         $this->order_repo=$order_repo;
+        $this->user=auth('api')->user();
     }
     //
     public function getAllOrders(){
         try{
-            return $this->order_repo->getAllOrders();
+            return $this->order_repo->getAllOrders($this->user->id);
         }
         catch(\Exception $e){
             $this->handle_exception($e->getMessage());
