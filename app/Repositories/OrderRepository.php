@@ -65,8 +65,9 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
         return $orders;
     }
 
-    public function getRepOrders($user_id){
+    public function getRepAllOrders($user_id){
         $orders=Order::with(["orderConcrete"])->whereIn("id",function($query) use($user_id){
+            var_dump($query);
             $query->select("order_id")->from("bids")->where("user_id","!=",$user_id);
         })->get();
         return $orders;
@@ -75,5 +76,20 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
     public function getOrder($id){
         $order=Order::with(["orderConcrete"])->where("id",$id)->first();
         return $order;
+    }
+
+    public function getRepOrders($user_id)
+    {
+        $orders=Order::with(["orderConcrete"])->whereIn("id",function($query) use($user_id){
+            $query->select("order_id")->from("bids")->where("user_id","=",$user_id);
+        })->get();
+
+        return $orders;
+        // TODO: Implement getRepOrders() method.
+    }
+
+    public function getRepAcceptedOrders($user_id)
+    {
+        // TODO: Implement getRepAcceptedOrders() method.
     }
 }

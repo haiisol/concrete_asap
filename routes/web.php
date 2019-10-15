@@ -19,7 +19,7 @@ Route::get('/',function(){
 });
 
 Route::get('/test',function(\App\Repositories\OrderRepository $order_repo){
-   var_dump($order_repo->getRepOrders(5));
+   var_dump($order_repo->getRepAllOrders(5));
 });
 
 //protect route
