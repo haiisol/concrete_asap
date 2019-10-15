@@ -69,8 +69,6 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
         $orders=Order::with(["orderConcrete"])->whereIn("id",function($query) use($user_id){
             $query->select("order_id")->from("bids")->where("user_id","!=",$user_id);
         })->get();
-        var_dump($orders);
-
         return $orders;
     }
 
