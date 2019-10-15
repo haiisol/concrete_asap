@@ -54,7 +54,8 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 
     public function getAllOrders($user_id){
 	    try{
-            $orders=Order::with(["orderConcrete","bids"])->leftJoin('bids','bids.order_id','=','orders.id')->where("status","!=","trash")->toSql();
+            $orders=Order::with(["orderConcrete","bids"])->leftJoin('bids','bids.order_id','=','orders.id')
+            ->where("bids.user_id","!=",$user_id)->where("status","!=","trash")->toSql();
             var_dump($orders);
 	    }
         catch(\Exception $e){
