@@ -18,6 +18,10 @@ Route::get('/',function(){
 	return redirect('login');
 });
 
+Route::get('/test',function(\App\Repositories\OrderRepository $order_repo){
+   var_dump($order_repo->getRepOrders(5));
+});
+
 //protect route
 Route::group([
     'middleware' => ['auth','checkRole'],
