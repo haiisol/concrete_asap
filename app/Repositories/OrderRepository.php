@@ -66,8 +66,9 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
     }
 
     public function getRepOrders($user_id){
-        $orders=Order::with(["orderConcrete"])->leftJoin('bids','bids.order_id','=','orders.id')
-            ->where("bids.user_id","!=",$user_id)->get();
+        $orders=Order::with(["orderConcrete"])->whereIn("id",function($query) use($user_id){
+            $query->select("order_id")->from("bids")->where("user_id","!=",$user_id);
+        })->get();
         var_dump($orders);
 
         return $orders;
