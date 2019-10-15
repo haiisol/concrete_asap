@@ -54,7 +54,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 
     public function getAllOrders($user_id){
         $order=Order::with(["orderConcrete","bids"])->where("bids.user_id","!=",$user_id)->where("status","!=","trash")->get();
-        // var_dump($order);
+         var_dump($order);
         return $order;
     }
 
