@@ -18,7 +18,7 @@ class OrderController extends Controller
     //
     public function getAllOrders(){
         try{
-            return $this->order_repo->getAllOrders($this->user->id);
+            return $this->order_repo->getRepOrders($this->user->id);
         }
         catch(\Exception $e){
             $this->handle_exception($e->getMessage());
