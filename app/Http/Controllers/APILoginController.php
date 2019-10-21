@@ -21,7 +21,7 @@ class APILoginController extends Controller
     public function __construct(UserRepositoryInterface $user_repo){
         $this->user_repo=$user_repo;
 
-        $this->middleware('jwt.verify', ['except' => ['login','register']]);
+        $this->middleware('jwt.verify', ['except' => ['login','register','resetPassword']]);
     }
 
     /**
