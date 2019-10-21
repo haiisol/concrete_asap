@@ -26,7 +26,7 @@ Route::group([
     Route::post('logout', 'APILoginController@logout');
     Route::post('refresh', 'APILoginController@refresh');
     Route::post('me', 'APILoginController@me');
-    Route::post('reset_password',"APILoginController@resetPassword");
+    Route::post('reset_password',"Auth/ForgotPasswordController@getResetToken");
 });
 
 Route::group([

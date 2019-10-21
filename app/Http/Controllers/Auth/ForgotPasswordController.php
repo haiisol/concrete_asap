@@ -32,6 +32,24 @@ class ForgotPasswordController extends Controller
     }
 
 //    public function forgot
+    public function getResetToken(Request $request)
+    {
+        $this->validate($request, ['email' => 'required|email']);
+        $sent = $this->sendResetLinkEmail($request);
 
+        return ($sent)
+            ? response()->json(['message'=>'Success'])
+            : response()->json(['message'=>'Failed']);
+
+    }
+
+    public function sendResetLinkEmail(Request $request)
+    {
+        $this->validateEmail($request);
+        $response = $this->broker()->sendResetLink(
+            $request->only('email')
+        );
+        return $response == Password::RESET_LINK_SENT ? 1 : 0;
+    }
 
 }
