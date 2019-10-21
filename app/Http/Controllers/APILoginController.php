@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\UserRepositoryInterface;
@@ -33,8 +34,8 @@ class APILoginController extends Controller
     public function login(Request $request){
     	$credentials = $request->only('email', 'password');
 
-        if ($token = auth('api')->attempt($credentials)) {  
-            $user=auth('api')->user(); 
+        if ($token = auth('api')->attempt($credentials)) {
+            $user=auth('api')->user();
             // $user->roles()->makeHidden('pivot');
             return response()->json([
                 'access_token' => $token,
@@ -46,7 +47,28 @@ class APILoginController extends Controller
 
         return response()->json(['message' =>'Wrong Username and password'], 401);
     }
-    
+
+    public function resetPassword(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email'
+        ]);
+        if($validator->fails()){
+            $errors = $validator->errors();
+            return response()->json(['message'=>$errors],401);
+        }
+
+        $email = $request->only('email');
+        try{
+            $user=User::findOrFail("email",$email);
+            event(
+              New PasswordReset($user)
+            );
+        }
+        catch(\Exception $e){
+            return response()->json(['message' => 'Email Not Found'], 401);
+        }
+   }
+
     /**
      * Get a JWT token via given credentials.
      *
@@ -74,14 +96,14 @@ class APILoginController extends Controller
             return response()->json(['message'=>$errors],401);
         }
 
-    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','roles');         
+    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','roles');
 
         if($this->user_repo->save($user_details)){
 
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
-                
-                $user=auth('api')->user(); 
-                
+
+                $user=auth('api')->user();
+
                 return response()->json([
                     'access_token' => $token,
                     'token_type' => 'bearer',
@@ -90,7 +112,7 @@ class APILoginController extends Controller
                 ]);
             }
             return response()->json(['message' => 'Unauthorized'], 401);
-        } 
+        }
     }
 
     /**
@@ -135,7 +157,7 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     protected function respondWithToken($token)
-    {        
+    {
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
