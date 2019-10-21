@@ -60,9 +60,17 @@ class APILoginController extends Controller
         $email = $request->get('email');
         try{
             $user=User::where("email",$email)->findOrFail();
-            event(
-              New PasswordReset($user)
+            $passwordReset = PasswordReset::updateOrCreate(
+                ['email' => $user->email],
+                [
+                    'email' => $user->email,
+                    'token' => str_random(60)
+                ]
             );
+            if ($user && $passwordReset)
+                $user->notify(
+                    new PasswordReset($passwordReset->token)
+                );
             return response()->json(["message"=>"Please Check your email for verification code"],200);
         }
         catch(\Exception $e){
