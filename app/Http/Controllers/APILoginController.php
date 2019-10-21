@@ -61,12 +61,7 @@ class APILoginController extends Controller
         $email = $request->get('email');
         try{
             $user=User::where("email",$email)->firstOrFail();
-            $passwordReset = PasswordReset::updateOrCreate(
-                ['email' => $user->email],
-                [
-                    'email' => $user->email,
-                    'token' => str_random(8)
-                ]
+            $passwordReset = ( new PasswordReset )->updateOrCreate( ['email' => $user->email, 'token' => str_random(8)], [ 'email' => $user->email, ] );
             );
             if ($user && $passwordReset)
                 $user->notify(
