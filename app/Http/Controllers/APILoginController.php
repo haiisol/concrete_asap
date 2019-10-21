@@ -57,7 +57,7 @@ class APILoginController extends Controller
             return response()->json(['message'=>$errors],401);
         }
 
-        $email = $request->only('email');
+        $email = $request->get('email');
         try{
             $user=User::findOrFail("email",$email);
             event(
