@@ -63,6 +63,7 @@ class APILoginController extends Controller
             event(
               New PasswordReset($user)
             );
+            return response()->json(["message"=>"Please Check your email for verification code"],200);
         }
         catch(\Exception $e){
             return response()->json(['message' => 'Email Not Found'], 401);
