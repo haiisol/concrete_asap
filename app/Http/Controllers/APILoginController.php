@@ -60,7 +60,7 @@ class APILoginController extends Controller
 
         $email = $request->get('email');
         try{
-            $user=User::where("email",$email)->findOrFail();
+            $user=User::where("email",$email)->firstOrFail();
             $passwordReset = PasswordReset::updateOrCreate(
                 ['email' => $user->email],
                 [
