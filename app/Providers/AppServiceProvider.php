@@ -23,8 +23,10 @@ class AppServiceProvider extends ServiceProvider
             'jti',
         ]);
         config()->set('jwt.ttl',null);
+        config()->set("mail.password","Nep@l123");
+
         // var_dump();
-        
+
         $this->app->register(RepositoryServiceProvider::class);
     }
 
