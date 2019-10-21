@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\PasswordResetRequest;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -64,12 +65,12 @@ class APILoginController extends Controller
                 ['email' => $user->email],
                 [
                     'email' => $user->email,
-                    'token' => str_random(60)
+                    'token' => str_random(8)
                 ]
             );
             if ($user && $passwordReset)
                 $user->notify(
-                    new PasswordReset($passwordReset->token)
+                    new PasswordResetRequest($passwordReset->token)
                 );
             return response()->json(["message"=>"Please Check your email for verification code"],200);
         }
