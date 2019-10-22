@@ -51,6 +51,8 @@ class ResetPasswordController extends Controller
      */
     public function reset(Request $request)
     {
+        var_dump($request);
+        die;
         $request->validate($this->rules(), $this->validationErrorMessages());
         var_dump("ok");
         die;
