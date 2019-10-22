@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Bids\Bids;
+use App\Notifications\CustomResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;

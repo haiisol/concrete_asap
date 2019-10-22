@@ -11,6 +11,7 @@ class CustomResetPasswordNotification extends Notification
 {
     use Queueable;
 
+    private $token;
     /**
      * Create a new notification instance.
      *
@@ -19,7 +20,7 @@ class CustomResetPasswordNotification extends Notification
     public function __construct(string $token)
     {
         //
-
+        $this->token=$token;
     }
 
     /**
@@ -43,7 +44,7 @@ class CustomResetPasswordNotification extends Notification
     {
         return (new MailMessage)
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
+                    ->line('Notification Action'.$this->token)
                     ->line('Thank you for using our application!');
     }
 
