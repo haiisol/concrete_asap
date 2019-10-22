@@ -53,11 +53,11 @@ class ResetPasswordController extends Controller
      */
     public function reset(Request $request)
     {
-        $validate=Validator::make($this->credentials($request),$this->rules());
+        $validator=Validator::make($this->credentials($request),$this->rules());
+        if($validator->fails()){
+            return response()->json(["message"=>"Error on updating password"],200);
+        }
 
-        var_dump($validate);
-        var_dump("ok");
-        die;
         // Here we will attempt to reset the user's password. If it is successful we
         // will update the password on an actual user model and persist it to the
         // database. Otherwise we will parse the error and return the response.
