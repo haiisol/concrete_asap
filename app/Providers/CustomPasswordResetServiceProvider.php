@@ -3,18 +3,14 @@
 namespace App\Providers;
 
 use App\Auth\Passwords\CustomPasswordBrokerManager;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Passwords\PasswordResetServiceProvider;
 
-class CustomPasswordResetServiceProvider extends ServiceProvider
+class CustomPasswordResetServiceProvider extends PasswordResetServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
+    // Override the method registerPasswordBroker
+    // in order to specify your customized manager
+    protected function registerPasswordBroker()
     {
-        //
         $this->app->singleton('auth.password', function ($app) {
             return new CustomPasswordBrokerManager($app);
         });
@@ -22,15 +18,5 @@ class CustomPasswordResetServiceProvider extends ServiceProvider
         $this->app->bind('auth.password.broker', function ($app) {
             return $app->make('auth.password')->broker();
         });
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
     }
 }
