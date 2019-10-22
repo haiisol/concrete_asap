@@ -16,7 +16,7 @@ class CustomPasswordBrokerManager extends PasswordBrokerManager
     {
         $key = $this->app['config']['app.key'];
 
-        if (Str::startsWith($key, 'base64:')) {
+        if (\Str::startsWith($key, 'base64:')) {
             $key = base64_decode(substr($key, 7));
         }
 
