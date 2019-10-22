@@ -11,6 +11,6 @@ class CustomDatabaseTokenRepository extends DatabaseTokenRepository
     // Overrides the standard token creation function
     public function createNewToken()
     {
-        return substr(parent::createNewToken(), 0, 30);
+        return substr(parent::createNewToken(), 0, 8);
     }
 }
