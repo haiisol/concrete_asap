@@ -35,7 +35,8 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-//        $this->middleware('guest');
+        var_dump("ok");
+        $this->middleware('guest');
     }
 
     protected function sendResetResponse(Request $request, $response)
