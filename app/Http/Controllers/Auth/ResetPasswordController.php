@@ -41,7 +41,6 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-        var_dump("ok");
         $this->middleware('guest');
     }
 
@@ -55,7 +54,7 @@ class ResetPasswordController extends Controller
     {
         $validator=Validator::make($this->credentials($request),$this->rules());
         if($validator->fails()){
-            return response()->json(["message"=>"Error on updating password"],200);
+            return response()->json(["message"=>"Error on updating password","errors"=>$validator->getMessageBag()],200);
         }
 
         // Here we will attempt to reset the user's password. If it is successful we
