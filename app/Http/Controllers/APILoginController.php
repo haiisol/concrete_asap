@@ -51,7 +51,7 @@ class APILoginController extends Controller
             ]);
         }
 
-        return response()->json(['message' =>'Wrong Username and password'], 401);
+        return response()->json(['message' =>'Wrong Username and password','errors'=>$token], 401);
     }
 
     public function resetPassword(Request $request){
