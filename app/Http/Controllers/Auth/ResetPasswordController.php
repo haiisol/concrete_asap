@@ -81,6 +81,7 @@ class ResetPasswordController extends Controller
 
     protected function sendResetFailedResponse(Request $request, $response)
     {
+        var_dump($response);
         return response()->json(["message"=>"Failed to send email and please check the issue"],200);
     }
 }
