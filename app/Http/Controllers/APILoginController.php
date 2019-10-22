@@ -54,30 +54,9 @@ class APILoginController extends Controller
         return response()->json(['message' =>'Wrong Username and password'], 401);
     }
 
-//    public function resetPassword(Request $request){
-//        $validator = Validator::make($request->all(), [
-//            'email' => 'required|email'
-//        ]);
-//        if($validator->fails()){
-//            $errors = $validator->errors();
-//            return response()->json(['message'=>$errors],401);
-//        }
-//
-//        $email = $request->get('email');
-//        try{
-//            $user=User::where("email",$email)->firstOrFail();
-//            $passwordReset = ( new PasswordReset )->updateOrCreate( ['email' => $user->email, 'token' => str_random(8)], [ 'email' => $user->email, ] );
-//
-//            if ($user && $passwordReset)
-//                $user->notify(
-//                    new PasswordResetRequest($passwordReset->token)
-//                );
-//            return response()->json(["message"=>"Please Check your email for verification code"],200);
-//        }
-//        catch(\Exception $e){
-//            return response()->json(['message' => 'Email Not Found'], 401);
-//        }
-//   }
+    public function resetPassword(Request $request){
+
+   }
 
     /**
      * Get a JWT token via given credentials.
