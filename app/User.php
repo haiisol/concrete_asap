@@ -103,4 +103,15 @@ class User extends Authenticatable implements JWTSubject
     public function bids(){
         return $this->hasMany(Bids::class);
     }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+        public function sendPasswordResetNotification($token)
+        {
+            $this->notify(new CustomResetPasswordNotification($token));
+        }
 }
