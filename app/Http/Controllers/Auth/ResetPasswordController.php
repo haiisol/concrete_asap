@@ -65,7 +65,7 @@ class ResetPasswordController extends Controller
                 $this->resetPassword($user, $password);
             }
         );
-        var_dump($response);
+
         // If the password was successfully reset, we will redirect the user back to
         // the application's home authenticated view. If there is an error we can
         // redirect them back to where they came from with their error message.
@@ -81,7 +81,15 @@ class ResetPasswordController extends Controller
 
     protected function sendResetFailedResponse(Request $request, $response)
     {
-        var_dump($response);
-        return response()->json(["message"=>"Failed to send email and please check the issue"],200);
+        $error_msg="";
+
+        if($response===Password::INVALID_TOKEN){
+            $error_msg="Token is invalid";
+        }
+        else if($response===Password::INVALID_USER){
+            $error_msg="Email not found";
+        }
+
+        return response()->json(["message"=>$error_msg],200);
     }
 }
