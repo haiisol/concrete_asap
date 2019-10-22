@@ -43,9 +43,7 @@ class CustomResetPasswordNotification extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->line('Notification Action'.$this->token)
-                    ->line('Thank you for using our application!');
+                    ->line('Your Reset Code is: '.$this->token);
     }
 
     /**
