@@ -40,8 +40,8 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
         $user_detail->state=$user_details["state"];
 
 	    if(!is_null($photo)){
-            $destination_file="public/users/";
-            $profilefile = date('YmdHis') . "." . $photo->getClientOriginalExtension();
+            $destination_file=public_path()."/users/";
+            $profilefile = date('YmdHis') . "." . $photo->guessExtension();
             $photo->move($destination_file,$profilefile);
             $user_detail->profile_image=$profilefile;
         }
