@@ -80,7 +80,8 @@ class APILoginController extends Controller
             'state'=>'required',
             'password' => 'required',
             'confirm_password'=>'required|same:password',
-            'roles'=>'in:contractor,rep'
+            'roles'=>'in:contractor,rep',
+            'photo'  => 'mimes:doc,docx,pdf,txt|max:2048',
         ]);
 
 
@@ -91,8 +92,7 @@ class APILoginController extends Controller
 
     	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','roles');
 
-        if($this->user_repo->save($user_details)){
-
+        if($this->user_repo->save($user_details,$request->file("photo"))){
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
 
                 $user=auth('api')->user();

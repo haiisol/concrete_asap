@@ -14,14 +14,15 @@ class CreateUserDetails extends Migration
     public function up()
     {
         Schema::create('user_details', function (Blueprint $table) {
-            $table->bigIncrements('id'); 
-            $table->string("abn");           
+            $table->bigIncrements('id');
+            $table->string("abn");
             $table->string("company");
             $table->string("first_name");
             $table->string("last_name");
             $table->string("phone_number");
             $table->string("state");
-            $table->string("city");           
+            $table->string("city");
+            $table->text("profile_image");
             $table->integer("user_id")->unsigned();
             $table->timestamps();
         });
