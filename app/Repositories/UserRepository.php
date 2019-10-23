@@ -42,8 +42,14 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	    if(!is_null($photo)){
             $destination_file=public_path()."/users/";
             $profilefile = date('YmdHis') . "." . $photo->guessExtension();
-            $photo->move($destination_file,$profilefile);
-            $user_detail->profile_image=$profilefile;
+            $error="";
+            if($error=$photo->move($destination_file,$profilefile)){
+                $user_detail->profile_image=$profilefile;
+            }
+            else{
+                var_dump($error);
+            }
+
         }
 
 	    $user->detail()->save($user_detail);
