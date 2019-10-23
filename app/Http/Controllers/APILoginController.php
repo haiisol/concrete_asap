@@ -91,8 +91,7 @@ class APILoginController extends Controller
         }
 
     	$user_details = $request->only('email', 'password','first_name','last_name','phone','abn','company','state','city','roles','title');
-        var_dump($request->file("photo"));
-        die;
+
         if($this->user_repo->save($user_details,$request->file("photo"))){
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
 
