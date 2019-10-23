@@ -29,20 +29,23 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
 	    $user->device_id="";
 	    $user->save();
 
+        $user_detail->company=$user_details["company"];
 	    $user_detail->abn=$user_details["abn"];
-	    $user_detail->company=$user_details["company"];
+        $user_detail->title=$user_details["title"];
 	    $user_detail->first_name=$user_details["first_name"];
 	    $user_detail->last_name=$user_details["last_name"];
-	    $user_detail->phone_number=$user_details["phone_number"];
-	    // var_dump($user)
-	    $user_detail->state=$user_details["state"];
-	    $user_detail->city=$user_details["city"];
-        if(!is_null($photo)){
+	    $user_detail->phone_number=$user_details["phone"];
+
+        $user_detail->city=$user_details["city"];
+        $user_detail->state=$user_details["state"];
+
+	    if(!is_null($photo)){
             $destination_file="public/user/";
             $profilefile = date('YmdHis') . "." . $photo->getClientOriginalExtension();
             $photo->move($destination_file,$profilefile);
             $user_detail->profile_image=$profilefile;
         }
+
 	    $user->detail()->save($user_detail);
 
 	    return $user->roles()->save($user_role);

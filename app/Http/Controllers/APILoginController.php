@@ -90,7 +90,7 @@ class APILoginController extends Controller
             return response()->json(['message'=>"Please check the entered value.","errors"=>$errors],401);
         }
 
-    	$user_details = $request->only('email', 'password','first_name','last_name','phone_number','abn','company','state','city','roles');
+    	$user_details = $request->only('email', 'password','first_name','last_name','phone','abn','company','state','city','roles','title');
 
         if($this->user_repo->save($user_details,$request->file("photo"))){
             if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
