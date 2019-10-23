@@ -22,13 +22,13 @@ Route::group([
     'prefix' => 'auth'
 ], function ($router) {
     Route::post('login', 'APILoginController@login');
-    Route::post('register', 'APILoginController@register');
+    Route::post('register_contractor', 'APILoginController@registerContractor');
+    Route::post('register_rep', 'APILoginController@registerRep');
     Route::post('logout', 'APILoginController@logout');
     Route::post('refresh', 'APILoginController@refresh');
     Route::post('me', 'APILoginController@me');
     Route::post('get_reset_token',"Auth\ForgotPasswordController@getResetToken");
     Route::post('reset_password',"Auth\ResetPasswordController@reset");
-
 });
 
 Route::group([

@@ -51,7 +51,7 @@ class APILoginController extends Controller
             ]);
         }
 
-        return response()->json(['message' =>'Wrong Username and password','errors'=>$token], 401);
+        return response()->json(['message' =>'Wrong Username or password','errors'=>$token], 401);
     }
 
     public function resetPassword(Request $request){
@@ -66,19 +66,22 @@ class APILoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      */
     public function register(Request $request){
+        $roles=$request->get("roles");
 
         $validator = Validator::make($request->all(), [
-            'email' => 'required|unique:users',
-            'password' => 'required',
+            'company'=>'required',
+            'abn'=>'required',
             'first_name'=>'required',
             'last_name'=>'required',
-            'phone_number'=>'required',
-            'abn'=>'required',
-            'company'=>'required',
-            'state'=>'required',
+            'email' => 'required|unique:users',
+            'phone'=>'required',
             'city'=>'required',
-            'roles'=>'required'
+            'state'=>'required',
+            'password' => 'required',
+            'confirm_password'=>'required|same:password',
+            'roles'=>'in:contractor,rep'
         ]);
+
 
         if($validator->fails()){
             $errors = $validator->errors();
