@@ -48,6 +48,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
             }
             else{
                 var_dump($error);
+                die;
             }
 
         }
