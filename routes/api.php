@@ -22,8 +22,7 @@ Route::group([
     'prefix' => 'auth'
 ], function ($router) {
     Route::post('login', 'APILoginController@login');
-    Route::post('register_contractor', 'APILoginController@registerContractor');
-    Route::post('register_rep', 'APILoginController@registerRep');
+    Route::post('register', 'APILoginController@register');
     Route::post('logout', 'APILoginController@logout');
     Route::post('refresh', 'APILoginController@refresh');
     Route::post('me', 'APILoginController@me');
