@@ -81,7 +81,7 @@ class APILoginController extends Controller
             'password' => 'required',
             'confirm_password'=>'required|same:password',
             'roles'=>'in:contractor,rep',
-            'photo'  => 'mimes:doc,docx,pdf,txt|max:2048',
+            'photo'  => 'mimes:jpeg,png|max:2048',
         ]);
 
 
