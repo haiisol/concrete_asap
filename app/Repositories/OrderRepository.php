@@ -66,7 +66,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
     }
 
     public function getRepAllOrders($user_id){
-        $orders=Order::with(["orderConcrete","bids"])->leftJoin('bids','bids.order_id','=','orders.id')
+        $orders=Order::with(["orderConcrete"])->leftJoin('bids','bids.order_id','=','orders.id')
             ->where("bids.user_id","!=",$user_id)->where("orders.status","!=","trash")->get();
 //        $orders=Order::with(["orderConcrete"])->get();
         return $orders;
