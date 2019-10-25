@@ -21,7 +21,7 @@ class OrderController extends Controller
             return $this->order_repo->getRepAllOrders($this->user->id);
         }
         catch(\Exception $e){
-            $this->handle_exception($e->getMessage());
+            return $this->handle_exception($e->getMessage());
         }
     }
 
