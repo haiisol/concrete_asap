@@ -35,6 +35,7 @@ Route::group([
 ],function($router){
     Route::get('client/payment_token','Payment\PaymentController@getPaymentToken');
     Route::post('user/save_device','UserController@saveDeviceId');
+    Route::post('user/remove_device','UserController@removeDeviceId');
 });
 
 

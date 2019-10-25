@@ -30,4 +30,10 @@ class UserController extends Controller
             return response()->json(['message' => "Successfully updated device id"], 200);
         }
     }
+
+    public function removeDeviceId(){
+        if($this->user_repo->removeDevice($this->user->id)){
+            return response()->json(['message'=>"Successfully removed"],200);
+        }
+    }
 }

@@ -75,4 +75,11 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
         return $order_user;
     }
 
+    public function removeDevice(int $user_id)
+    {
+        $user=User::find($user_id);
+        $user->device_id="";
+        return $user->save();
+        // TODO: Implement removeDevice() method.
+    }
 }
