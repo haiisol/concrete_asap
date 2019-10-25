@@ -52,7 +52,7 @@ Route::group([
     'middleware' => ['cors','api','jwt.verify'],
     'prefix' => 'rep'
 ], function ($router) {
-    Route::get('orders','Rep\OrderController@getAllOrders');
+    Route::get('orders','Rep\OrderController@getRepAllOrders');
     Route::post('bid', 'Rep\BidController@saveBid');
     Route::get('bids', 'Rep\BidController@getUserBid');
     Route::post('pay/bid','Payment\PaymentController@payBidAmount');
