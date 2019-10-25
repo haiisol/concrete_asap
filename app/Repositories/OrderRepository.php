@@ -68,7 +68,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface{
 
     public function getRepAllOrders($user_id){
         $orders=Order::with(["orderConcrete"])->whereNotIn("id",Bids::where("user_id","!=",$user_id)->get(['order_id']))->get();
-//        $orders=Order::with(["orderConcrete"])->get();
+        var_dump(Bids::where("user_id","!=",$user_id)->get(['order_id']));
         return $orders;
     }
 
