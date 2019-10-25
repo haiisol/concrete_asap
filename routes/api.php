@@ -54,6 +54,7 @@ Route::group([
     'prefix' => 'rep'
 ], function ($router) {
     Route::get('orders','Rep\OrderController@getAllOrders');
+    Route::get('pending_orders','Rep\OrderController@getPendingOrders');
     Route::post('bid', 'Rep\BidController@saveBid');
     Route::get('bids', 'Rep\BidController@getUserBid');
     Route::post('pay/bid','Payment\PaymentController@payBidAmount');

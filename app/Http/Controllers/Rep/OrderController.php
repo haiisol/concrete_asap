@@ -25,6 +25,15 @@ class OrderController extends Controller
         }
     }
 
+    public function getPendingOrders(){
+        try{
+            return $this->order_repo->getRepPendingOrders($this->user->id);
+        }
+        catch(\Exception $e){
+            return $this->handle_exception($e->getMessage());
+        }
+    }
+
     private function handle_exception($message){
         return response()->json(["message"=>$message],401);
     }

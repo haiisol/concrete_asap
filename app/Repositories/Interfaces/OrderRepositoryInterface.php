@@ -9,4 +9,5 @@ interface OrderRepositoryInterface{
     public function getRepAllOrders($user_id);
     public function getRepOrders($user_id);
     public function getRepAcceptedOrders($user_id);
+    public function getRepPendingOrders(int $user_id);
 }
