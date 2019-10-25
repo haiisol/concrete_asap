@@ -46,11 +46,6 @@ class UserRepository implements Interfaces\UserRepositoryInterface{
             if($error=$photo->move($destination_file,$profilefile)){
                 $user_detail->profile_image=$profilefile;
             }
-            else{
-                var_dump($error);
-                die;
-            }
-
         }
 
 	    $user->detail()->save($user_detail);
