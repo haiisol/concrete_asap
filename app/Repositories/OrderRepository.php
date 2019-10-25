@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\Bids\Bids;
 use App\Models\Order\Order;
 use App\Models\Order\orderConcrete;
 use Illuminate\Support\Facades\Hash;
