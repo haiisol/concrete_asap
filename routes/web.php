@@ -11,6 +11,11 @@
 |
 */
 
+use App\Notifications\AppNotification;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Storage;
+
 Auth::routes();
 
 //redirect index to login
@@ -18,8 +23,19 @@ Route::get('/',function(){
 	return redirect('login');
 });
 
-Route::get('/test',function(\App\Repositories\OrderRepository $order_repo){
-   var_dump($order_repo->getRepAllOrders(5));
+Route::get('/test',function(\App\Repositories\UserRepository $user_repo){
+
+});
+
+
+Route::post("upload_file",function(Request $request){
+    $photo=$request->file("photo");
+    $fileExtension=$photo->getClientOriginalName();
+    $file_name=pathinfo($fileExtension,PATHINFO_FILENAME);
+    $extension=$photo->getClientOriginalExtension();
+    $file_name=$file_name."_".uniqid().".".$extension;
+    Storage::disk('ftp')->put($file_name,fopen($photo,'r+'));
+
 });
 
 //protect route

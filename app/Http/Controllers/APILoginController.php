@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Notifications\PasswordResetRequest;
-use Illuminate\Auth\Events\PasswordReset;
+use Dotenv\Exception\ValidationException;
+use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Interfaces\UserRepositoryInterface;
-use App\User;
 use Illuminate\Support\Facades\Validator;
-
 
 
 class APILoginController extends Controller
@@ -19,111 +18,126 @@ class APILoginController extends Controller
 
     private $user_repo;
 
-	 /**
+    /**
      * Create a new AuthController instance.
      *
-     * @return void
+     * @param UserRepositoryInterface $user_repo
      */
-    public function __construct(UserRepositoryInterface $user_repo){
-        $this->user_repo=$user_repo;
+    public function __construct(UserRepositoryInterface $user_repo)
+    {
+        $this->user_repo = $user_repo;
 
-        $this->middleware('jwt.verify', ['except' => ['login','register','resetPassword']]);
+        $this->middleware('jwt.verify', ['except' => ['login', 'register', 'resetPassword']]);
     }
 
     /**
      * Get a JWT token via given credentials.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function login(Request $request){
-    	$credentials = $request->only('email', 'password');
-
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+        $credentials["email"] = strtolower($credentials["email"]);
+//        $credentials["email"]=strtolower($credentials["email"]);
         if ($token = auth('api')->attempt($credentials)) {
-            $user=auth('api')->user();
+            $user = auth('api')->user();
             // $user->roles()->makeHidden('pivot');
             return response()->json([
                 'access_token' => $token,
                 'token_type' => 'bearer',
                 // 'expires_in' => auth('api')->factory()->getTTL(),
-                'roles'=>$user->getRoleNames()
+                'roles' => $user->getRoleNames()
             ]);
         }
 
-        return response()->json(['message' =>'Wrong Username or password','errors'=>$token], 401);
+        return response()->json(['message' => 'Wrong Username or password', 'errors' => $token], 400);
     }
 
-    public function resetPassword(Request $request){
+    public function resetPassword(Request $request)
+    {
 
-   }
+    }
 
     /**
      * Get a JWT token via given credentials.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Request $request
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    public function register(Request $request){
-        $roles=$request->get("roles");
-
+    public function register(Request $request)
+    {
         $validator = Validator::make($request->all(), [
-            'company'=>'required',
-            'abn'=>'required',
-            "title"=>"required",
-            'first_name'=>'required',
-            'last_name'=>'required',
+            'company' => 'required',
+            'abn' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'email' => 'required|unique:users',
-            'phone'=>'required',
-            'city'=>'required',
-            'state'=>'required',
+            'phone' => 'required',
+            'city' => 'required',
+            'state' => 'required',
             'password' => 'required',
-            'confirm_password'=>'required|same:password',
-            'roles'=>'in:contractor,rep',
-            'photo'  => 'mimes:jpeg,png|max:2048',
+            'confirm_password' => 'required|same:password',
+            'roles' => 'in:contractor,rep,reo_rep',
+            'photo' => 'mimes:jpeg,png|max:5120',
+        ],[
+            'photo.max:5120'=>"The logo should be less than 5 MB."
         ]);
 
-
-        if($validator->fails()){
-            $errors = $validator->errors();
-            return response()->json(['message'=>"Please check the entered value.","errors"=>$errors],401);
-        }
-
-    	$user_details = $request->only('email', 'password','first_name','last_name','phone','abn','company','state','city','roles','title');
-
-        if($this->user_repo->save($user_details,$request->file("photo"))){
-            if ($token = auth('api')->attempt(["email"=>$user_details["email"],"password"=>$user_details["password"]])) {
-
-                $user=auth('api')->user();
-
-                return response()->json([
-                    'access_token' => $token,
-                    'token_type' => 'bearer',
-                    'expires_in' => auth('api')->factory()->getTTL()* 60,
-                    'roles'=>$user->getRoleNames()
-                ]);
+        try {
+            if($validator->fails()){
+                return response()->json(["error_msg"=>"Some error occured in registration","errors"=>$validator->errors()], 400);
             }
-            return response()->json(['message' => 'Unauthorized'], 401);
+            $requests = $request->all();
+            $requests["email"] = strtolower($requests["email"]);
+            $user_details = $request->only('email', 'password', 'first_name', 'last_name', 'phone', 'abn', 'company', 'state', 'city', 'roles', 'title');
+            if ($this->user_repo->save($user_details, $request->file("photo"))) {
+                if ($token = auth('api')->attempt(["email" => $user_details["email"], "password" => $user_details["password"]])) {
+
+                    $user = auth('api')->user();
+                    return response()->json([
+                        'access_token' => $token,
+                        'token_type' => 'bearer',
+                        'expires_in' => auth('api')->factory()->getTTL() * 60,
+                        'roles' => $user->getRoleNames()
+                    ]);
+                }
+                return response()->json(['message' => 'Unauthorized'], 400);
+            }
+
         }
+        catch (\Exception $e) {
+            return response()->json([$e->getMessage()], 400);
+        }
+
     }
 
     /**
      * Get the authenticated User
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function me()
     {
-        $user=auth('api')->user();
-        $user->roles=auth('api')->user()->getRoleNames();
-        return response()->json($user);
+        $user = auth('api')->user();
+        if ($user) {
+            $user = $user->load('detail');
+            $user->roles = auth('api')->user()->getRoleNames();
+            return response()->json($user, 200)->header('Content-type', 'application/json');
+        } else {
+            return response()->json(array("msg" => "Error on Verifying User"), 200)->header('Content-type', 'application/json');
+        }
+
+
     }
 
-    /**
+    /**register
      * Log the user out (Invalidate the token)
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function logout()
     {
@@ -135,7 +149,7 @@ class APILoginController extends Controller
     /**
      * Refresh a token.
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function refresh()
     {
@@ -145,23 +159,22 @@ class APILoginController extends Controller
     /**
      * Get the token array structure.
      *
-     * @param  string $token
+     * @param string $token
      *
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     protected function respondWithToken($token)
     {
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'bearer',
-            // 'expires_in' => auth('api')->factory()->getTTL()* 60
+            'token_type' => 'bearer'
         ]);
     }
 
     /**
      * Get the guard to be used during authentication.
      *
-     * @return \Illuminate\Contracts\Auth\Guard
+     * @return Guard
      */
     public function guard()
     {

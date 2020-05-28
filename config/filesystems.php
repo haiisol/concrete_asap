@@ -62,6 +62,12 @@ return [
             'region' => env('AWS_DEFAULT_REGION'),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
+        ],
+        'ftp'=>[
+            'driver'=>'ftp',
+            'host'=>'163.53.249.151',
+            'username'=>'concrete@analytics.twmg.com.au',
+            'password'=>'y4;);n48f=D3'
         ]
     ],
 

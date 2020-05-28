@@ -44,4 +44,13 @@ return [
         ],
     ],
 
+    'onesignal' => [
+        'app_id' => '8316b62b-6ae3-4a80-8c3d-35a7d7be86fc',
+        'rest_api_key' => "MzcwYmIzMTgtMDYwYi00NzZlLWJkMGEtMTE3MTRmNTViYzAx"
+    ],
+
+    'sendgrid' =>[
+        'api_key' => env('SENDGRID_API_KEY'),
+    ]
+
 ];

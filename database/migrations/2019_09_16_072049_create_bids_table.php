@@ -17,8 +17,10 @@ class CreateBidsTable extends Migration
             $table->bigIncrements('id');
             $table->double("rep_price");
             $table->double("price");
+            $table->date("date_delivery");
+            $table->time("time_delivery");
             $table->string("payment_type");
-            $table->boolean("confirmed");
+            $table->boolean("released");
             $table->string("status");
             $table->integer("order_id")->unsigned();
             $table->integer("user_id")->unsigned();

@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Repositories\BidRepository;
+use App\Repositories\Contractor\REO\OrderReoRepository;
 use App\Repositories\Interfaces\BidRepositoryInterface;
+use App\Repositories\Interfaces\Contractor\REO\OrderReoRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\UserRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
@@ -21,12 +23,12 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        $this->app->bind(            
+        $this->app->bind(
             UserRepositoryInterface::class,
             UserRepository::class
         );
 
-        $this->app->bind(            
+        $this->app->bind(
             OrderRepositoryInterface::class,
             OrderRepository::class
         );
@@ -34,6 +36,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             BidRepositoryInterface::class,
             BidRepository::class
+        );
+
+        $this->app->bind(
+            OrderReoRepositoryInterface::class,
+            OrderReoRepository::class
         );
 
     }
@@ -45,6 +52,6 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //       
+        //
     }
 }

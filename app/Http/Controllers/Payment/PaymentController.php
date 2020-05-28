@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Payment;
 
+use App\Notifications\AppNotification;
 use App\Repositories\BidRepository;
 use App\Repositories\UserRepository;
 use Berkayk\OneSignal\OneSignalFacade;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Braintree\ClientToken;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Stripe\Charge;
 
@@ -47,7 +49,7 @@ class PaymentController extends Controller
 
             if($validator->fails()){
                 $errors = $validator->errors();
-                return response()->json(['message'=>$errors],401);
+                return response()->json(['message'=>$errors],400);
             }
 
             $is_save_details=$request->get("save_details");
@@ -78,17 +80,27 @@ class PaymentController extends Controller
                     "invoice_url"=>"",
                     "approved"=>true
                 ];
-                if($this->bid_repo->save($request["price"],$request["order_id"],$this->user->id,$transaction)){
+                $date_delivery=isset($request["date_delivery"])?$request["date_delivery"]:"";
+                $time_delivery=isset($request["time_delivery"])?$request["time_delivery"]:"";
+                $result=$this->bid_repo->save($request["price"],$request["order_id"],$this->user->id,$transaction,$date_delivery,$time_delivery);
+                if(isset($result["job_id"])){
+                    $job_id=$result["job_id"];
                     if($is_save_details){
                         $this->user_repo->savePaymentDetail($customer->id,$this->user->id);
                     }
 
-                    $user=$this->user_repo->getOrderUser($request["order_id"]);
-
-                    OneSignalFacade::sendNotificationToUser(
-                        "You have received new bid",
-                        $user->device_id
+                    $order_user=$this->user_repo->getOrderUser($request["order_id"]);
+                    $params=array(
+//                        "bid"=>$this->bid_repo->getOrderBids($request["order_id"],$order_user["id"])
+                        "order_id"=>$request["order_id"]
                     );
+                    $notification = [
+                        "msg" => "You have received new bid in job {$job_id}.",
+                        "route"=>"ViewBids",
+                        "btn"=>["id"=>"VIEW_BIDS","text"=>"View Bid"],
+                        "params"=>$params
+                    ];
+                    Notification::send($order_user, new AppNotification($notification));
 
                     return response()->json(['message'=>"Bid Successfully","payment_complete"=>true,"payment_info"=>$charge],200);
                 }
