@@ -43,20 +43,12 @@ class UserRepository implements Interfaces\UserRepositoryInterface
 
         $user_detail->city = $user_details["city"];
         $user_detail->state = $user_details["state"];
+        $user_detail->profile_image="";
 
-        if(!is_null($photo)){
-            $destination_file=public_path()."/users/";
-            $profilefile = date('YmdHis') . "." . $photo->guessExtension();
-            $error="";
-            if($error=$photo->move($destination_file,$profilefile)){
-                $user_detail->profile_image=$profilefile;
-            }
+        if (!is_null($photo)) {
+            $file_name = $this->uploadImage($photo);
+            $user_detail->profile_image = "http://analytics.twmg.com.au/concrete/users/" . $file_name;
         }
-
-        // if (!is_null($photo)) {
-        //     $file_name = $this->uploadImage($photo);
-        //     $user_detail->profile_image = "http://analytics.twmg.com.au/concrete/users/" . $file_name;
-        // }
 
         DB::beginTransaction();
         $result=false;
