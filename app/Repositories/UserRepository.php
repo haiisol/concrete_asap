@@ -36,7 +36,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface
 
         $user_detail->company = $user_details["company"];
         $user_detail->abn = $user_details["abn"];
-//        $user_detail->title = $user_details["title"];
+        $user_detail->title = $user_details["title"];
         $user_detail->first_name = $user_details["first_name"];
         $user_detail->last_name = $user_details["last_name"];
         $user_detail->phone_number = $user_details["phone"];
