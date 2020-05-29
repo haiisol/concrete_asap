@@ -29,6 +29,7 @@ class UserRepository implements Interfaces\UserRepositoryInterface
         $user->email = $user_details["email"];
         $user->password = Hash::make($user_details["password"]);
         $user->status = "verified";
+        $user->device_id="";
         $user->external_id=uniqid();
         $user->username = "";
 
