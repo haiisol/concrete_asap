@@ -87,12 +87,11 @@ Route::group([
     Route::post('order/cancelOrder', 'Contractor\OrderController@cancelOrder');
     Route::post('order/archiveOrder', 'Contractor\OrderController@archiveOrder');
 
-    Route::post("order/reo","Contractor\Reo\OrderController@create");
-    Route::put("order/reo","Contractor\Reo\OrderController@update");
-    Route::get("order/reo/pending","Contractor\Reo\OrderController@getPending");
-    Route::get("order/reo/{id}/bids","Contractor\ReoOrderController@getBids");
-    Route::get("order/reo/acceptedOrders","Contractor\Reo\OrderController@getAcceptedOrders");
-    Route::get("order/reo/getDayOfPourOrders","Contractor\Reo\OrderController@getDayOfPourOrders");
+    Route::post("order/reo","Contractor\REO\OrderController@create");
+    Route::get("order/reo/pending","Contractor\REO\OrderController@getPending");
+    Route::get("order/reo/{id}/bids","Contractor\REO\OrderController@getBids");
+    Route::get("order/reo/acceptedOrders","Contractor\REO\OrderController@getAcceptedOrders");
+    Route::get("order/reo/getDayOfPourOrders","Contractor\REO\OrderController@getDayOfPourOrders");
 
 
 });
@@ -104,6 +103,7 @@ Route::group([
     Route::get('orders', 'Rep\OrderController@getRepAllOrders');
     Route::get('pending_orders', 'Rep\OrderController@getPendingOrders');
     Route::get('accepted_orders', 'Rep\OrderController@getAcceptedOrders');
+    Route::get('debug_accepted', 'Rep\OrderController@getDebugAcceptedOrders');
     Route::post('cancel_order', 'Rep\OrderController@cancelOrder');
 
     Route::post('bid', 'Rep\BidController@saveBid');
@@ -115,7 +115,6 @@ Route::group([
     Route::get('bids', 'Rep\BidController@getUserBid');
     Route::post('pay/bid', 'Payment\PaymentController@payBidAmount');
 
-    Route::post('reo/bid/{Bid}','Reo_Rep\ReoBidController@bidReoOrder');
 });
 
 Route::group([

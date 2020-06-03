@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Models\Bids\Bid;
+use App\Models\Bids\Bids;
 use App\Notifications\CustomResetPasswordNotification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -111,7 +111,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function bids()
     {
-        return $this->hasMany(Bid::class,"user_id","id");
+        return $this->hasMany(Bids::class,"user_id","id");
     }
 
     public function acceptedOrderBids(){
@@ -145,7 +145,8 @@ class User extends Authenticatable implements JWTSubject
 
     public function routeNotificationForOneSignal()
     {
-        return $this->devices;
+        return ['include_external_user_ids' => [$this->external_id]];
+        //return $this->device_id;
     }
 
     public function getContractorOrders($status){
@@ -156,10 +157,6 @@ class User extends Authenticatable implements JWTSubject
                 }])->select("id")->get();
             }])->where("status", "!=", "Rejected");
         }])->whereIn("status",$status)->orderBy('id', 'DESC')->get();
-    }
-
-    public function devices(){
-        $this->hasMany("devices");
     }
 
 

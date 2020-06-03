@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Bids\Bid;
+use App\Models\Bids\Bids;
 use App\Models\Order\Order;
 use App\Models\Order\orderConcrete;
 //use App\Models\Order\BidMessage;
@@ -77,7 +77,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
             DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
-            throw new \Error("The job couldn't be saved at this moment");
+            $order=null;
         }
         return $order;
     }
@@ -162,7 +162,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
             }
 
             try {
-                $bid = Bid::where("order_id", $order_id)->where("status", "Accepted")->first();
+                $bid = Bids::where("order_id", $order_id)->where("status", "Accepted")->first();
                 $bid->status = "Complete";
                 DB::beginTransaction();
                 $order->save();
@@ -197,7 +197,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
     {
         $user = null;
         $order = Order::find($order_id);
-        $bid = Bid::where("order_id", $order_id)->where("status", "Accepted")->first();
+        $bid = Bids::where("order_id", $order_id)->where("status", "Accepted")->first();
 
         $bid->status = "Cancelled";
         $order->status = "Cancelled";
@@ -251,7 +251,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                 ->orWhere("delivery_date2", ">=", $time);
         })->with(["orderConcrete" => function ($query) use ($columns) {
             $query->select($columns);
-        }])->whereNotIn("id", Bid::where("user_id", "=", $this->user->id)->get(['order_id'])->toArray())
+        }])->whereNotIn("id", Bids::where("user_id", "=", $this->user->id)->get(['order_id'])->toArray())
             ->whereNotIn("status", ["Accepted", "Released", "Paid", "Complete", "Cancelled", "archive","Waiting Payment Confirmation"])
             ->orderBy("id", "DESC");
 

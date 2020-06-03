@@ -29,21 +29,20 @@ class UserRepository implements Interfaces\UserRepositoryInterface
         $user->email = $user_details["email"];
         $user->password = Hash::make($user_details["password"]);
         $user->status = "verified";
-        $user->device_id="";
-        $user->external_id=uniqid();
         $user->username = "";
+        $user->external_id=uniqid();
+        $user->device_id = "";
 
 
         $user_detail->company = $user_details["company"];
         $user_detail->abn = $user_details["abn"];
-        //$user_detail->title = $user_details["title"];
+//        $user_detail->title = $user_details["title"];
         $user_detail->first_name = $user_details["first_name"];
         $user_detail->last_name = $user_details["last_name"];
         $user_detail->phone_number = $user_details["phone"];
 
         $user_detail->city = $user_details["city"];
         $user_detail->state = $user_details["state"];
-        $user_detail->profile_image="";
 
         if (!is_null($photo)) {
             $file_name = $this->uploadImage($photo);
@@ -70,9 +69,8 @@ class UserRepository implements Interfaces\UserRepositoryInterface
     public function saveDevice(string $device_id, int $user_id)
     {
         $user = User::find($user_id);
-        return $user->devices()->save([
-            "device_id"=>$device_id
-        ]);
+        $user->device_id = $device_id;
+        return $user->save();
     }
 
     public function savePaymentDetail(string $payment_token, int $user_id)

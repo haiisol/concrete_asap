@@ -2,7 +2,7 @@
 
 namespace App\Models\Order;
 
-use App\Models\Bids\Bid;
+use App\Models\Bids\Bids;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -36,11 +36,11 @@ class Order extends Model
     }
 
     public function orderDetail(){
-        return $this->hasOne(orderDetail::class,"order_id","id");
+        $this->hasOne(orderDetail::class,"order_id","id");
     }
 
-    public function reoProducts(){
-        return $this->belongsToMany(reoProducts::class, "order_reo","order_id","product_id");
+    public function orderReo(){
+        return $this->hasMany(orderReo::class);
     }
 
     public function user(){
@@ -48,7 +48,7 @@ class Order extends Model
     }
 
     public function bids(){
-        return $this->hasMany(Bid::class);
+        return $this->hasMany(Bids::class);
     }
 
     public  function review(){

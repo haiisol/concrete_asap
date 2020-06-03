@@ -45,11 +45,8 @@
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                  <a class="dropdown-item" href="#">Action</a>
                  <a class="dropdown-item" href="#">Another action</a>
-                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                 <a class="dropdown-item" href="#">Something else here</a>
               </div>
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                  {{ csrf_field() }}
-              </form>
            </li>
            <li class="nav-item">
               <a class="nav-link btn-rotate" href="#pablo">

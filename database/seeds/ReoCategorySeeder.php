@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RoleTableSeeder extends Seeder
+class ReoCategorySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,8 @@ class RoleTableSeeder extends Seeder
     public function run()
     {
         //
-        
+        $reo_category=factory("App\Models\Order\orderReoProducts")->create([
+
+        ]);
     }
 }

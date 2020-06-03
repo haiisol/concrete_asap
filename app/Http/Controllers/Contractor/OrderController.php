@@ -23,6 +23,8 @@ class OrderController extends Controller
 {
     private $orderRep;
 
+//    private $user;
+
     public function __construct(OrderRepositoryInterface $orderRep)
     {
         $this->orderRep = $orderRep;
