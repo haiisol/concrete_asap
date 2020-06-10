@@ -131,9 +131,7 @@ class APILoginController extends Controller
             }
             $user = $user->load('detail');
             $user->roles = auth('api')->user()->getRoleNames();
-            var_dump($user);
-            // return response()->json($user, 200)->header('Content-type', 'application/json');
-
+            return response()->json($user, 200)->header('Content-type', 'application/json');
         } else {
             return response()->json(array("msg" => "Error on Verifying User"), 200)->header('Content-type', 'application/json');
         }
