@@ -132,7 +132,6 @@ class APILoginController extends Controller
             $user = $user->load('detail');
             $user->roles = auth('api')->user()->getRoleNames();
             var_dump($user);
-            exit();
             // return response()->json($user, 200)->header('Content-type', 'application/json');
 
         } else {
