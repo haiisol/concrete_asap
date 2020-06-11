@@ -405,4 +405,10 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         ]);
         // TODO: Implement markAsPaid() method.
     }
+
+    // custom get order
+    public function getAllOrders(){
+        $orders = Order::all();
+        return $orders;
+    }
 }
