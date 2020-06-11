@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/',function(){
 	return redirect('login');
 });
-Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 Route::get('/test',function(\App\Repositories\UserRepository $user_repo){
     $order_user=$user_repo->getOrderUser(126);

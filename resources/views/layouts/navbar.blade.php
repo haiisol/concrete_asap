@@ -49,12 +49,15 @@
               </div>
            </li>
            <li class="nav-item">
-              <a class="nav-link btn-rotate" href="#pablo">
+              <a class="nav-link btn-rotate dropdown" href="#pablo">
                  <i class="nc-icon nc-settings-gear-65"></i>
                  <p>
                     <span class="d-lg-none d-md-block">Account</span>
                  </p>
               </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                 <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+              </div>
            </li>
         </ul>
      </div>
