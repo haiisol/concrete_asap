@@ -12,10 +12,10 @@ class OrderController extends Controller
     private $order_repo;
     public function __construct(OrderRepositoryInterface $order_repo){
         $this->order_repo=$order_repo;
-        var_dump("order repo \n \n ");
-        var_dump($this->order_repo);
-        var_dump("\n \n order repo var \n \n ");
-        var_dump($order_repo);
+        // var_dump("order repo \n \n ");
+        // var_dump($this->order_repo);
+        // var_dump("\n \n order repo var \n \n ");
+        // var_dump($order_repo);
     }
     /**
      * Display a listing of the resource.
