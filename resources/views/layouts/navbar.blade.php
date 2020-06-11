@@ -48,14 +48,14 @@
                  <a class="dropdown-item" href="#">Something else here</a>
               </div>
            </li>
-           <li class="nav-item">
-              <a class="nav-link btn-rotate dropdown" href="#pablo">
+           <li class="nav-item btn-rotate dropdown">
+              <a class="nav-link dropdown-toggle" href="#pablo" id="navbarDropdownMenuLinkAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  <i class="nc-icon nc-settings-gear-65"></i>
                  <p>
                     <span class="d-lg-none d-md-block">Account</span>
                  </p>
               </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLinkAccount">
                  <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
               </div>
            </li>
