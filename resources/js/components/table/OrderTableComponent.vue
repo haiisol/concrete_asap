@@ -1,5 +1,5 @@
 <template>    
-    <div class="container-fluid" :key="zzz">
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h4 class="font-bold">Order Table</h4>
