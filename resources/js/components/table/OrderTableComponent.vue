@@ -1,5 +1,8 @@
 <template>    
-    <div class="container-fluid" :key="someVariableUnderYourControl">
+    <div v-if="show">
+       <button @click="rerender">re-render</button>
+    </div>
+    <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h4 class="font-bold">Order Table</h4>
@@ -33,6 +36,18 @@
             return {
                 headers:["Order Id","Order Type","Status","Created At","Actions"],
                 data:[]
+            }
+        },
+        methods:{
+            rerender(){
+                this.show = false
+                this.$nextTick(() => {
+                    this.show = true
+                    console.log('re-render start')
+                    this.$nextTick(() => {
+                        console.log('re-render end')
+                    })
+                })
             }
         },
         created: function () {
