@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h4 class="font-bold">Order Table test</h4>
+                <h4 class="font-bold">Order Table</h4>
             </div>
             <div class="col-md-12">
                 <table class="table">
@@ -19,7 +19,6 @@
                             <td>{{row.created_at}}</td>
                             <td>
                                 <a :href="'order/'+row.id">View</a>
-                                test
                             </td>
                         </tr>
                     </tbody>
