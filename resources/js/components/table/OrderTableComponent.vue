@@ -13,7 +13,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="row in data">
-                            <td>{{row.id}}</td>
+                            <td>{{row.job_id}}</td>
                             <td>{{row.order_type}}</td>
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
@@ -31,7 +31,7 @@
     export default {
         data:function(){
             return {
-                headers:["Order Id","Order Type","Status","Created At","Actions"],
+                headers:["Job Id","Order Type","Status","Created At","Actions"],
                 data:[]
             }
         },
