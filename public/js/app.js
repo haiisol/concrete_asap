@@ -1940,7 +1940,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      headers: ["Order Id", "Order Type", "Status", "Created At", "Actions"],
+      headers: ["Job Id", "Order Type", "Status", "Created At", "Actions"],
       data: []
     };
   },
@@ -37526,7 +37526,7 @@ var render = function() {
             "tbody",
             _vm._l(_vm.data, function(row) {
               return _c("tr", [
-                _c("td", [_vm._v(_vm._s(row.id))]),
+                _c("td", [_vm._v(_vm._s(row.job_id))]),
                 _vm._v(" "),
                 _c("td", [_vm._v(_vm._s(row.order_type))]),
                 _vm._v(" "),
@@ -37550,7 +37550,6 @@ var render = function() {
 }
 var staticRenderFns = [
   function() {
-    vm.$forceUpdate();
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
