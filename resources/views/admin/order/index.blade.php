@@ -2,5 +2,5 @@
 
 @section('content')
 	testing
-	<order-table-component></order-table-component>
+	<order-table-component :key="componentKey"></order-table-component>
 @endsection
