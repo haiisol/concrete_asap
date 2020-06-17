@@ -28,6 +28,6 @@
           </div>
        </div>
     </div>
-    <script src="{{asset(mix('js/app.js'), true)}}"></script>
+    <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
