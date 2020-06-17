@@ -28,7 +28,6 @@
     </div>
 </template>
 <script>
-    vm.$forceUpdate();
     export default {
         data:function(){
             return {
