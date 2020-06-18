@@ -122,7 +122,7 @@
     </table>
 @endsection
 <script>
-    $(document).ready(function() {
+    jQuery(document).ready(function($) {
         $('#example').DataTable();
     } );
 </script>
