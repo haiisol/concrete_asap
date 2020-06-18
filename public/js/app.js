@@ -1908,10 +1908,6 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _data$methods$methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -1943,7 +1939,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = (_data$methods$methods = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       headers: ["Job Id", "Order Type", "Status", "Created At", "Actions"],
@@ -1951,6 +1947,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     };
   },
   methods: {
+    init: function init() {
+      this.orders = getOrders();
+      this.dataTable = jQuery('#dataTableDisplayVue').DataTable();
+    },
     getOrders: function getOrders() {
       var _this = this;
 
@@ -1959,17 +1959,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.data = response.data;
       });
     }
-  }
-}, _defineProperty(_data$methods$methods, "methods", {
-  init: function init() {
-    this.orders = getOrders();
-    this.dataTable = jQuery('#dataTableDisplayVue').DataTable();
-  }
-}), _defineProperty(_data$methods$methods, "created", function created() {
-  this.dataTable = null;
-  this.orders = [];
-  this.init();
-}), _defineProperty(_data$methods$methods, "mounted", function mounted() {}), _data$methods$methods);
+  },
+  created: function created() {
+    this.dataTable = null;
+    this.orders = [];
+    this.init();
+  },
+  mounted: function mounted() {}
+});
 
 /***/ }),
 

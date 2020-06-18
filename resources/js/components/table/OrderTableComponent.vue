@@ -38,20 +38,17 @@
             }
         },
         methods: {
+            init: function() {
+                this.orders = getOrders();
+                this.dataTable =  jQuery('#dataTableDisplayVue').DataTable();
+            },
             getOrders() {
                 axios.get('api/orders/getAll')
                 .then(response => {
                     console.log(response.data);
                     this.data=response.data;
                 });
-            },
-        },
-        methods: {
-            init: function() {
-                this.orders = getOrders();
-                this.dataTable =  jQuery('#dataTableDisplayVue').DataTable();
             }
-            
         },
         created: function(){
             this.dataTable = null;
