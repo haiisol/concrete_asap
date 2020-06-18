@@ -11,6 +11,8 @@ use App\Repositories\OrderRepository;
 use App\Repositories\Interfaces\OrderRepositoryInterface;
 use App\Repositories\ContractorRepository;
 use App\Repositories\Interfaces\ContractorRepositoryInterface;
+use App\Repositories\RepRepository;
+use App\Repositories\Interfaces\RepRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
