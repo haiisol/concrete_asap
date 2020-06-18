@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('order-table-component', require('./components/table/OrderTableComponent.vue').default);
+Vue.component('contractor-table-component', require('./components/table/ContractorTableComponent.vue').default);
 
 // Vue.component(
 //     'passport-clients',
