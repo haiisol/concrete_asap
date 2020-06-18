@@ -1,3 +1,4 @@
+<?php $name = Request::path(); ?>
 <div class="sidebar" data-color="white" data-active-color="danger">
    <!--
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
@@ -14,20 +15,16 @@
             <img src="../assets/img/logo-big.png">
             </div> -->
       </a>
-      <?php 
-         $name = Request::path();
-         echo $name;
-      ?>
    </div>
    <div class="sidebar-wrapper ps-container ps-theme-default ps-active-x" data-ps-id="bd18f92f-90ed-1128-56bf-1f8f1ebb91b6">
       <ul class="nav">
-         <li class="active ">
+         <li class="<?php echo $name === "home" ? "active" : ""; ?>">
             <a href="/home">
                <i class="nc-icon nc-shop"></i>
                <p>Dashboard</p>
             </a>
          </li>
-         <li>
+         <li class="<?php echo $name === "order" ? "active" : ""; ?>">
             <a href="/order">
                <i class="nc-icon nc-cart-simple"></i>
                <p>Order</p>
