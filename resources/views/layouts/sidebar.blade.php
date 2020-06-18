@@ -15,7 +15,7 @@
             </div> -->
       </a>
       <?php 
-         $name = Route::currentRouteName();
+         $name = Request::path();
          echo $name;
       ?>
    </div>
