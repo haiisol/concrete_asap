@@ -9,6 +9,8 @@ use App\Repositories\UserRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use App\Repositories\OrderRepository;
 use App\Repositories\Interfaces\OrderRepositoryInterface;
+use App\Repositories\ContractorRepository;
+use App\Repositories\Interfaces\ContractorRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -35,7 +37,7 @@ class RepositoryServiceProvider extends ServiceProvider
             BidRepositoryInterface::class,
             BidRepository::class
         );
-        
+
         $this->app->bind(
             ContractorRepositoryInterface::class,
             ContractorRepository::class
