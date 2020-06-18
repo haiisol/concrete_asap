@@ -37507,43 +37507,51 @@ var render = function() {
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-12" }, [
-        _c("table", { staticClass: "table" }, [
-          _c(
-            "thead",
-            _vm._l(_vm.headers, function(header) {
-              return _c("th", [
-                _vm._v(
-                  "\n                        " +
-                    _vm._s(header) +
-                    "\n                    "
-                )
-              ])
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.data, function(row) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(row.job_id))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(row.order_type))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(row.status))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(row.created_at))]),
-                _vm._v(" "),
-                _c("td", [
-                  _c("a", { attrs: { href: "order/" + row.id } }, [
-                    _vm._v("View")
+        _c(
+          "table",
+          {
+            staticClass: "table table-striped table-bordered",
+            staticStyle: { width: "100%" },
+            attrs: { id: "dataTableDisplay" }
+          },
+          [
+            _c(
+              "thead",
+              _vm._l(_vm.headers, function(header) {
+                return _c("th", [
+                  _vm._v(
+                    "\n                        " +
+                      _vm._s(header) +
+                      "\n                    "
+                  )
+                ])
+              }),
+              0
+            ),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.data, function(row) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(row.job_id))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.order_type))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.status))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.created_at))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c("a", { attrs: { href: "order/" + row.id } }, [
+                      _vm._v("View")
+                    ])
                   ])
                 ])
-              ])
-            }),
-            0
-          )
-        ])
+              }),
+              0
+            )
+          ]
+        )
       ])
     ])
   ])
