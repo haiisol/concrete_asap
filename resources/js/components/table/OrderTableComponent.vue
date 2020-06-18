@@ -7,11 +7,13 @@
             <div class="col-md-12">
                 <table class="table table-striped table-bordered" id="dataTableDisplay" style="width:100%">
                     <thead>
-                        <th>Job Id</th>
-                        <th>Order Type</th>
-                        <th>Status</th>
-                        <th>Created At</th>
-                        <th>Actions</th>
+                        <tr>
+                            <th>Job Id</th>
+                            <th>Order Type</th>
+                            <th>Status</th>
+                            <th>Created At</th>
+                            <th>Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr v-for="row in data">
@@ -46,7 +48,6 @@
         },
         mounted() {
             console.log('Component mounted.');
-            jQuery('#dataTableDisplay').DataTable();
         }
     }
 </script>

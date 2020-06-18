@@ -1939,6 +1939,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1956,7 +1958,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log('Component mounted.');
-    jQuery('#dataTableDisplay').DataTable();
   }
 });
 
@@ -37561,15 +37562,17 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("thead", [
-      _c("th", [_vm._v("Job Id")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Order Type")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Status")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Created At")]),
-      _vm._v(" "),
-      _c("th", [_vm._v("Actions")])
+      _c("tr", [
+        _c("th", [_vm._v("Job Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Order Type")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Status")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Created At")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Actions")])
+      ])
     ])
   }
 ]
