@@ -19,7 +19,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
 
     // custom get order
     public function getAllContractor(){
-        $users = Role::find(3))->users;
+        $users = Role::find(3)->users;
         return $users;
     }
 }
