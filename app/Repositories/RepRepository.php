@@ -18,7 +18,7 @@ class RepRepository implements Interfaces\RepRepositoryInterface
     }
 
     // custom get order
-    public function getAllContractor(){
+    public function getAllRep(){
         $users = Role::find(2)->users;
         return $users;
     }
