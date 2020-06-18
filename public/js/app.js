@@ -1953,7 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var self = this;
       axios.get('api/orders/getAll').then(function (response) {
-        console.log(response.data);
+        //console.log(response.data);
         _this.data = response.data;
         self.isFirstDataLoaded = true;
         Vue.nextTick(function () {
@@ -49802,10 +49802,9 @@ var app = new Vue({
   },
   // template: '<example-component></example-component>',
   mounted: function mounted() {},
-  created: function created() {
-    console.log('ok'); // `this` points to the vm instance
-
-    console.log('a is: ' + this.a);
+  created: function created() {// console.log('ok');
+    // `this` points to the vm instance
+    // console.log('a is: ' + this.a);
   }
 });
 

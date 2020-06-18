@@ -43,7 +43,7 @@
                 var self = this;
                 axios.get('api/orders/getAll')
                 .then(response => {
-                    console.log(response.data);
+                    //console.log(response.data);
                     this.data=response.data;
                     self.isFirstDataLoaded = true;
                     Vue.nextTick(function(){

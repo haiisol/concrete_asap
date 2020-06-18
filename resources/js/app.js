@@ -52,8 +52,8 @@ const app = new Vue({
     	
     },
  	created: function () {
- 		console.log('ok');
+ 		// console.log('ok');
 	    // `this` points to the vm instance
-	    console.log('a is: ' + this.a);
+	    // console.log('a is: ' + this.a);
   	}
 });
