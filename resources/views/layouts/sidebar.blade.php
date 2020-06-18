@@ -9,7 +9,7 @@
          </div>
       </a>
       <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-         Creative Tim
+         Concrete ASAP
          <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
             </div> -->
@@ -27,6 +27,18 @@
             <a href="/order">
                <i class="nc-icon nc-diamond"></i>
                <p>Order</p>
+            </a>
+         </li>
+         <li>
+            <a href="/">
+               <i class="nc-icon nc-diamond"></i>
+               <p>Contractor</p>
+            </a>
+         </li>
+         <li>
+            <a href="/">
+               <i class="nc-icon nc-diamond"></i>
+               <p>REP</p>
             </a>
          </li>
       </ul>
