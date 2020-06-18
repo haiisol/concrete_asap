@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h4 class="font-bold">Order Table</h4>
+                <h4 class="font-bold">Contractor Table</h4>
             </div>
             <div class="col-md-12">
                 <table class="table table-striped table-bordered" id="dataTableDisplayVue" style="width:100%">
