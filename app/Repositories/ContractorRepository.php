@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Repositories;
+
+use App\User;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+class ContractorRepository implements Interfaces\ContractorRepositoryInterface
+{
+    private $user;
+
+    public function __construct()
+    {
+        $this->user = auth('api')->user();
+    }
+
+    // custom get order
+    public function getAllContractor(){
+        $users = User::all();
+        return $users;
+    }
+}

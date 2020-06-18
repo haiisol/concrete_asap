@@ -2,32 +2,20 @@
 
 namespace App\Http\Controllers\Contractor;
 
-use App\Models\Order\Order;
-use App\Notifications\AppNotification;
-use App\Role;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Repositories\Interfaces\OrderRepositoryInterface;
-
-// use App\Repositories\OrderRepository;
-
-//use Illuminate\Http\Resources\Json\JsonResource;
-//use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Notification;
-use Illuminate\Support\Facades\Validator;
+use App\Repositories\Interfaces\ContractorRepositoryInterface;
 
 class ContractorController extends Controller
 {
-    private $orderRep;
+    private $contractor_repo;
 
 //    private $user;
 
-    public function __construct(OrderRepositoryInterface $orderRep)
+    public function __construct(ContractorRepositoryInterface $contractorRep)
     {
-        $this->orderRep = $orderRep;
+        $this->contractor_repo = $contractorRep;
 //        $this->user = auth('api')->user();
     }
 
@@ -38,8 +26,11 @@ class ContractorController extends Controller
      */
     public function index()
     {
-        // $user = User::all();
+        // $users = User::all();
         return view('admin.contractor.index');
     }
 
+    public function getAllContractor(){
+        return response()->json($this->contractor_repo->getAllContractor(),200);
+    }
 }
