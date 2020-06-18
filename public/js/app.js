@@ -37877,7 +37877,7 @@ var render = function() {
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
                   _c("td", [
-                    _c("a", { attrs: { href: "contractor/" + row.id } }, [
+                    _c("a", { attrs: { href: "rep/" + row.id } }, [
                       _vm._v("View")
                     ])
                   ])
