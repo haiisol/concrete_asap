@@ -1942,7 +1942,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Username", "Status", "Created At", "Actions"],
+      headers: ["Email", "Status", "Created At", "Actions"],
       data: []
     };
   },
@@ -37624,7 +37624,7 @@ var render = function() {
               "tbody",
               _vm._l(_vm.data, function(row) {
                 return _c("tr", [
-                  _c("td", [_vm._v(_vm._s(row.username))]),
+                  _c("td", [_vm._v(_vm._s(row.email))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.status))]),
                   _vm._v(" "),
