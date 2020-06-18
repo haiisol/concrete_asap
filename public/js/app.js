@@ -1942,21 +1942,33 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      isFirstDataLoaded: false,
       headers: ["Job Id", "Order Type", "Status", "Created At", "Actions"],
       data: []
     };
   },
   methods: {
     init: function init() {
-      this.orders = getOrders();
-      this.dataTable = jQuery('#dataTableDisplayVue').DataTable();
-    },
-    getOrders: function getOrders() {
       var _this = this;
 
+      var self = this;
       axios.get('api/orders/getAll').then(function (response) {
         console.log(response.data);
         _this.data = response.data;
+        self.isFirstDataLoaded = true;
+
+        if (isGood(response)) {
+          self.orders = extractListOfData(response);
+          Vue.nextTick(function () {
+            self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
+              "paging": true,
+              "pageLength": 50,
+              "info": false
+            });
+          });
+        } else {
+          showWarning(response);
+        }
       });
     }
   },
@@ -1964,8 +1976,7 @@ __webpack_require__.r(__webpack_exports__);
     this.dataTable = null;
     this.orders = [];
     this.init();
-  },
-  mounted: function mounted() {}
+  }
 });
 
 /***/ }),

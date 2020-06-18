@@ -33,20 +33,32 @@
     export default {
         data:function(){
             return {
+                isFirstDataLoaded: false,
                 headers:["Job Id","Order Type","Status","Created At","Actions"],
                 data:[]
             }
         },
         methods: {
             init: function() {
-                this.orders = getOrders();
-                this.dataTable =  jQuery('#dataTableDisplayVue').DataTable();
-            },
-            getOrders() {
+                var self = this;
                 axios.get('api/orders/getAll')
                 .then(response => {
                     console.log(response.data);
                     this.data=response.data;
+                    self.isFirstDataLoaded = true;
+                    if( isGood(response) ) {
+                        self.orders = extractListOfData(response);
+                        Vue.nextTick(function(){
+                            self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
+                                "paging": true,
+                                "pageLength": 50,
+                                "info": false,
+                            });
+                        });
+                    }
+                    else {
+                        showWarning(response);
+                    }
                 });
             }
         },
@@ -54,9 +66,6 @@
             this.dataTable = null;
             this.orders = [];
             this.init();
-        },
-        mounted() {
-           
         }
     }
 </script>
