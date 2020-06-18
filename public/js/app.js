@@ -1959,7 +1959,7 @@ __webpack_require__.r(__webpack_exports__);
         Vue.nextTick(function () {
           self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
             "paging": true,
-            "pageLength": 50,
+            "pageLength": 10,
             "info": false
           });
         });

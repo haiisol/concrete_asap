@@ -49,7 +49,7 @@
                     Vue.nextTick(function(){
                         self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
                             "paging": true,
-                            "pageLength": 50,
+                            "pageLength": 10,
                             "info": false,
                         });
                     });

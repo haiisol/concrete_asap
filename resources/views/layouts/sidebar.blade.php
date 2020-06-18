@@ -30,7 +30,7 @@
                <p>Order</p>
             </a>
          </li>
-         <li>
+         <li class="<?php echo $name === "contractor" ? "active" : ""; ?>">
             <a href="/contractor">
                <i class="nc-icon nc-settings"></i>
                <p>Contractor</p>
