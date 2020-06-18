@@ -63,7 +63,7 @@
 
     <script>
         jQuery(document).ready(function($) {
-            $('#example').DataTable();
+            $('#dataTableDisplay').DataTable();
         } );
     </script>
 </body>

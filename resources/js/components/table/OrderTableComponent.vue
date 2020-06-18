@@ -5,7 +5,7 @@
                 <h4 class="font-bold">Order Table</h4>
             </div>
             <div class="col-md-12">
-                <table class="table">
+                <table class="table table-striped table-bordered" id="dataTableDisplay" style="width:100%">
                     <thead>
                         <th v-for="header in headers">
                             {{header}}

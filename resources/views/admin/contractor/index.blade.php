@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<table id="example" class="table table-striped table-bordered" style="width:100%">
+	<table id="dataTableDisplay" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>Name</th>
