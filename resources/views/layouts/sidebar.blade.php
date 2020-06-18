@@ -31,7 +31,7 @@
             </a>
          </li>
          <li>
-            <a href="/">
+            <a href="/contractor">
                <i class="nc-icon nc-settings"></i>
                <p>Contractor</p>
             </a>
