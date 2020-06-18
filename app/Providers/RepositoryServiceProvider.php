@@ -43,6 +43,11 @@ class RepositoryServiceProvider extends ServiceProvider
             ContractorRepository::class
         );
 
+        $this->app->bind(
+            RepRepositoryInterface::class,
+            RepRepository::class
+        );
+
     }
 
     /**

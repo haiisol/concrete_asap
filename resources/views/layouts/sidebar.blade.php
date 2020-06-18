@@ -37,7 +37,7 @@
             </a>
          </li>
          <li>
-            <a href="/">
+            <a href="/rep">
                <i class="nc-icon nc-single-02"></i>
                <p>REP</p>
             </a>

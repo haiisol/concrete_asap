@@ -63,5 +63,9 @@ Route::group([
     // contractor
     Route::get('/api/contractor/getAllContractor','Contractor\ContractorController@getAllContractor');
     Route::get('/contractor','Contractor\ContractorController@index');
+
+    // rep
+    Route::get('/api/rep/getAllRep','Rep\RepController@getAllRep');
+    Route::get('/rep','Rep\RepController@index'); 
 });
 
