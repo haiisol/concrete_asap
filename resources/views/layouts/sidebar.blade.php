@@ -15,8 +15,8 @@
             </div> -->
       </a>
       <?php 
-         $name = Route::currentRouteName();
-         echo $name;
+         $route = Route::current();
+         echo $route;
       ?>
    </div>
    <div class="sidebar-wrapper ps-container ps-theme-default ps-active-x" data-ps-id="bd18f92f-90ed-1128-56bf-1f8f1ebb91b6">
