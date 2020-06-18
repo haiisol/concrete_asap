@@ -5,14 +5,12 @@
                 <h4 class="font-bold">Order Table</h4>
             </div>
             <div class="col-md-12">
-                <table class="table table-striped table-bordered" id="dataTableDisplay" style="width:100%">
+                <table class="table table-striped table-bordered" id="dataTableDisplayVue" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Job Id</th>
-                            <th>Order Type</th>
-                            <th>Status</th>
-                            <th>Created At</th>
-                            <th>Actions</th>
+                            <th v-for="header in headers">
+                                {{header}}
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +46,7 @@
         },
         mounted() {
             console.log('Component mounted.');
+            jQuery('#dataTableDisplayVue').DataTable();
         }
     }
 </script>

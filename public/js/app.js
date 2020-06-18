@@ -1939,8 +1939,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1958,6 +1956,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log('Component mounted.');
+    jQuery('#dataTableDisplayVue').DataTable();
   }
 });
 
@@ -37516,10 +37515,24 @@ var render = function() {
           {
             staticClass: "table table-striped table-bordered",
             staticStyle: { width: "100%" },
-            attrs: { id: "dataTableDisplay" }
+            attrs: { id: "dataTableDisplayVue" }
           },
           [
-            _vm._m(1),
+            _c("thead", [
+              _c(
+                "tr",
+                _vm._l(_vm.headers, function(header) {
+                  return _c("th", [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(header) +
+                        "\n                        "
+                    )
+                  ])
+                }),
+                0
+              )
+            ]),
             _vm._v(" "),
             _c(
               "tbody",
@@ -37555,24 +37568,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
       _c("h4", { staticClass: "font-bold" }, [_vm._v("Order Table")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Job Id")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Order Type")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Status")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Created At")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Actions")])
-      ])
     ])
   }
 ]
