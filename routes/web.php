@@ -57,5 +57,8 @@ Route::group([
 	Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('/order','Admin\OrderController');
 	Route::get('/api/orders/getAll','Admin\OrderController@getOrders');
+
+    // contractor
+    Route::get('/contractor','Contractor\ContractorController@index');
 });
 
