@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
+use App\Role;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -18,7 +19,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
 
     // custom get order
     public function getAllContractor(){
-        $users = User::all();
+        $users = Role::find(3))->users;
         return $users;
     }
 }
