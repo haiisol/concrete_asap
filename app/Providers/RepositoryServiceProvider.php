@@ -35,6 +35,7 @@ class RepositoryServiceProvider extends ServiceProvider
             BidRepositoryInterface::class,
             BidRepository::class
         );
+        
         $this->app->bind(
             ContractorRepositoryInterface::class,
             ContractorRepository::class
