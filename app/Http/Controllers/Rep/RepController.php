@@ -31,6 +31,6 @@ class RepController extends Controller
     }
 
     public function getAllRep(){
-        return response()->json($this->contractor_repo->getAllRep(),200);
+        return response()->json($this->rep_repo->getAllRep(),200);
     }
 }
