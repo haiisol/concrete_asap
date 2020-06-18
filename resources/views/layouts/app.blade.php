@@ -15,7 +15,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="{{ asset('css/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/paper-dashboard.min.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -57,9 +57,8 @@
           </div>
        </div>
     </div>
-    <script src="{{asset('js/app.js')}}"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/datatables.min.js') }}"></script>
 
     <script>
         jQuery(document).ready(function($) {
