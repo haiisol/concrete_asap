@@ -37,16 +37,23 @@
                 data:[]
             }
         },
-        created: function () {
-            axios.get('api/orders/getAll')
-            .then(response => {
-                console.log(response.data);
-                this.data=response.data;
-            });
+        methods: {
+            getOrders() {
+                axios.get('api/orders/getAll')
+                .then(response => {
+                    console.log(response.data);
+                    this.data=response.data;
+                });
+            },
+            forceRefreshUserDT() {
+                Vue.nextTick(function() {
+                    this.ordersDataTable.rows().invalidate().draw();
+                })
+            }
         },
         mounted() {
-            console.log('Component mounted.');
-            jQuery('#dataTableDisplayVue').DataTable();
+            this.ordersDataTable = jQuery('#dataTableDisplayVue').DataTable();
+            this.getOrders();
         }
     }
 </script>
