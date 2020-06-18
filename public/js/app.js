@@ -1968,7 +1968,6 @@ __webpack_require__.r(__webpack_exports__);
   },
   created: function created() {
     this.dataTable = null;
-    this.orders = [];
     this.init();
   }
 });

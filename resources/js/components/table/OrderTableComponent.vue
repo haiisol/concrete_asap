@@ -58,7 +58,6 @@
         },
         created: function(){
             this.dataTable = null;
-            this.orders = [];
             this.init();
         }
     }
