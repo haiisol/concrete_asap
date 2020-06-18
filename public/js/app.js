@@ -1908,6 +1908,10 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _data$methods$methods;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -1939,7 +1943,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
+/* harmony default export */ __webpack_exports__["default"] = (_data$methods$methods = {
   data: function data() {
     return {
       headers: ["Job Id", "Order Type", "Status", "Created At", "Actions"],
@@ -1954,18 +1958,18 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this.data = response.data;
       });
-    },
-    forceRefreshUserDT: function forceRefreshUserDT() {
-      Vue.nextTick(function () {
-        this.ordersDataTable.rows().invalidate().draw();
-      });
     }
-  },
-  mounted: function mounted() {
-    this.ordersDataTable = jQuery('#dataTableDisplayVue').DataTable();
-    this.getOrders();
   }
-});
+}, _defineProperty(_data$methods$methods, "methods", {
+  init: function init() {
+    this.orders = getOrders();
+    this.dataTable = jQuery('#dataTableDisplayVue').DataTable();
+  }
+}), _defineProperty(_data$methods$methods, "created", function created() {
+  this.dataTable = null;
+  this.orders = [];
+  this.init();
+}), _defineProperty(_data$methods$methods, "mounted", function mounted() {}), _data$methods$methods);
 
 /***/ }),
 

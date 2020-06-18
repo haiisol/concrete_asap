@@ -45,15 +45,21 @@
                     this.data=response.data;
                 });
             },
-            forceRefreshUserDT() {
-                Vue.nextTick(function() {
-                    this.ordersDataTable.rows().invalidate().draw();
-                })
+        },
+        methods: {
+            init: function() {
+                this.orders = getOrders();
+                this.dataTable =  jQuery('#dataTableDisplayVue').DataTable();
             }
+            
+        },
+        created: function(){
+            this.dataTable = null;
+            this.orders = [];
+            this.init();
         },
         mounted() {
-            this.ordersDataTable = jQuery('#dataTableDisplayVue').DataTable();
-            this.getOrders();
+           
         }
     }
 </script>
