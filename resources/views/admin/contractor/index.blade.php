@@ -121,8 +121,3 @@
         </tbody>
     </table>
 @endsection
-<script>
-    jQuery(document).ready(function($) {
-        $('#example').DataTable();
-    } );
-</script>
