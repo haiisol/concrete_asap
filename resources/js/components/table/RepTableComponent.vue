@@ -40,7 +40,7 @@
         methods: {
             init: function() {
                 var self = this;
-                axios.get('api/contractor/getAllContractor')
+                axios.get('api/rep/getAllRep')
                 .then(response => {
                     //console.log(response.data);
                     this.data=response.data;
