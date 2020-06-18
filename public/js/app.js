@@ -1956,19 +1956,13 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data);
         _this.data = response.data;
         self.isFirstDataLoaded = true;
-
-        if (isGood(response)) {
-          self.orders = extractListOfData(response);
-          Vue.nextTick(function () {
-            self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
-              "paging": true,
-              "pageLength": 50,
-              "info": false
-            });
+        Vue.nextTick(function () {
+          self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
+            "paging": true,
+            "pageLength": 50,
+            "info": false
           });
-        } else {
-          showWarning(response);
-        }
+        });
       });
     }
   },
