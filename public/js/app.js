@@ -2100,7 +2100,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var self = this;
-      axios.get('api/contractor/getAllContractor').then(function (response) {
+      axios.get('api/rep/getAllRep').then(function (response) {
         //console.log(response.data);
         _this.data = response.data;
         self.isFirstDataLoaded = true;
