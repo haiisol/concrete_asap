@@ -120,10 +120,9 @@
             
         </tbody>
     </table>
-    <script>
-    	$(document).ready(function() {
-		    $('#example').DataTable();
-		} );
-    </script>
 @endsection
-
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
