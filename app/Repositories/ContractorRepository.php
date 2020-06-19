@@ -31,8 +31,9 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
 
         return $users;
     }
+    
     public function getOrderDetails($id){
-        $orders = User::find($id)->orders;
+        $orders = Order::where("user_id" , $id);
         return $orders;
     }
 }
