@@ -1942,7 +1942,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Email", "Status", "Created At", "Actions"],
+      headers: ["Job Id", "Status", "Created At", "Actions"],
       data: []
     };
   },
@@ -1952,7 +1952,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var self = this;
       var slug_id = parseInt(window.location.pathname.split("/").pop());
-      axios.get('api/contractor/getOrderDetails/${slug_id}').then(function (response) {
+      axios.get('api/contractor/getOrderDetails/' + slug_id).then(function (response) {
         //console.log(response.data);
         _this.data = response.data;
         self.isFirstDataLoaded = true;
@@ -37773,7 +37773,7 @@ var render = function() {
               "tbody",
               _vm._l(_vm.data, function(row) {
                 return _c("tr", [
-                  _c("td", [_vm._v(_vm._s(row.email))]),
+                  _c("td", [_vm._v(_vm._s(row.job_id))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.status))]),
                   _vm._v(" "),

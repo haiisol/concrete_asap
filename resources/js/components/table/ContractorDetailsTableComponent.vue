@@ -15,7 +15,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="row in data">
-                            <td>{{row.email}}</td>
+                            <td>{{row.job_id}}</td>
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
                             <td style="text-align:center;">
@@ -33,7 +33,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["Email","Status","Created At","Actions"],
+                headers:["Job Id","Status","Created At","Actions"],
                 data:[]
             }
         },
@@ -42,7 +42,7 @@
                 var self = this;
                 var slug_id = parseInt(window.location.pathname.split("/").pop());
 
-                axios.get('api/contractor/getOrderDetails/${slug_id}')
+                axios.get('api/contractor/getOrderDetails/' + slug_id)
                 .then(response => {
                     //console.log(response.data);
                     this.data=response.data;
