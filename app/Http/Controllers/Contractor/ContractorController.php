@@ -29,7 +29,7 @@ class ContractorController extends Controller
         // $users = User::all();
         return view('admin.contractor.index');
     }
-    public function detail($id)
+    public function details($id)
     {
         return view('admin.contractor.details');
     }
