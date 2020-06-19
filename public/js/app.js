@@ -37780,7 +37780,7 @@ var render = function() {
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
                   _c("td", { staticStyle: { "text-align": "center" } }, [
-                    _c("a", { attrs: { href: "contractor/" + row.id } }, [
+                    _c("a", { attrs: { href: "/order/" + row.id } }, [
                       _vm._v("Detail")
                     ])
                   ])
