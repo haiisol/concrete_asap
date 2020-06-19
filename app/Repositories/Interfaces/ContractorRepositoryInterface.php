@@ -6,5 +6,5 @@ use App\User;
 
 interface ContractorRepositoryInterface{
     public function getAllContractor();
-    public function getOrderDetails();
+    public function getOrderDetails($id);
 }
