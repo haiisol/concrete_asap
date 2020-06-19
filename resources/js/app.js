@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('order-table-component', require('./components/table/OrderTableComponent.vue').default);
 Vue.component('contractor-table-component', require('./components/table/ContractorTableComponent.vue').default);
 Vue.component('rep-table-component', require('./components/table/RepTableComponent.vue').default);
+Vue.component('contractor-details-table-component', require('./components/table/ContractorDetailsTableComponent.vue').default);
 
 // Vue.component(
 //     'passport-clients',

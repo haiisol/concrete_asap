@@ -40,11 +40,6 @@
         methods: {
             init: function() {
                 var self = this;
-
-                
-                var slug = this.$route.params.slug;
-                console.log(slug);
-                
                 axios.get('api/contractor/getAllContractor')
                 .then(response => {
                     //console.log(response.data);
