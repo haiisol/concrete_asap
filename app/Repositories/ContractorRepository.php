@@ -26,6 +26,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
         $users = DB::table('users')
             ->join('role_user', 'role_user.user_id', '=', 'users.id')
             ->join('user_details', 'user_details.user_id', '=', 'role_user.user_id')
+            ->where('role_user.role_id', 3)
             ->get();
 
         return $users;
