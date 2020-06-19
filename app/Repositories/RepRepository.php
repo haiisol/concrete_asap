@@ -19,7 +19,13 @@ class RepRepository implements Interfaces\RepRepositoryInterface
 
     // custom get order
     public function getAllRep(){
-        $users = Role::find(2)->users;
+        // $users = Role::find(2)->users;
+        $users = DB::table('users')
+            ->select('users.id', 'users.email', 'users.status', 'users.created_at', 'user_details.first_name')
+            ->join('role_user', 'role_user.user_id', '=', 'users.id')
+            ->join('user_details', 'user_details.user_id', '=', 'role_user.user_id')
+            ->where('role_user.role_id', 2)
+            ->get();
         return $users;
     }
 }
