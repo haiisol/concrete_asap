@@ -22,10 +22,10 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
     // custom get order
     public function getAllContractor(){
         // $users = Role::find(3)->users;
-        $users = Role::find(3)->users;
-        $users_with_info = $users->with('detail');
+        $users = Role::find(3)->users->detail();
+        // $users_with_info = $users->with('detail');
 
-        return $users_with_info;
+        return $users;
     }
     public function getOrderDetails($id){
         $orders = User::find($id)->orders;
