@@ -37706,7 +37706,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [
                     _c("a", { attrs: { href: "contractor/" + row.id } }, [
-                      _vm._v("View")
+                      _vm._v("Detail")
                     ])
                   ])
                 ])
@@ -37878,7 +37878,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [
                     _c("a", { attrs: { href: "rep/" + row.id } }, [
-                      _vm._v("View")
+                      _vm._v("Detail")
                     ])
                   ])
                 ])
