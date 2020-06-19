@@ -29,6 +29,10 @@ class ContractorController extends Controller
         // $users = User::all();
         return view('admin.contractor.index');
     }
+    public function show($id)
+    {
+        return view('admin.contractor.details');
+    }
 
     public function getAllContractor(){
         return response()->json($this->contractor_repo->getAllContractor(),200);

@@ -1951,6 +1951,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var self = this;
+      var slug = this.$route.params.slug;
+      console.log(slug);
       axios.get('api/contractor/getAllContractor').then(function (response) {
         //console.log(response.data);
         _this.data = response.data;
