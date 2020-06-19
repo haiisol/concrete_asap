@@ -24,6 +24,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
         // $users = Role::find(3)->users;
 
         $users = DB::table('users')
+            ->select('users.id', 'users.email', 'users.status', 'users.created_at', 'user_details.first_name')
             ->join('role_user', 'role_user.user_id', '=', 'users.id')
             ->join('user_details', 'user_details.user_id', '=', 'role_user.user_id')
             ->where('role_user.role_id', 3)
@@ -31,7 +32,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
 
         return $users;
     }
-    
+
     public function getOrderDetails($id){
         $orders = Order::where("user_id" , $id);
         return $orders;
