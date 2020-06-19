@@ -23,7 +23,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
     public function getAllContractor(){
         // $users = Role::find(3)->users;
         $users = Role::find(3)->users;
-        $users_with_info = $users->join('user_details' , 'user_details.user_id' , '=' , 'users.id' );
+        $users_with_info = $users->with('detail');
 
         return $users_with_info;
     }
