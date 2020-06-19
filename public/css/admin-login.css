@@ -2,7 +2,7 @@
 	background-color:#14E22A; 
 }
 .btn.custom-login-btn:hover{
-	background-color:#000; 
+	background-color:#000!important; 
 }
 .admin-login-logo{
 	margin-bottom: 30px;
