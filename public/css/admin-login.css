@@ -3,4 +3,8 @@
 }
 .admin-login-logo{
 	margin-bottom: 30px;
+	text-align: center;
+}
+.admin-login-logo img{
+	max-width: 400px;
 }
