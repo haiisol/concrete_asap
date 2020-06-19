@@ -24,7 +24,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
         // $users = Role::find(3)->users;
 
         $users = DB::table('users')
-            ->join('role_user', 'role_user.role_id', '=', 3)
+            ->join('role_user', 'role_user.user_id', '=', 'users.id')
             ->join('user_details', 'user_details.user_id', '=', 'role_user.user_id')
             ->get();
 
