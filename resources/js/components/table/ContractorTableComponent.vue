@@ -15,8 +15,8 @@
                     </thead>
                     <tbody>
                         <tr v-for="row in data">
+                            <td>{{row.first_name}}</td>
                             <td>{{row.email}}</td>
-                            <td>{{row.firstname}}</td>
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
                             <td style="text-align:center;">
@@ -34,7 +34,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["Email","First Name","Status","Created At","Actions"],
+                headers:["First Name","Email","Status","Created At","Actions"],
                 data:[]
             }
         },

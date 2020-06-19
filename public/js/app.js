@@ -2018,7 +2018,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Email", "First Name", "Status", "Created At", "Actions"],
+      headers: ["First Name", "Email", "Status", "Created At", "Actions"],
       data: []
     };
   },
@@ -37859,9 +37859,9 @@ var render = function() {
               "tbody",
               _vm._l(_vm.data, function(row) {
                 return _c("tr", [
-                  _c("td", [_vm._v(_vm._s(row.email))]),
+                  _c("td", [_vm._v(_vm._s(row.first_name))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.firstname))]),
+                  _c("td", [_vm._v(_vm._s(row.email))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.status))]),
                   _vm._v(" "),
