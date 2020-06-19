@@ -2,13 +2,11 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center logo-row">
-        <div class="col-md-12">
-            <img src="{{asset('images/concreteasap-logo.png')}}" alt="Concrete ASAP" title="Concrete ASAP">
-        </div>
-    </div>
     <div class="row justify-content-center vh-100 align-items-center">
         <div class="col-md-8">
+            <div class="admin-login-logo">
+                <img src="{{asset('images/concreteasap-logo.png')}}" alt="Concrete ASAP" title="Concrete ASAP">
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
