@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
-use App\Model\Order\Order\User;
+use App\Model\Order\Order;
 use App\Role;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
