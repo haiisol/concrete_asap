@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    <div class="row justify-content-center logo-row">
+        <div class="col-md-12">
+            <img src="{{asset('images/concreteasap-logo.png')}}" alt="Concrete ASAP" title="Concrete ASAP">
+        </div>
+    </div>
     <div class="row justify-content-center vh-100 align-items-center">
         <div class="col-md-8">
             <div class="card">
@@ -53,7 +58,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary custom-login-btn">
                                     {{ __('Login') }}
                                 </button>
 
