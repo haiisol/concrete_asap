@@ -11,3 +11,9 @@
 .admin-login-logo img{
 	max-width: 400px;
 }
+
+@media(max-width: 992px){
+	.admin-login-logo img{
+		max-width: 100%;
+	}
+}
