@@ -22,4 +22,8 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
         $users = Role::find(3)->users;
         return $users;
     }
+    public function getOrderDetails($id){
+        $orders = User::find($id)->orders;
+        return $orders;
+    }
 }
