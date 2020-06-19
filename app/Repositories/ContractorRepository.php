@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
+use App\Models\User\User_Details;
 use App\Models\Order\Order;
 use App\Role;
 use Illuminate\Support\Carbon;
@@ -21,7 +22,8 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
     // custom get order
     public function getAllContractor(){
         $users = Role::find(3)->users;
-        return $users;
+        $users_with_info = $users->join('user_details' , 'user_details.user_id' , '=' , $users->id );
+        return $users_with_info;
     }
     public function getOrderDetails($id){
         $orders = User::find($id)->orders;
