@@ -1,6 +1,9 @@
 .btn.custom-login-btn{
 	background-color:#14E22A; 
 }
+.btn.custom-login-btn:hover{
+	background-color:#000; 
+}
 .admin-login-logo{
 	margin-bottom: 30px;
 	text-align: center;
