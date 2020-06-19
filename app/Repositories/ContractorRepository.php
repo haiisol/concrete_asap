@@ -22,8 +22,11 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
     // custom get order
     public function getAllContractor(){
         // $users = Role::find(3)->users;
-        $users = Role::find(3)->users;
-        // $users_with_info = $users->with('detail');
+
+        $users = DB::table('users')
+            ->join('role_user', 'role_user.role_id', '=', 3)
+            ->join('user_details', 'user_details.user_id', '=', 'role_user.user_id')
+            ->get();
 
         return $users;
     }
