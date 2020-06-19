@@ -18,7 +18,7 @@
                             <td>{{row.email}}</td>
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
-                            <td>
+                            <td style="text-align:center;">
                                 <a :href="'rep/'+row.id">Detail</a>
                             </td>
                         </tr>

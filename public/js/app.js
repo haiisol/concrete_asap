@@ -37704,7 +37704,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticStyle: { "text-align": "center" } }, [
                     _c("a", { attrs: { href: "contractor/" + row.id } }, [
                       _vm._v("Detail")
                     ])
@@ -37876,7 +37876,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticStyle: { "text-align": "center" } }, [
                     _c("a", { attrs: { href: "rep/" + row.id } }, [
                       _vm._v("Detail")
                     ])
