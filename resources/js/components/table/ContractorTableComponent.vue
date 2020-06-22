@@ -34,7 +34,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["First Name","Email","Status","Created At","Actions"],
+                headers:["First Name","Email","Company","Created At","Actions"],
                 data:[]
             }
         },
