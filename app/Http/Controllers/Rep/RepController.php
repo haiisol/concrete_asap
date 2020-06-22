@@ -37,6 +37,6 @@ class RepController extends Controller
         return response()->json($this->rep_repo->getAllRep(),200);
     }
     public function getRepDetails($id){
-        return response()->json($this->contractor_repo->getRepDetails($id),200);
+        return response()->json($this->rep_repo->getRepDetails($id),200);
     }
 }
