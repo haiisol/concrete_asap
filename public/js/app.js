@@ -2216,6 +2216,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isFirstDataLoaded: false,
+      headers: ["Payment Type", "Status", "Created At", "Actions"],
       data_bids: [],
       data: []
     };

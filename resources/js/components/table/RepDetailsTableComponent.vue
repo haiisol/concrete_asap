@@ -56,6 +56,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
+                headers:["Payment Type","Status","Created At","Actions"],
                 data_bids:[],
                 data:[]
             }
