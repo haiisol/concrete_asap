@@ -33,7 +33,7 @@
 								<p>Urgency:<span>{{$order->orderConcrete->urgency}}</span></p>
 								<p>Message Required:<span>{{$order->orderConcrete->message_required == "1" ? "Yes" : "No" }}</span></p>
 								<p>Preference:<span>{{$order->orderConcrete->preference}}</span></p>
-								<p>Colours:<span>{{$order->orderConcrete->colours}}</span></p>
+								<p>Colours:<span>{{$order->orderConcrete->colours == "" ? "-" : $order->orderConcrete->colours}}</span></p>
 								<p>Delivery Instructions:<span>{{$order->orderConcrete->delivery_instructions}}</span></p>
 								<p>Special Instructions:<span>{{$order->orderConcrete->special_instructions}}</span></p>
 							</div>
