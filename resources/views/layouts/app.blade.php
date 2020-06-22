@@ -67,14 +67,14 @@
             $('#dataTableDisplay').DataTable();
             
             $(".mobile-toggle").on("click", function(){
-                $(".sidebar").addClass("active");
+                $(".sidebar").addClass("active-side");
             });
 
             $(".content").on("click", function(){
-              if($(".sidebar").hasClass("active")) {
-                $(".sidebar").removeClass("active");
+              if($(".sidebar").hasClass("active-side")) {
+                $(".sidebar").removeClass("active-side");
               } else {
-                $(".sidebar").addClass("active");
+                $(".sidebar").addClass("active-side");
               }
             });
             
