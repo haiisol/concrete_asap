@@ -16,7 +16,6 @@
                     <tbody>
                         <tr v-for="row in data">
                             <td>{{row.job_id}}</td>
-                            <td>{{row.order_type}}</td>
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
                             <td>
@@ -34,7 +33,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["Job Id","Order Type","Status","Created At","Actions"],
+                headers:["Job Id","Status","Created At","Actions"],
                 data:[]
             }
         },

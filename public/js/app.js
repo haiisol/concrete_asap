@@ -2081,12 +2081,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Job Id", "Order Type", "Status", "Created At", "Actions"],
+      headers: ["Job Id", "Status", "Created At", "Actions"],
       data: []
     };
   },
@@ -38006,8 +38005,6 @@ var render = function() {
                 return _c("tr", [
                   _c("td", [_vm._v(_vm._s(row.job_id))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.order_type))]),
-                  _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.status))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
@@ -50856,8 +50853,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\concrete\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
