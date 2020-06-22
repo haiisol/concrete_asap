@@ -29,8 +29,14 @@ class RepController extends Controller
         // $users = User::all();
         return view('admin.rep.index');
     }
-
+    public function details($id)
+    {
+        return view('admin.rep.details');
+    }
     public function getAllRep(){
         return response()->json($this->rep_repo->getAllRep(),200);
+    }
+    public function getRepDetails($id){
+        return response()->json($this->contractor_repo->getRepDetails($id),200);
     }
 }

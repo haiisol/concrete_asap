@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 use App\User;
 use App\Role;
+use App\Models\User\User_Details;
+use App\Models\Order\Order;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -28,4 +30,8 @@ class RepRepository implements Interfaces\RepRepositoryInterface
             ->get();
         return $users;
     }
+    public function getRepDetails($id){
+        $user_details = User_Details::where("user_id" , $id)->get();
+        return $user_details;
+    } 
 }

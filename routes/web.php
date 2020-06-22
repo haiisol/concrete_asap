@@ -62,13 +62,14 @@ Route::group([
 
     // contractor
     Route::get('/api/contractor/getAllContractor','Contractor\ContractorController@getAllContractor');
-    Route::get('/contractor','Contractor\ContractorController@index');
-    Route::get('/contractor/{id}','Contractor\ContractorController@details');
     Route::get('/api/contractor/getContractorDetails/{id}','Contractor\ContractorController@getContractorDetails');
     Route::get('/api/contractor/getOrderDetails/{id}','Contractor\ContractorController@getOrderDetails');
+    Route::get('/contractor','Contractor\ContractorController@index');
+    Route::get('/contractor/{id}','Contractor\ContractorController@details');
 
     // rep
     Route::get('/api/rep/getAllRep','Rep\RepController@getAllRep');
+    Route::get('/api/rep/getRepDetails/{id}','Rep\RepController@getRepDetails');
     Route::get('/rep','Rep\RepController@index'); 
 });
 
