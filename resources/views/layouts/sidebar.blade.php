@@ -6,8 +6,8 @@
    <div class="logo">
       
       <a href="<?php echo url('/'); ?>" class="simple-text logo-normal">
-         <div class="logo-image-big">
-            <img src="{{asset('images/concreteasap-logo.png')}}" alt="Concrete ASAP" title="Concrete ASAP">
+         <div class="logo-image-big text-center">
+            <img src="{{asset('images/concreteasap-logo.png')}}" alt="Concrete ASAP" title="Concrete ASAP" style="max-width: 225px">
          </div>
       </a>
    </div>
