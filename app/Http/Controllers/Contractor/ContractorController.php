@@ -38,7 +38,7 @@ class ContractorController extends Controller
         return response()->json($this->contractor_repo->getAllContractor(),200);
     }
     public function getContractorDetails($id){
-        return response()->json($this->contractor_repo->getContractorDetails(),200);
+        return response()->json($this->contractor_repo->getContractorDetails($id),200);
     }
     public function getOrderDetails($id){
         return response()->json($this->contractor_repo->getOrderDetails($id),200);
