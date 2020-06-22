@@ -1959,11 +1959,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Jobs ID", "Status", "Created At", "Actions"],
+      headers: ["Job ID", "Status", "Created At", "Actions"],
       data_jobs: [],
       data: []
     };
@@ -37833,119 +37836,124 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container-fluid" }, [
-    _c(
-      "div",
-      { staticClass: "row justify-content-center" },
-      _vm._l(_vm.data, function(row) {
-        return _c(
-          "div",
-          {
-            staticClass: "card card-circle-chart w-100",
-            attrs: { "data-background-color": "white" }
-          },
-          [
-            _c("div", { staticClass: "card-header text-center" }, [
-              _c("img", { attrs: { src: row.profile_image } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-content" }, [
-              _c("div", { staticClass: "order-details xp-4" }, [
-                _c("h5", [_vm._v("Profile Details:")]),
-                _vm._v(" "),
-                _c("hr"),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("First Name:"),
-                  _c("span", [_vm._v(_vm._s(row.first_name))])
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("Last Name:"),
-                  _c("span", [_vm._v(_vm._s(row.last_name))])
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("Company:"),
-                  _c("span", [_vm._v(_vm._s(row.company))])
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("Phone Number:"),
-                  _c("span", [_vm._v(_vm._s(row.phone_number))])
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("State:"),
-                  _c("span", [_vm._v(_vm._s(row.state))])
-                ]),
-                _vm._v(" "),
-                _c("p", [
-                  _vm._v("City:"),
-                  _c("span", [_vm._v(_vm._s(row.city))])
-                ]),
-                _vm._v(" "),
-                _c("p", [_vm._v("ABN:"), _c("span", [_vm._v(_vm._s(row.abn))])])
+  return _c("div", { staticClass: "contractor-details-section" }, [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c(
+        "div",
+        { staticClass: "row justify-content-center" },
+        _vm._l(_vm.data, function(row) {
+          return _c(
+            "div",
+            {
+              staticClass: "card card-circle-chart w-100",
+              attrs: { "data-background-color": "white" }
+            },
+            [
+              _c("div", { staticClass: "card-header text-center" }, [
+                _c("img", { attrs: { src: row.profile_image } })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-content" }, [
+                _c("div", { staticClass: "order-details px-4" }, [
+                  _c("h5", [_vm._v("Profile Details:")]),
+                  _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("First Name:"),
+                    _c("span", [_vm._v(_vm._s(row.first_name))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Last Name:"),
+                    _c("span", [_vm._v(_vm._s(row.last_name))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Company:"),
+                    _c("span", [_vm._v(_vm._s(row.company))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Phone Number:"),
+                    _c("span", [_vm._v(_vm._s(row.phone_number))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("State:"),
+                    _c("span", [_vm._v(_vm._s(row.state))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("City:"),
+                    _c("span", [_vm._v(_vm._s(row.city))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("ABN:"),
+                    _c("span", [_vm._v(_vm._s(row.abn))])
+                  ])
+                ])
               ])
-            ])
-          ]
-        )
-      }),
-      0
-    ),
+            ]
+          )
+        }),
+        0
+      )
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12" }, [
-        _c(
-          "table",
-          {
-            staticClass:
-              "table table-striped table-bordered table-responsive-sm",
-            staticStyle: { width: "100%" },
-            attrs: { id: "dataTableDisplayVue" }
-          },
-          [
-            _c("thead", [
+    _c("div", { staticClass: "container-fluid" }, [
+      _c("div", { staticClass: "row justify-content-center" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-12" }, [
+          _c(
+            "table",
+            {
+              staticClass:
+                "table table-striped table-bordered table-responsive-sm",
+              staticStyle: { width: "100%" },
+              attrs: { id: "dataTableDisplayVue" }
+            },
+            [
+              _c("thead", [
+                _c(
+                  "tr",
+                  _vm._l(_vm.headers, function(header) {
+                    return _c("th", [
+                      _vm._v(
+                        "\n                                " +
+                          _vm._s(header) +
+                          "\n                            "
+                      )
+                    ])
+                  }),
+                  0
+                )
+              ]),
+              _vm._v(" "),
               _c(
-                "tr",
-                _vm._l(_vm.headers, function(header) {
-                  return _c("th", [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(header) +
-                        "\n                        "
-                    )
+                "tbody",
+                _vm._l(_vm.data_jobs, function(row) {
+                  return _c("tr", [
+                    _c("td", [_vm._v(_vm._s(row.job_id))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(row.status))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(row.created_at))]),
+                    _vm._v(" "),
+                    _c("td", { staticStyle: { "text-align": "center" } }, [
+                      _c("a", { attrs: { href: "/order/" + row.id } }, [
+                        _vm._v("Detail")
+                      ])
+                    ])
                   ])
                 }),
                 0
               )
-            ]),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.data_jobs, function(row) {
-                return _c("tr", [
-                  _c("td", [_vm._v(_vm._s(row.first_name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.email))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.company))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.created_at))]),
-                  _vm._v(" "),
-                  _c("td", { staticStyle: { "text-align": "center" } }, [
-                    _c("a", { attrs: { href: "contractor/" + row.id } }, [
-                      _vm._v("Detail")
-                    ])
-                  ])
-                ])
-              }),
-              0
-            )
-          ]
-        )
+            ]
+          )
+        ])
       ])
     ])
   ])
