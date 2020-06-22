@@ -411,9 +411,8 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $orders = Order::all();
         return $orders;
     }
-    public function getCompletedJobs($id){
+    public function getCompletedJobs(){
         $orders = Order::where([
-                                ['user_id', '=', $id],
                                 ['status', '=', 'Complete']
                             ])->get();
         return $orders;
