@@ -70,6 +70,7 @@ Route::group([
     // rep
     Route::get('/api/rep/getAllRep','Rep\RepController@getAllRep');
     Route::get('/api/rep/getRepDetails/{id}','Rep\RepController@getRepDetails');
+    Route::get('/api/rep/getRepBids/{id}','Rep\RepController@getRepBids');
     Route::get('/rep','Rep\RepController@index'); 
     Route::get('/rep/{id}','Rep\RepController@details');
 });
