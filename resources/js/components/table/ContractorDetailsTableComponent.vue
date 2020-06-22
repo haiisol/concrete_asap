@@ -1,7 +1,7 @@
 <template>    
     <div class="container-fluid">
         <div class="row justify-content-center">       
-            <div class="card card-circle-chart w-100" data-background-color="white">
+            <div class="card card-circle-chart w-100" data-background-color="white" v-for="row in data">
                 <div class="card-header text-center">
                     <img :src="row.profile_image" />
                 </div>
@@ -9,12 +9,12 @@
                     <div class="order-details px-4">
                         <h5>Profile Details:</h5>
                         <hr/>
-                        <p>{{row.first_name}}</p>
-                        <p>{{row.last_name}}</p>
-                        <p>{{row.phone_number}}</p>
-                        <p>{{row.state}}</p>
-                        <p>{{row.city}}</p>
-                        <p>{{row.abn}}</p>
+                        <p>First Name:<span>{{row.first_name}}</span></p>
+                        <p>Last Name:<span>{{row.last_name}}</span></p>
+                        <p>Phone Number:<span>{{row.phone_number}}</span></p>
+                        <p>State:<span>{{row.state}}</span></p>
+                        <p>City:<span>{{row.city}}</span></p>
+                        <p>ABN:<span>{{row.abn}}</span></p>
                     </div>              
                 </div>
             </div>
@@ -26,7 +26,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["Profile Image","First Name","Last Name","Phone Number","State","City","ABN"],
+                //headers:["Profile Image","First Name","Last Name","Phone Number","State","City","ABN"],
                 data:[]
             }
         },

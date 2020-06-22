@@ -1935,7 +1935,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Profile Image", "First Name", "Last Name", "Phone Number", "State", "City", "ABN"],
+      //headers:["Profile Image","First Name","Last Name","Phone Number","State","City","ABN"],
       data: []
     };
   },
@@ -37736,40 +37736,60 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        {
-          staticClass: "card card-circle-chart w-100",
-          attrs: { "data-background-color": "white" }
-        },
-        [
-          _c("div", { staticClass: "card-header text-center" }, [
-            _c("img", { attrs: { src: _vm.row.profile_image } })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-content" }, [
-            _c("div", { staticClass: "order-details px-4" }, [
-              _c("h5", [_vm._v("Profile Details:")]),
-              _vm._v(" "),
-              _c("hr"),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.row.first_name))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.row.last_name))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.row.phone_number))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.row.state))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.row.city))]),
-              _vm._v(" "),
-              _c("p", [_vm._v(_vm._s(_vm.row.abn))])
+    _c(
+      "div",
+      { staticClass: "row justify-content-center" },
+      _vm._l(_vm.data, function(row) {
+        return _c(
+          "div",
+          {
+            staticClass: "card card-circle-chart w-100",
+            attrs: { "data-background-color": "white" }
+          },
+          [
+            _c("div", { staticClass: "card-header text-center" }, [
+              _c("img", { attrs: { src: row.profile_image } })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-content" }, [
+              _c("div", { staticClass: "order-details px-4" }, [
+                _c("h5", [_vm._v("Profile Details:")]),
+                _vm._v(" "),
+                _c("hr"),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("First Name:"),
+                  _c("span", [_vm._v(_vm._s(row.first_name))])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("Last Name:"),
+                  _c("span", [_vm._v(_vm._s(row.last_name))])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("Phone Number:"),
+                  _c("span", [_vm._v(_vm._s(row.phone_number))])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("State:"),
+                  _c("span", [_vm._v(_vm._s(row.state))])
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v("City:"),
+                  _c("span", [_vm._v(_vm._s(row.city))])
+                ]),
+                _vm._v(" "),
+                _c("p", [_vm._v("ABN:"), _c("span", [_vm._v(_vm._s(row.abn))])])
+              ])
             ])
-          ])
-        ]
-      )
-    ])
+          ]
+        )
+      }),
+      0
+    )
   ])
 }
 var staticRenderFns = []
