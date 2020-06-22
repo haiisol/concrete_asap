@@ -37890,7 +37890,8 @@ var render = function() {
         _c(
           "table",
           {
-            staticClass: "table table-striped table-bordered table-responsive",
+            staticClass:
+              "table table-striped table-bordered table-responsive-sm",
             staticStyle: { width: "100%" },
             attrs: { id: "dataTableDisplayVue" }
           },
@@ -37977,7 +37978,8 @@ var render = function() {
         _c(
           "table",
           {
-            staticClass: "table table-striped table-bordered table-responsive",
+            staticClass:
+              "table table-striped table-bordered table-responsive-sm",
             staticStyle: { width: "100%" },
             attrs: { id: "dataTableDisplayVue" }
           },
@@ -38143,7 +38145,8 @@ var render = function() {
         _c(
           "table",
           {
-            staticClass: "table table-striped table-bordered table-responsive",
+            staticClass:
+              "table table-striped table-bordered table-responsive-sm",
             staticStyle: { width: "100%" },
             attrs: { id: "dataTableDisplayVue" }
           },
