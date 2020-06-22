@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <h4 class="font-bold">Posted Jobs</h4>
+                    <h4 class="font-bold">Bids</h4>
                 </div>
                 <div class="col-md-12">
                     <table class="table table-striped table-bordered table-responsive-sm" id="dataTableDisplayVue" style="width:100%">
