@@ -24,8 +24,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
         return view('admin.order.index');
+    }
+    public function completedJobs()
+    {
+        return view('admin.order.completed_jobs');
     }
 
     /**
@@ -106,10 +109,10 @@ class OrderController extends Controller
      *
      * @param  Request  $request
     */
-    public function getOrders(Request $request){
-        // var_dump("ok");
-        // var_dump($this->order_repo->getAllOrder());
-        
+    public function getOrders(){
         return response()->json($this->order_repo->getAllOrders(),200);
+    }
+    public function getCompletedJobs(){
+        return response()->json($this->order_repo->getCompletedJobs(),200);
     }
 }

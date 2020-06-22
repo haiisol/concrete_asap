@@ -55,10 +55,14 @@ Route::group([
     'middleware' => ['auth','checkRole'],
 ], function ($router) {
 	Route::get('/home', 'HomeController@index')->name('home');
-	Route::resource('/order','Admin\OrderController');
+
+    // posted jobs
 	Route::get('/api/orders/getAll','Admin\OrderController@getOrders');
+	Route::resource('/order','Admin\OrderController');
 
-
+    // complete jobs
+    Route::get('/api/orders/getCompletedJobs','Admin\OrderController@getCompletedJobs');
+    Route::get('/completed-jobs','Admin\OrderController@completedJobs');
 
     // contractor
     Route::get('/api/contractor/getAllContractor','Contractor\ContractorController@getAllContractor');
