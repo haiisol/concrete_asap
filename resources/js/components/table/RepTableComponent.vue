@@ -20,7 +20,7 @@
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
                             <td style="text-align:center;">
-                                <a :href="'rep/'+row.id">Detail</a>
+                                <a :href="'/rep/'+row.id">Detail</a>
                             </td>
                         </tr>
                     </tbody>
