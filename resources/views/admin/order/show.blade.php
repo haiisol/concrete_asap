@@ -10,13 +10,16 @@
 			<div class="card-content">
 				<div class="order-details px-4">
 					
-					<p>Suburb:<span>{{$order->orderConcrete->suburb}}</span></p>
-					<p>Order Type:<span>{!!$order->order_type!!}</span></p>
-					<p>Post Code:<span>{{$order->orderConcrete->post_code}}</span></p>
-					<p>State:<span>{{$order->orderConcrete->state}}</span></p>
-					<p>Address:<span>{{$order->orderConcrete->address}}</span></p>
+					
 					<div class="container">
 						<div class="row">
+							<div class="col-md-12">
+								<p>Suburb:<span>{{$order->orderConcrete->suburb}}</span></p>
+								<p>Order Type:<span>{!!$order->order_type!!}</span></p>
+								<p>Post Code:<span>{{$order->orderConcrete->post_code}}</span></p>
+								<p>State:<span>{{$order->orderConcrete->state}}</span></p>
+								<p>Address:<span>{{$order->orderConcrete->address}}</span></p>
+							</div>
 							<div class="col-md-6">
 								<h5>Concrete Details:</h5>
 								<hr/>
