@@ -15,12 +15,13 @@
                     </thead>
                     <tbody>
                         <tr v-for="row in data">
-                            <td>{{row.job_id}}</td>
-                            <td>{{row.status}}</td>
-                            <td>{{row.created_at}}</td>
-                            <td style="text-align:center;">
-                                <a :href="'/order/'+row.id">Detail</a>
-                            </td>
+                            <td><img src="{{row.profile_image}}"/></td>
+                            <td>{{row.first_name}}</td>
+                            <td>{{row.last_name}}</td>
+                            <td>{{row.phone_number}}</td>
+                            <td>{{row.state}}</td>
+                            <td>{{row.city}}</td>
+                            <td>{{row.abn}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -33,7 +34,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["Job Id","Status","Created At","Actions"],
+                headers:["Profile Image","First Name","Last Name","Phone Number","State","City","ABN"],
                 data:[]
             }
         },
@@ -42,7 +43,7 @@
                 var self = this;
                 var slug_id = parseInt(window.location.pathname.split("/").pop());
 
-                axios.get('/api/contractor/getOrderDetails/' + slug_id)
+                axios.get('/api/contractor/getContractorDetails/' + slug_id)
                 .then(response => {
                     //console.log(response.data);
                     this.data=response.data;
