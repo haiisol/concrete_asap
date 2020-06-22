@@ -1931,11 +1931,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      //headers:["Profile Image","First Name","Last Name","Phone Number","State","City","ABN"],
       data: []
     };
   },
@@ -37835,6 +37835,11 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("p", [
+                  _vm._v("Company:"),
+                  _c("span", [_vm._v(_vm._s(row.company))])
+                ]),
+                _vm._v(" "),
+                _c("p", [
                   _vm._v("Phone Number:"),
                   _c("span", [_vm._v(_vm._s(row.phone_number))])
                 ]),
@@ -37919,7 +37924,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.email))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.status))]),
+                  _c("td", [_vm._v(_vm._s(row.company))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
@@ -50853,8 +50858,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\concrete\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
