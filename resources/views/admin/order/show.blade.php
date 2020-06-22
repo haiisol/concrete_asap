@@ -12,9 +12,9 @@
 					
 					<p>Suburb:<span>{{$order->orderConcrete->suburb}}</span></p>
 					<p>Order Type:<span>{!!$order->order_type!!}</span></p>
-					<p>Post Code:<span>{{$order->post_code}}</span></p>
-					<p>State:<span>{{$order->state}}</span></p>
-					<p>Address:<span>{{$order->address}}</span></p>
+					<p>Post Code:<span>{{$order->orderConcrete->post_code}}</span></p>
+					<p>State:<span>{{$order->orderConcrete->state}}</span></p>
+					<p>Address:<span>{{$order->orderConcrete->address}}</span></p>
 					<div class="container">
 						<div class="row">
 							<div class="col-md-6">
