@@ -23,13 +23,7 @@
                <i class="nc-icon nc-shop"></i>
                <p>Dashboard</p>
             </a>
-         </li>
-         <li class="<?php echo $name === "order" ? "active" : ""; ?>">
-            <a href="/order">
-               <i class="nc-icon nc-cart-simple"></i>
-               <p>Order</p>
-            </a>
-         </li>
+         </li> 
          <li class="<?php echo $name === "contractor" ? "active" : ""; ?>">
             <a href="/contractor">
                <i class="nc-icon nc-settings"></i>
@@ -42,9 +36,9 @@
                <p>REP</p>
             </a>
          </li>
-         <li class="">
-            <a href="/posted-jobs">
-               <i class="nc-icon nc-settings"></i>
+         <li class="<?php echo $name === "order" ? "active" : ""; ?>">
+            <a href="/order">
+               <i class="nc-icon nc-cart-simple"></i>
                <p>Posted Jobs</p>
             </a>
          </li>
