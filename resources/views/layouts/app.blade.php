@@ -65,6 +65,19 @@
     <script>
         jQuery(document).ready(function($) {
             $('#dataTableDisplay').DataTable();
+            
+            $(".mobile-toggle").on("click", function(){
+                $(".sidebar").addClass("active");
+            });
+
+            $(".content").on("click", function(){
+              if($(".sidebar").hasClass("active")) {
+                $(".sidebar").removeClass("active");
+              } else {
+                $(".sidebar").addClass("active");
+              }
+            });
+            
         } );
     </script>
 </body>

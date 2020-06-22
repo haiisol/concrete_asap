@@ -37890,7 +37890,7 @@ var render = function() {
         _c(
           "table",
           {
-            staticClass: "table table-striped table-bordered",
+            staticClass: "table table-striped table-bordered table-responsive",
             staticStyle: { width: "100%" },
             attrs: { id: "dataTableDisplayVue" }
           },
@@ -37977,7 +37977,7 @@ var render = function() {
         _c(
           "table",
           {
-            staticClass: "table table-striped table-bordered",
+            staticClass: "table table-striped table-bordered table-responsive",
             staticStyle: { width: "100%" },
             attrs: { id: "dataTableDisplayVue" }
           },
@@ -38143,7 +38143,7 @@ var render = function() {
         _c(
           "table",
           {
-            staticClass: "table table-striped table-bordered",
+            staticClass: "table table-striped table-bordered table-responsive",
             staticStyle: { width: "100%" },
             attrs: { id: "dataTableDisplayVue" }
           },
@@ -50853,8 +50853,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\concrete\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

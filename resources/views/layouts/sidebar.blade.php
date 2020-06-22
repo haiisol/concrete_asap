@@ -4,16 +4,11 @@
       Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
       -->
    <div class="logo">
-      <a href="<?php echo url('/'); ?>" class="simple-text logo-mini">
-         <div class="logo-image-small">
-            <i class="fa fa-user fa-2x"></i>
-         </div>
-      </a>
+      
       <a href="<?php echo url('/'); ?>" class="simple-text logo-normal">
-         Administrator
-         <!-- <div class="logo-image-big">
-            <img src="../assets/img/logo-big.png">
-            </div> -->
+         <div class="logo-image-big">
+            <img src="{{asset('images/concreteasap-logo.png')}}" alt="Concrete ASAP" title="Concrete ASAP">
+         </div>
       </a>
    </div>
    <div class="sidebar-wrapper ps-container ps-theme-default ps-active-x" data-ps-id="bd18f92f-90ed-1128-56bf-1f8f1ebb91b6">
