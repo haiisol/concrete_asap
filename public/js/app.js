@@ -1938,11 +1938,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Job Id", "Status", "Created At", "Actions"],
+      headers: ["Profile Image", "First Name", "Last Name", "Phone Number", "State", "City", "ABN"],
       data: []
     };
   },
@@ -1952,7 +1953,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var self = this;
       var slug_id = parseInt(window.location.pathname.split("/").pop());
-      axios.get('/api/contractor/getOrderDetails/' + slug_id).then(function (response) {
+      axios.get('/api/contractor/getContractorDetails/' + slug_id).then(function (response) {
         //console.log(response.data);
         _this.data = response.data;
         self.isFirstDataLoaded = true;
@@ -37775,17 +37776,19 @@ var render = function() {
               "tbody",
               _vm._l(_vm.data, function(row) {
                 return _c("tr", [
-                  _c("td", [_vm._v(_vm._s(row.job_id))]),
+                  _c("td", [_c("img", { attrs: { src: row.profile_image } })]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.status))]),
+                  _c("td", [_vm._v(_vm._s(row.first_name))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.created_at))]),
+                  _c("td", [_vm._v(_vm._s(row.last_name))]),
                   _vm._v(" "),
-                  _c("td", { staticStyle: { "text-align": "center" } }, [
-                    _c("a", { attrs: { href: "/order/" + row.id } }, [
-                      _vm._v("Detail")
-                    ])
-                  ])
+                  _c("td", [_vm._v(_vm._s(row.phone_number))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.state))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.city))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.abn))])
                 ])
               }),
               0

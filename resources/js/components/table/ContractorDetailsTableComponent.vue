@@ -15,7 +15,7 @@
                     </thead>
                     <tbody>
                         <tr v-for="row in data">
-                            <td><img src="{{row.profile_image}}"/></td>
+                            <td><img :src="row.profile_image" /></td>
                             <td>{{row.first_name}}</td>
                             <td>{{row.last_name}}</td>
                             <td>{{row.phone_number}}</td>
