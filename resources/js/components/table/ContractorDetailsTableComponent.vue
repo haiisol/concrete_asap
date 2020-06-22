@@ -6,7 +6,7 @@
                     <img :src="row.profile_image" />
                 </div>
                 <div class="card-content">
-                    <div class="order-details px-4">
+                    <div class="order-details xp-4">
                         <h5>Profile Details:</h5>
                         <hr/>
                         <p>First Name:<span>{{row.first_name}}</span></p>
@@ -20,6 +20,33 @@
                 </div>
             </div>
         </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h4 class="font-bold">Posted Jobs</h4>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-striped table-bordered table-responsive-sm" id="dataTableDisplayVue" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th v-for="header in headers">
+                                {{header}}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="row in data_jobs">
+                            <td>{{row.first_name}}</td>
+                            <td>{{row.email}}</td>
+                            <td>{{row.company}}</td>
+                            <td>{{row.created_at}}</td>
+                            <td style="text-align:center;">
+                                <a :href="'contractor/'+row.id">Detail</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -27,7 +54,9 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                data:[]
+                headers:["Jobs ID","Status","Created At","Actions"],
+                data_jobs:[],
+                data:[],
             }
         },
         methods: {
@@ -37,8 +66,12 @@
 
                 axios.get('/api/contractor/getContractorDetails/' + slug_id)
                 .then(response => {
-                    //console.log(response.data);
                     this.data=response.data;
+                });
+
+                axios.get('/api/contractor/getPostedJobs/' + slug_id)
+                .then(response => {
+                    this.data_jobs=response.data;
                     self.isFirstDataLoaded = true;
                     Vue.nextTick(function(){
                         self.dataTable = jQuery('#dataTableDisplayVue').DataTable({

@@ -1932,10 +1932,39 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       isFirstDataLoaded: false,
+      headers: ["Jobs ID", "Status", "Created At", "Actions"],
+      data_jobs: [],
       data: []
     };
   },
@@ -1946,8 +1975,10 @@ __webpack_require__.r(__webpack_exports__);
       var self = this;
       var slug_id = parseInt(window.location.pathname.split("/").pop());
       axios.get('/api/contractor/getContractorDetails/' + slug_id).then(function (response) {
-        //console.log(response.data);
         _this.data = response.data;
+      });
+      axios.get('/api/contractor/getPostedJobs/' + slug_id).then(function (response) {
+        _this.data_jobs = response.data;
         self.isFirstDataLoaded = true;
         Vue.nextTick(function () {
           self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
@@ -37819,7 +37850,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-content" }, [
-              _c("div", { staticClass: "order-details px-4" }, [
+              _c("div", { staticClass: "order-details xp-4" }, [
                 _c("h5", [_vm._v("Profile Details:")]),
                 _vm._v(" "),
                 _c("hr"),
@@ -37861,10 +37892,74 @@ var render = function() {
         )
       }),
       0
-    )
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-12" }, [
+        _c(
+          "table",
+          {
+            staticClass:
+              "table table-striped table-bordered table-responsive-sm",
+            staticStyle: { width: "100%" },
+            attrs: { id: "dataTableDisplayVue" }
+          },
+          [
+            _c("thead", [
+              _c(
+                "tr",
+                _vm._l(_vm.headers, function(header) {
+                  return _c("th", [
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(header) +
+                        "\n                        "
+                    )
+                  ])
+                }),
+                0
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.data_jobs, function(row) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(row.first_name))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.email))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.company))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(row.created_at))]),
+                  _vm._v(" "),
+                  _c("td", { staticStyle: { "text-align": "center" } }, [
+                    _c("a", { attrs: { href: "contractor/" + row.id } }, [
+                      _vm._v("Detail")
+                    ])
+                  ])
+                ])
+              }),
+              0
+            )
+          ]
+        )
+      ])
+    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("h4", { staticClass: "font-bold" }, [_vm._v("Posted Jobs")])
+    ])
+  }
+]
 render._withStripped = true
 
 
