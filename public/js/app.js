@@ -1931,14 +1931,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37745,70 +37737,42 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container-fluid" }, [
     _c("div", { staticClass: "row justify-content-center" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "col-md-12" }, [
-        _c(
-          "table",
-          {
-            staticClass: "table table-striped table-bordered",
-            staticStyle: { width: "100%" },
-            attrs: { id: "dataTableDisplayVue" }
-          },
-          [
-            _c("thead", [
-              _c(
-                "tr",
-                _vm._l(_vm.headers, function(header) {
-                  return _c("th", [
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(header) +
-                        "\n                        "
-                    )
-                  ])
-                }),
-                0
-              )
-            ]),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.data, function(row) {
-                return _c("tr", [
-                  _c("td", [_c("img", { attrs: { src: row.profile_image } })]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.first_name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.last_name))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.phone_number))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.state))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.city))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.abn))])
-                ])
-              }),
-              0
-            )
-          ]
-        )
-      ])
+      _c(
+        "div",
+        {
+          staticClass: "card card-circle-chart w-100",
+          attrs: { "data-background-color": "white" }
+        },
+        [
+          _c("div", { staticClass: "card-header text-center" }, [
+            _c("img", { attrs: { src: _vm.row.profile_image } })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-content" }, [
+            _c("div", { staticClass: "order-details px-4" }, [
+              _c("h5", [_vm._v("Profile Details:")]),
+              _vm._v(" "),
+              _c("hr"),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.row.first_name))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.row.last_name))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.row.phone_number))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.row.state))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.row.city))]),
+              _vm._v(" "),
+              _c("p", [_vm._v(_vm._s(_vm.row.abn))])
+            ])
+          ])
+        ]
+      )
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "font-bold" }, [_vm._v("Contractor Table")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

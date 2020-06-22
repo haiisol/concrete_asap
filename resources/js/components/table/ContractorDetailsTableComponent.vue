@@ -1,30 +1,22 @@
 <template>    
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <h4 class="font-bold">Contractor Table</h4>
-            </div>
-            <div class="col-md-12">
-                <table class="table table-striped table-bordered" id="dataTableDisplayVue" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th v-for="header in headers">
-                                {{header}}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr v-for="row in data">
-                            <td><img :src="row.profile_image" /></td>
-                            <td>{{row.first_name}}</td>
-                            <td>{{row.last_name}}</td>
-                            <td>{{row.phone_number}}</td>
-                            <td>{{row.state}}</td>
-                            <td>{{row.city}}</td>
-                            <td>{{row.abn}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="row justify-content-center">       
+            <div class="card card-circle-chart w-100" data-background-color="white">
+                <div class="card-header text-center">
+                    <img :src="row.profile_image" />
+                </div>
+                <div class="card-content">
+                    <div class="order-details px-4">
+                        <h5>Profile Details:</h5>
+                        <hr/>
+                        <p>{{row.first_name}}</p>
+                        <p>{{row.last_name}}</p>
+                        <p>{{row.phone_number}}</p>
+                        <p>{{row.state}}</p>
+                        <p>{{row.city}}</p>
+                        <p>{{row.abn}}</p>
+                    </div>              
+                </div>
             </div>
         </div>
     </div>
