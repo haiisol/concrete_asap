@@ -38224,9 +38224,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticStyle: { "text-align": "center" } }, [
                     _c("a", { attrs: { href: "/order/" + row.id } }, [
-                      _vm._v("View")
+                      _vm._v("Details")
                     ])
                   ])
                 ])
@@ -38310,9 +38310,9 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
-                  _c("td", [
+                  _c("td", { staticStyle: { "text-align": "center" } }, [
                     _c("a", { attrs: { href: "/order/" + row.id } }, [
-                      _vm._v("View")
+                      _vm._v("Detail")
                     ])
                   ])
                 ])

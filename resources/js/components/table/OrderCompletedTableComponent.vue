@@ -18,8 +18,8 @@
                             <td>{{row.job_id}}</td>
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
-                            <td>
-                                <a :href="'/order/'+row.id">View</a>
+                            <td style="text-align:center;">
+                                <a :href="'/order/'+row.id">Details</a>
                             </td>
                         </tr>
                     </tbody>
