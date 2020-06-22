@@ -11,9 +11,9 @@
 				<div class="order-details px-4">
 					<p>Suburb:<span>{{$order->orderConcrete->suburb}}</span></p>
 					<p>Order Type:<span>{!!$order->order_type!!}</span></p>
-					<p>Post Code:<span>{$order->post_code}</span></p>
-					<p>State:<span>{$order->state}</span></p>
-					<p>Address:<span>{$order->address}</span></p>
+					<p>Post Code:<span>{{$order->post_code}}</span></p>
+					<p>State:<span>{{$order->state}}</span></p>
+					<p>Address:<span>{{$order->address}}</span></p>
 					<h5>Concrete Details:</h5>
 					<hr/>
 					<p>Type:<span>{{$order->orderConcrete->type}}</span></p>
@@ -24,14 +24,24 @@
 					<p>ACC:<span>{{$order->orderConcrete->acc}}</span></p>
 					<p>Quantity:<span>{{$order->orderConcrete->quantity}}</span></p>
 					<br>
-					<p>Delivery Date 1:<span>{{$order->orderConcrete->delivery_date}}</span></p>
-					<p>Time preference 1:<span>{{$order->orderConcrete->time_preference1}}</span></p>
-					<br>
-					<p>Delivery Date 2:<span>{{$order->orderConcrete->delivery_date1}}</span></p>
-					<p>Time Preference 2:<span>{{$order->orderConcrete->time_preference2}}</span></p>
-					<br>
-					<p>Delivery Date 3:<span>{{$order->orderConcrete->delivery_date2}}</span></p>
-					<p>Time Preference 3:<span>{{$order->orderConcrete->time_preference3}}</span></p>
+
+					<h6>Delivery: </h6>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<p>Delivery Date 1:<span>{{$order->orderConcrete->delivery_date}}</span></p>
+								<p>Time preference 1:<span>{{$order->orderConcrete->time_preference1}}</span></p>
+							</div>
+							<div class="col-md-4">
+								<p>Delivery Date 2:<span>{{$order->orderConcrete->delivery_date1}}</span></p>
+								<p>Time Preference 2:<span>{{$order->orderConcrete->time_preference2}}</span></p>
+							</div>
+							<div class="col-md-4">
+								<p>Delivery Date 3:<span>{{$order->orderConcrete->delivery_date2}}</span></p>
+								<p>Time Preference 3:<span>{{$order->orderConcrete->time_preference3}}</span></p>
+							</div>
+						</div>
+					</div>
 					<br>
 					<p>Time Deliveries:<span>{{$order->orderConcrete->time_deliveries}}</span></p>
 					<p>Urgency:<span>{{$order->orderConcrete->urgency}}</span></p>
