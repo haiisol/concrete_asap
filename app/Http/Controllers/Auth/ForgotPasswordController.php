@@ -46,14 +46,13 @@ class ForgotPasswordController extends Controller
         return response()->json(['message'=>'Please check the email to get code'],200);
 
     }
-
+    
     public function sendResetLinkEmail(Request $request)
     {
         $this->validateEmail($request);
         $response = $this->broker()->sendResetLink(
             $request->only('email')
         );
-        var_dump($response);
         return $response == Password::RESET_LINK_SENT ? 1 : 0;
     }
 
