@@ -414,9 +414,9 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                         'bids.user_id AS rep_id', 
                         'ud1.first_name AS contractor_name', 
                         'ud2.first_name AS rep_name', 
-                        'orders.id' , 
-                        'orders.job_id' , 
-                        'orders.status'),
+                        'orders.id', 
+                        'orders.job_id', 
+                        'orders.status',
                         'orders.created_at')
                 ->join('users', 'users.id', '=', 'orders.user_id')
                 ->join('bids', 'bids.order_id', '=', 'orders.id')
@@ -436,9 +436,9 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                         'bids.user_id AS rep_id', 
                         'ud1.first_name AS contractor_name', 
                         'ud2.first_name AS rep_name', 
-                        'orders.id' , 
-                        'orders.job_id' , 
-                        'orders.status'),
+                        'orders.id', 
+                        'orders.job_id', 
+                        'orders.status',
                         'orders.created_at')
                 ->join('users', 'users.id', '=', 'orders.user_id')
                 ->join('bids', 'bids.order_id', '=', 'orders.id')
