@@ -21,7 +21,7 @@
                             <td>{{row.status}}</td>
                             <td>{{row.created_at}}</td>
                             <td style="text-align:center;">
-                                <a :href="'/bids/'+row.id">Details</a>
+                                <a :href="'/bids/'+row.bids_id">Details</a>
                             </td>
                         </tr>
                     </tbody>

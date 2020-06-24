@@ -233,7 +233,8 @@ class BidRepository implements Interfaces\BidRepositoryInterface
                         'orders.id', 
                         'orders.job_id', 
                         'orders.status',
-                        'orders.created_at')
+                        'orders.created_at'),
+                        'bids.id AS bids_id')
                 ->join('bids', 'bids.order_id', '=', 'orders.id')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
                 ->join('user_details AS ud2', 'ud2.user_id', '=', 'bids.user_id')
