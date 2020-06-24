@@ -35,7 +35,7 @@
                 var self = this;
                 var slug_id = parseInt(window.location.pathname.split("/").pop());
 
-                axios.get('/api/bids/getBids'+ slug_id)
+                axios.get('/api/bids/getBids/'+ slug_id)
                 .then(response => {
                     //console.log(response.data);
                     this.data=response.data;

@@ -1945,7 +1945,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var self = this;
       var slug_id = parseInt(window.location.pathname.split("/").pop());
-      axios.get('/api/bids/getBids' + slug_id).then(function (response) {
+      axios.get('/api/bids/getBids/' + slug_id).then(function (response) {
         //console.log(response.data);
         _this.data = response.data;
         self.isFirstDataLoaded = true;
