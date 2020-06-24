@@ -9,8 +9,8 @@
                             <hr/>
                             <p>Date Delivery:<span>{{row.date_delivery}}</span></p>
                             <p>Time Delivery:<span>{{row.time_delivery}}</span></p>
-                            <p>Rep Price:<span>{{row.time_delivery}}</span></p>
-                            <p>Price:<span>{{row.time_delivery}}</span></p>
+                            <p>Rep Price:<span>{{row.rep_price}}</span></p>
+                            <p>Price:<span>{{row.price}}</span></p>
                             <p>Payment Type:<span>{{row.payment_type}}</span></p>
                             <p>Released:<span>{{row.released == "1" ? "Released" : "-"}}</span></p>
                             <p>Status:<span>{{row.status}}</span></p>

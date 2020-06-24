@@ -38120,12 +38120,12 @@ var render = function() {
                   _vm._v(" "),
                   _c("p", [
                     _vm._v("Rep Price:"),
-                    _c("span", [_vm._v(_vm._s(row.time_delivery))])
+                    _c("span", [_vm._v(_vm._s(row.rep_price))])
                   ]),
                   _vm._v(" "),
                   _c("p", [
                     _vm._v("Price:"),
-                    _c("span", [_vm._v(_vm._s(row.time_delivery))])
+                    _c("span", [_vm._v(_vm._s(row.price))])
                   ]),
                   _vm._v(" "),
                   _c("p", [
