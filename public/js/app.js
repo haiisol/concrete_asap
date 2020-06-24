@@ -50945,7 +50945,7 @@ Vue.component('contractor-table-component', __webpack_require__(/*! ./components
 Vue.component('rep-table-component', __webpack_require__(/*! ./components/table/RepTableComponent.vue */ "./resources/js/components/table/RepTableComponent.vue")["default"]);
 Vue.component('contractor-details-table-component', __webpack_require__(/*! ./components/table/ContractorDetailsTableComponent.vue */ "./resources/js/components/table/ContractorDetailsTableComponent.vue")["default"]);
 Vue.component('rep-details-table-component', __webpack_require__(/*! ./components/table/RepDetailsTableComponent.vue */ "./resources/js/components/table/RepDetailsTableComponent.vue")["default"]);
-Vue.component('bids-details-table-component', __webpack_require__(/*! ./components/table/BidsTableComponent.vue */ "./resources/js/components/table/BidsTableComponent.vue")["default"]); // Vue.component(
+Vue.component('bids-table-component', __webpack_require__(/*! ./components/table/BidsTableComponent.vue */ "./resources/js/components/table/BidsTableComponent.vue")["default"]); // Vue.component(
 //     'passport-clients',
 //     require('./components/passport/Clients.vue').default
 // );
