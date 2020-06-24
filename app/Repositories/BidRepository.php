@@ -7,7 +7,7 @@ use App\Models\Bids\Bids;
 use App\Models\Order\Order;
 use App\User;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\DB;
 // use Hashids\Hashids;
 
 class BidRepository implements Interfaces\BidRepositoryInterface
