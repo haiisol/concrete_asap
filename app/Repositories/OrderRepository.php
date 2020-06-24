@@ -409,20 +409,34 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
     // custom get order
     public function getAllOrders(){
         //$orders = Order::all();
+
         $orders = DB::table('orders')
                 ->select('orders.user_id AS contractor_id', 
-                        'bids.user_id AS rep_id', 
                         'ud1.first_name AS contractor_name', 
-                        'ud2.first_name AS rep_name', 
                         'orders.id', 
                         'orders.job_id', 
                         'orders.status',
                         'orders.created_at')
                 ->join('users', 'users.id', '=', 'orders.user_id')
-                ->join('bids', 'bids.order_id', '=', 'orders.id')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
-                ->join('user_details AS ud2', 'ud2.user_id', '=', 'bids.user_id')
                 ->get();
+
+
+        // with bids rep name
+        // $orders = DB::table('orders')
+        //         ->select('orders.user_id AS contractor_id', 
+        //                 'bids.user_id AS rep_id', 
+        //                 'ud1.first_name AS contractor_name', 
+        //                 'ud2.first_name AS rep_name', 
+        //                 'orders.id', 
+        //                 'orders.job_id', 
+        //                 'orders.status',
+        //                 'orders.created_at')
+        //         ->join('users', 'users.id', '=', 'orders.user_id')
+        //         ->join('bids', 'bids.order_id', '=', 'orders.id')
+        //         ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
+        //         ->join('user_details AS ud2', 'ud2.user_id', '=', 'bids.user_id')
+        //         ->get();
 
 
         return $orders;
