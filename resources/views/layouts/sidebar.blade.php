@@ -37,13 +37,13 @@
                <p>Posted Jobs</p>
             </a>
          </li>
-         <li class="">
+         <li class="<?php echo $name === "bids" ? "active" : ""; ?>">
             <a href="/bids">
                <i class="nc-icon nc-settings"></i>
                <p>Bids</p>
             </a>
          </li>
-         <li class="">
+         <li  class="<?php echo $name === "completed-jobs" ? "active" : ""; ?>">
             <a href="/completed-jobs">
                <i class="nc-icon nc-settings"></i>
                <p>Completed Jobs</p>
