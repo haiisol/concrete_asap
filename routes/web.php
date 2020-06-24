@@ -64,6 +64,10 @@ Route::group([
     Route::get('/api/orders/getCompletedJobs','Admin\OrderController@getCompletedJobs');
     Route::get('/completed-jobs','Admin\OrderController@completedJobs');
 
+    //bids 
+    Route::get('/api/bids/getAllBids','Rep\BidController@getAllBids');
+    Route::get('/bids','Rep\BidController@index');
+
     // contractor
     Route::get('/api/contractor/getAllContractor','Contractor\ContractorController@getAllContractor');
     Route::get('/api/contractor/getContractorDetails/{id}','Contractor\ContractorController@getContractorDetails');

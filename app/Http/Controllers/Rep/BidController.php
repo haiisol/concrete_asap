@@ -160,8 +160,15 @@ class BidController extends Controller
         }
     }
 
-
     private function handle_exception($message){
         return response()->json(["message"=>"$message"],400);
+    }
+
+    public function index(){
+        return view('admin.bids.index');
+    }
+
+    public function getAllBids(){
+        return response()->json($this->bid_repo->getAllBids(),200);
     }
 }

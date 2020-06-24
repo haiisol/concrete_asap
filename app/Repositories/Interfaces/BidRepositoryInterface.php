@@ -15,5 +15,6 @@ interface BidRepositoryInterface{
     public function getRepBidOrders();
     public function getRepAcceptedBids();
     public function getRepPreviousBids();
+    public function getAllBids();
 
 }
