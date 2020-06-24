@@ -66,7 +66,9 @@ Route::group([
 
     //bids 
     Route::get('/api/bids/getAllBids','Rep\BidController@getAllBids');
+    Route::get('/api/bids/getBids/{id}','Rep\BidController@getBids');
     Route::get('/bids','Rep\BidController@index');
+    Route::get('/bids/{id}','Rep\BidController@show');
 
     // contractor
     Route::get('/api/contractor/getAllContractor','Contractor\ContractorController@getAllContractor');

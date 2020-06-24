@@ -424,7 +424,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         //         ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
         //         ->join('user_details AS ud2', 'ud2.user_id', '=', 'bids.user_id')
         //         ->get();
-        
+
         $orders = DB::table('orders')
                 ->select('orders.user_id AS contractor_id', 
                         'ud1.first_name AS contractor_name', 
@@ -432,7 +432,6 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                         'orders.job_id', 
                         'orders.status',
                         'orders.created_at')
-                ->join('users', 'users.id', '=', 'orders.user_id')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
                 ->get();
         return $orders;
@@ -463,7 +462,6 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                         'orders.job_id', 
                         'orders.status',
                         'orders.created_at')
-                ->join('users', 'users.id', '=', 'orders.user_id')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
                 ->where([['orders.status', '=', 'Complete']])
                 ->get();

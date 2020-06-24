@@ -234,11 +234,14 @@ class BidRepository implements Interfaces\BidRepositoryInterface
                         'orders.job_id', 
                         'orders.status',
                         'orders.created_at')
-                ->join('users', 'users.id', '=', 'orders.user_id')
                 ->join('bids', 'bids.order_id', '=', 'orders.id')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
                 ->join('user_details AS ud2', 'ud2.user_id', '=', 'bids.user_id')
                 ->get();
+        return $orders;
+    }
+    public function getBids($id){
+        $orders = Bids::where("id" , $id)->get();
         return $orders;
     }
 }

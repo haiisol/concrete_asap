@@ -26,6 +26,7 @@ Vue.component('rep-table-component', require('./components/table/RepTableCompone
 Vue.component('contractor-details-table-component', require('./components/table/ContractorDetailsTableComponent.vue').default);
 Vue.component('rep-details-table-component', require('./components/table/RepDetailsTableComponent.vue').default);
 Vue.component('bids-table-component', require('./components/table/BidsTableComponent.vue').default);
+Vue.component('bids-details-table-component', require('./components/table/BidsDetailsTableComponent.vue').default);
 
 // Vue.component(
 //     'passport-clients',

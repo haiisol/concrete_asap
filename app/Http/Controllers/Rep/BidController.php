@@ -167,8 +167,14 @@ class BidController extends Controller
     public function index(){
         return view('admin.bids.index');
     }
+    public function show(){
+        return view('admin.bids.show');
+    }
 
     public function getAllBids(){
         return response()->json($this->bid_repo->getAllBids(),200);
+    }
+    public function getBids($id){
+        return response()->json($this->bid_repo->getBids($id),200);
     }
 }
