@@ -27,7 +27,7 @@ class RepRepository implements Interfaces\RepRepositoryInterface
             ->join('role_user', 'role_user.user_id', '=', 'users.id')
             ->join('user_details', 'user_details.user_id', '=', 'role_user.user_id')
             ->where('role_user.role_id', 2)
-            ->orderByDesc('users.created_at')
+            ->orderByDesc('users.id')
             ->get();
         return $users;
     }
@@ -36,7 +36,7 @@ class RepRepository implements Interfaces\RepRepositoryInterface
         return $user_details;
     }
     public function getRepBids($id){
-        $bids = Bids::where("user_id" , $id)->orderByDesc('created_at')->get();
+        $bids = Bids::where("user_id" , $id)->orderByDesc('user_id')->get();
         return $bids;
     }
 }

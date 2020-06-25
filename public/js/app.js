@@ -1931,6 +1931,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38107,6 +38109,16 @@ var render = function() {
                   _c("h5", [_vm._v("Bids Details:")]),
                   _vm._v(" "),
                   _c("hr"),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Contractor Name:"),
+                    _c("span", [_vm._v(_vm._s(row.contractor_name))])
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v("Rep Name:"),
+                    _c("span", [_vm._v(_vm._s(row.rep_name))])
+                  ]),
                   _vm._v(" "),
                   _c("p", [
                     _vm._v("Date Delivery:"),

@@ -433,7 +433,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                         'orders.status',
                         'orders.created_at')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
-                ->orderByDesc('orders.created_at')
+                ->orderByDesc('orders.id')
                 ->get();
         return $orders;
     }
@@ -465,7 +465,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                         'orders.created_at')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
                 ->where([['orders.status', '=', 'Complete']])
-                ->orderByDesc('orders.created_at')
+                ->orderByDesc('orders.id')
                 ->get();
         return $orders;
     }

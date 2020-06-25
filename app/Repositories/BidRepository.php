@@ -225,25 +225,47 @@ class BidRepository implements Interfaces\BidRepositoryInterface
         return ["user"=>$user,"order_message"=>"Message has been sent"];
     }
     public function getAllBids(){
-        $orders = DB::table('orders')
+        $bids = DB::table('bids')
                 ->select('orders.user_id AS contractor_id', 
                         'bids.user_id AS rep_id', 
                         'ud1.first_name AS contractor_name', 
                         'ud2.first_name AS rep_name', 
                         'orders.id', 
                         'orders.job_id', 
-                        'orders.status',
+                        'bids.status',
                         'bids.created_at',
                         'bids.id AS bids_id')
-                ->join('bids', 'bids.order_id', '=', 'orders.id')
+                ->join('orders', 'bids.order_id', '=', 'orders.id')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
                 ->join('user_details AS ud2', 'ud2.user_id', '=', 'bids.user_id')
-                ->orderByDesc('bids.created_at')
+                ->orderByDesc('bids.id')
                 ->get();
-        return $orders;
+        return $bids;
     }
     public function getBids($id){
-        $orders = Bids::where("id" , $id)->orderByDesc('created_at')->get();
-        return $orders;
+        //$bids = Bids::where("id" , $id)->orderByDesc('id')->get();
+        $bids = DB::table('bids')
+                ->select('orders.user_id AS contractor_id', 
+                        'bids.user_id AS rep_id', 
+                        'ud1.first_name AS contractor_name', 
+                        'ud2.first_name AS rep_name', 
+                        'orders.id', 
+                        'orders.job_id', 
+                        'bids.rep_price',
+                        'bids.price',
+                        'bids.date_delivery',
+                        'bids.time_delivery',
+                        'bids.payment_type',
+                        'bids.released',
+                        'bids.status',
+                        'bids.created_at',
+                        'bids.id AS bids_id')
+                ->join('orders', 'bids.order_id', '=', 'orders.id')
+                ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
+                ->join('user_details AS ud2', 'ud2.user_id', '=', 'bids.user_id')
+                ->where("bids.id" , $id)
+                ->orderByDesc('bids.id')
+                ->get();
+        return $bids;
     }
 }

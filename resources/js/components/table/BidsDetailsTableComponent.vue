@@ -7,6 +7,8 @@
                         <div class="order-details px-4">
                             <h5>Bids Details:</h5>
                             <hr/>
+                            <p>Contractor Name:<span>{{row.contractor_name}}</span></p>
+                            <p>Rep Name:<span>{{row.rep_name}}</span></p>
                             <p>Date Delivery:<span>{{row.date_delivery}}</span></p>
                             <p>Time Delivery:<span>{{row.time_delivery}}</span></p>
                             <p>Rep Price:<span>{{row.rep_price}}</span></p>
