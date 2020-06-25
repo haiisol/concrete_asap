@@ -17,7 +17,7 @@
                         <tr v-for="row in data">
                             <td>{{row.first_name}}</td>
                             <td>{{row.email}}</td>
-                            <td>{{row.status}}</td>
+                            <td>{{row.company}}</td>
                             <td>{{row.created_at}}</td>
                             <td style="text-align:center;">
                                 <a :href="'/rep/'+row.id">Detail</a>
@@ -34,7 +34,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["First Name","Email","Status","Created At","Actions"],
+                headers:["First Name","Email","Company","Created At","Actions"],
                 data:[]
             }
         },
