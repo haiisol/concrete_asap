@@ -5,7 +5,7 @@
                 <h4 class="font-bold">Contractor Table</h4>
             </div>
             <div class="col-md-12">
-                <table class="table table-striped table-bordered table-responsive-sm" id="dataTableDisplayVue" style="width:100%">
+                <table class="table table-striped table-bordered table-responsive-sm" id="dataTableDisplayVue" style="width:100%" data-order="[]">
                     <thead>
                         <tr>
                             <th v-for="header in headers">
@@ -51,8 +51,6 @@
                             "paging": true,
                             "pageLength": 10,
                             "info": false,
-                            "aaSorting": [],
-                            "order": []
                         });
                     });
                 });
