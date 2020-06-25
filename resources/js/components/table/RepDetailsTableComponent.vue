@@ -4,7 +4,7 @@
             <div class="row justify-content-center">       
                 <div class="card card-circle-chart w-100" data-background-color="white" v-for="row in data">
                     <div class="card-header text-center">
-                        <img :src="row.profile_image" />
+                        <img :src="row.profile_image" class="profile-detail-image"/>
                     </div>
                     <div class="card-content">
                         <div class="order-details px-4">

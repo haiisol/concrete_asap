@@ -38280,7 +38280,10 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "card-header text-center" }, [
-                _c("img", { attrs: { src: row.profile_image } })
+                _c("img", {
+                  staticClass: "profile-detail-image",
+                  attrs: { src: row.profile_image }
+                })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-content" }, [
@@ -38697,7 +38700,10 @@ var render = function() {
             },
             [
               _c("div", { staticClass: "card-header text-center" }, [
-                _c("img", { attrs: { src: row.profile_image } })
+                _c("img", {
+                  staticClass: "profile-detail-image",
+                  attrs: { src: row.profile_image }
+                })
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "card-content" }, [
