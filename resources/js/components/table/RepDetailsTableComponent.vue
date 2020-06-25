@@ -12,6 +12,7 @@
                             <hr/>
                             <p>First Name:<span>{{row.first_name}}</span></p>
                             <p>Last Name:<span>{{row.last_name}}</span></p>
+                            <p>Company:<span>{{row.company}}</span></p>
                             <p>Phone Number:<span>{{row.phone_number}}</span></p>
                             <p>State:<span>{{row.state}}</span></p>
                             <p>City:<span>{{row.city}}</span></p>
