@@ -2208,7 +2208,8 @@ __webpack_require__.r(__webpack_exports__);
           self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
             "paging": true,
             "pageLength": 10,
-            "info": false
+            "info": false,
+            "order": []
           });
         });
       });
