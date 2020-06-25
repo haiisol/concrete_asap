@@ -51,7 +51,8 @@
                             "paging": true,
                             "pageLength": 10,
                             "info": false,
-                            "aaSorting":[]
+                            "aaSorting": [],
+                            "order": []
                         });
                     });
                 });
