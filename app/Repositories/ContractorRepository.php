@@ -39,7 +39,7 @@ class ContractorRepository implements Interfaces\ContractorRepositoryInterface
         return $user_details;
     } 
     public function getPostedJobs($id){
-        $orders = Order::where("user_id" , $id)->orderByDesc('user_id')->get();
+        $orders = Order::where("user_id" , $id)->orderByDesc('id')->get();
         return $orders;
     }
 }

@@ -36,7 +36,7 @@ class RepRepository implements Interfaces\RepRepositoryInterface
         return $user_details;
     }
     public function getRepBids($id){
-        $bids = Bids::where("user_id" , $id)->orderByDesc('user_id')->get();
+        $bids = Bids::where("user_id" , $id)->orderByDesc('id')->get();
         return $bids;
     }
 }
