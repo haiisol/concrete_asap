@@ -51,6 +51,7 @@
                             "paging": true,
                             "pageLength": 10,
                             "info": false,
+                            "order":[]
                         });
                     });
                 });
