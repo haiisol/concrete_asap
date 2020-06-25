@@ -2524,7 +2524,7 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["First Name", "Email", "Status", "Created At", "Actions"],
+      headers: ["First Name", "Email", "Company", "Created At", "Actions"],
       data: []
     };
   },
@@ -38895,7 +38895,7 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.email))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.status))]),
+                  _c("td", [_vm._v(_vm._s(row.company))]),
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.created_at))]),
                   _vm._v(" "),
