@@ -21,7 +21,7 @@
          </li> 
          <li class="<?php echo $name === "contractor" ? "active" : ""; ?>">
             <a href="/contractor">
-               <i class="nc-icon nc-settings"></i>
+               <i class="nc-icon nc-single-02"></i>
                <p>Contractor</p>
             </a>
          </li>
@@ -33,19 +33,19 @@
          </li>
          <li class="<?php echo $name === "order" ? "active" : ""; ?>">
             <a href="/order">
-               <i class="nc-icon nc-cart-simple"></i>
+               <i class="nc-icon nc-single-copy-04"></i>
                <p>Posted Jobs</p>
             </a>
          </li>
          <li class="<?php echo $name === "bids" ? "active" : ""; ?>">
             <a href="/bids">
-               <i class="nc-icon nc-settings"></i>
+               <i class="nc-icon nc-single-copy-04"></i>
                <p>Bids</p>
             </a>
          </li>
          <li  class="<?php echo $name === "completed-jobs" ? "active" : ""; ?>">
             <a href="/completed-jobs">
-               <i class="nc-icon nc-settings"></i>
+               <i class="nc-icon nc-single-copy-04"></i>
                <p>Completed Jobs</p>
             </a>
          </li>
