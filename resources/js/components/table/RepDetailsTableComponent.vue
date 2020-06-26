@@ -118,15 +118,15 @@
                         });
                         jQuery("#show_all_job").click(function(){
                             var table = $('#dataTableDisplayVue').DataTable();
-                            table.columns(3).search("").draw();
+                            table.columns(2).search("").draw();
                         }); 
                         jQuery("#canceled_job").click(function(){
                             var table = $('#dataTableDisplayVue').DataTable();
-                            table.columns(3).search("Cancelled").draw();
+                            table.columns(2).search("Cancelled").draw();
                         });        
                         jQuery("#complete_job").click(function(){
                             var table = $('#dataTableDisplayVue').DataTable();
-                            table.columns(3).search("Complete").draw();
+                            table.columns(2).search("Complete").draw();
                         });
                     });
                 });
