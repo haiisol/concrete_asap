@@ -1958,7 +1958,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
         });
       });
@@ -2043,7 +2043,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
           jQuery("#show_all_job").click(function () {
             var table = $('#dataTableDisplayVue').DataTable();
@@ -2160,7 +2160,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
         });
       });
@@ -2238,7 +2238,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
         });
       });
@@ -2316,7 +2316,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
         });
       });
@@ -2394,7 +2394,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
         });
       });
@@ -2499,7 +2499,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
         });
       });
@@ -2577,7 +2577,7 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['csv', 'excel']
+            "buttons": ['copy', 'csv', 'print']
           });
         });
       });

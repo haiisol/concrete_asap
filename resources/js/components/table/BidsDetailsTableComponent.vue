@@ -50,7 +50,7 @@
                             "order":[],
                             "dom": "Bfrtip",
                             "buttons": [
-                                'csv', 'excel'
+                                'copy','csv', 'print'
                             ]
                         });
                     });
