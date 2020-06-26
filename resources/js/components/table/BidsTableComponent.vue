@@ -55,10 +55,17 @@
                             "pageLength": 10,
                             "info": false,
                             "order":[],
-                            "dom": 'Bfrtip',
+                            "dom": "Bfrtip",
                             "buttons": [
                                 'copy', 'csv', 'excel', 'pdf', 'print'
                             ]
+                        });
+
+                        jQuery("#canceled_job").click(function(){
+                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("cancel")
+                        });        
+                        jQuery("#complete_job").click(function(){
+                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("complete")
                         });
                     });
                 });
@@ -69,14 +76,4 @@
             this.init();
         }
     }
-</script>
-<script>
-    jQuery(document).ready(function($) {
-        $("#canceled_job").click(function(){
-            $('#dataTableDisplayVue_wrapper input[type="search"]').val("Cancel")
-        });        
-        $("#complete_job").click(function(){
-            $('#dataTableDisplayVue_wrapper input[type="search"]').val("complete")
-        });
-    } );
 </script>
