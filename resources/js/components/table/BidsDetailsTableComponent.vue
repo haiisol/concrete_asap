@@ -48,6 +48,10 @@
                             "pageLength": 10,
                             "info": false,
                             "order":[],
+                            "dom": "Bfrtip",
+                            "buttons": [
+                                'csv', 'excel'
+                            ]
                         });
                     });
                 });

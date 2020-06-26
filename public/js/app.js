@@ -1956,7 +1956,9 @@ __webpack_require__.r(__webpack_exports__);
             "paging": true,
             "pageLength": 10,
             "info": false,
-            "order": []
+            "order": [],
+            "dom": "Bfrtip",
+            "buttons": ['csv', 'excel']
           });
         });
       });
@@ -2156,7 +2158,9 @@ __webpack_require__.r(__webpack_exports__);
             "paging": true,
             "pageLength": 10,
             "info": false,
-            "order": []
+            "order": [],
+            "dom": "Bfrtip",
+            "buttons": ['csv', 'excel']
           });
         });
       });
@@ -2232,7 +2236,9 @@ __webpack_require__.r(__webpack_exports__);
             "paging": true,
             "pageLength": 10,
             "info": false,
-            "order": []
+            "order": [],
+            "dom": "Bfrtip",
+            "buttons": ['csv', 'excel']
           });
         });
       });
@@ -2308,7 +2314,9 @@ __webpack_require__.r(__webpack_exports__);
             "paging": true,
             "pageLength": 10,
             "info": false,
-            "order": []
+            "order": [],
+            "dom": "Bfrtip",
+            "buttons": ['csv', 'excel']
           });
         });
       });
@@ -2384,7 +2392,9 @@ __webpack_require__.r(__webpack_exports__);
             "paging": true,
             "pageLength": 10,
             "info": false,
-            "order": []
+            "order": [],
+            "dom": "Bfrtip",
+            "buttons": ['csv', 'excel']
           });
         });
       });
@@ -2487,7 +2497,9 @@ __webpack_require__.r(__webpack_exports__);
             "paging": true,
             "pageLength": 10,
             "info": false,
-            "order": []
+            "order": [],
+            "dom": "Bfrtip",
+            "buttons": ['csv', 'excel']
           });
         });
       });
@@ -2563,7 +2575,9 @@ __webpack_require__.r(__webpack_exports__);
             "paging": true,
             "pageLength": 10,
             "info": false,
-            "order": []
+            "order": [],
+            "dom": "Bfrtip",
+            "buttons": ['csv', 'excel']
           });
         });
       });
