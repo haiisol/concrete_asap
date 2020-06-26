@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h4 class="font-bold" style="inline-block">Bids Table</h4>
-                <h4 class="font-bold" style="inline-block" id="canceled_job">Canceled</h4>
-                <h4 class="font-bold" style="inline-block" id="complete_job">Complete</h4>
+                <h4 class="font-bold d-inline-block" >Bids Table</h4>
+                <h4 class="font-bold d-inline-block mx-2" id="canceled_job">Canceled</h4>
+                <h4 class="font-bold d-inline-block mx-2" id="complete_job">Complete</h4>
             </div>
             <div class="col-md-12">
                 <table class="table table-striped table-bordered table-responsive-sm" id="dataTableDisplayVue" style="width:100%">
@@ -57,15 +57,17 @@
                             "order":[],
                             "dom": "Bfrtip",
                             "buttons": [
-                                'copy', 'csv', 'excel', 'pdf', 'print'
+                                'copy', 'csv', 'excel', 'pdf'
                             ]
                         });
 
                         jQuery("#canceled_job").click(function(){
                             jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("cancel")
+                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').focus();
                         });        
                         jQuery("#complete_job").click(function(){
                             jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("complete")
+                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').focus();
                         });
                     });
                 });

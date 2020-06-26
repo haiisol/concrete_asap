@@ -2037,13 +2037,15 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'excel', 'pdf', 'print']
+            "buttons": ['copy', 'csv', 'excel', 'pdf']
           });
           jQuery("#canceled_job").click(function () {
             jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("cancel");
+            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').focus();
           });
           jQuery("#complete_job").click(function () {
             jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("complete");
+            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').focus();
           });
         });
       });
@@ -38272,15 +38274,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "font-bold", staticStyle: {} }, [
+      _c("h4", { staticClass: "font-bold d-inline-block" }, [
         _vm._v("Bids Table")
       ]),
       _vm._v(" "),
       _c(
         "h4",
         {
-          staticClass: "font-bold",
-          staticStyle: {},
+          staticClass: "font-bold d-inline-block mx-2",
           attrs: { id: "canceled_job" }
         },
         [_vm._v("Canceled")]
@@ -38289,8 +38290,7 @@ var staticRenderFns = [
       _c(
         "h4",
         {
-          staticClass: "font-bold",
-          staticStyle: {},
+          staticClass: "font-bold d-inline-block mx-2",
           attrs: { id: "complete_job" }
         },
         [_vm._v("Complete")]
@@ -51824,8 +51824,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\concrete\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\concrete_asap\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
