@@ -2180,7 +2180,27 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'print']
+            "buttons": [{
+              extend: 'copy',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'csv',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'print',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'pdf',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }]
           });
         });
       });
@@ -2258,7 +2278,27 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'print']
+            "buttons": [{
+              extend: 'copy',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'csv',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'print',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'pdf',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }]
           });
         });
       });
@@ -2336,7 +2376,27 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'print']
+            "buttons": [{
+              extend: 'copy',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'csv',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'print',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'pdf',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }]
           });
         });
       });
@@ -2414,7 +2474,27 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'print']
+            "buttons": [{
+              extend: 'copy',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'csv',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'print',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'pdf',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }]
           });
         });
       });
@@ -2519,7 +2599,27 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'print']
+            "buttons": [{
+              extend: 'copy',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'csv',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'print',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'pdf',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }]
           });
         });
       });
@@ -2597,7 +2697,27 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'print']
+            "buttons": [{
+              extend: 'copy',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'csv',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'print',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'pdf',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }]
           });
         });
       });
