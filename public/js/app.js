@@ -1958,7 +1958,27 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'print']
+            "buttons": [{
+              extend: 'copy',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'csv',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'print',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }, {
+              extend: 'pdf',
+              exportOptions: {
+                columns: "thead th:not(:last-child)"
+              }
+            }]
           });
         });
       });
@@ -2571,6 +2591,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2620,6 +2646,18 @@ __webpack_require__.r(__webpack_exports__);
                 columns: "thead th:not(:last-child)"
               }
             }]
+          });
+          jQuery("#show_all_job").click(function () {
+            var table = $('#dataTableDisplayVue').DataTable();
+            table.columns(3).search("").draw();
+          });
+          jQuery("#canceled_job").click(function () {
+            var table = $('#dataTableDisplayVue').DataTable();
+            table.columns(3).search("Cancelled").draw();
+          });
+          jQuery("#complete_job").click(function () {
+            var table = $('#dataTableDisplayVue').DataTable();
+            table.columns(3).search("Complete").draw();
           });
         });
       });
@@ -39046,7 +39084,39 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "font-bold" }, [_vm._v("Bids")])
+      _c("h4", { staticClass: "font-bold" }, [_vm._v("Bids")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "show_button mb-3" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "dt-button buttons-csv buttons-html5 d-inline-block mr-2",
+            attrs: { id: "show_all_job" }
+          },
+          [_vm._v("Show All")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "dt-button buttons-csv buttons-html5 d-inline-block mx-2 ",
+            attrs: { id: "canceled_job" }
+          },
+          [_vm._v("Cancelled")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "dt-button buttons-csv buttons-html5 d-inline-block mx-2",
+            attrs: { id: "complete_job" }
+          },
+          [_vm._v("Complete")]
+        )
+      ])
     ])
   }
 ]

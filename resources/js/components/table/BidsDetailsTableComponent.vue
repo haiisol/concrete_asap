@@ -50,7 +50,30 @@
                             "order":[],
                             "dom": "Bfrtip",
                             "buttons": [
-                                'copy','csv', 'print'
+                                {
+                                    extend: 'copy',
+                                    exportOptions: {
+                                        columns: "thead th:not(:last-child)"
+                                    }
+                                },
+                                {
+                                    extend: 'csv',
+                                    exportOptions: {
+                                        columns: "thead th:not(:last-child)"
+                                    }
+                                },
+                                {
+                                    extend: 'print',
+                                    exportOptions: {
+                                        columns: "thead th:not(:last-child)"
+                                    }
+                                },
+                                {
+                                    extend: 'pdf',
+                                    exportOptions: {
+                                        columns: "thead th:not(:last-child)"
+                                    }
+                                }
                             ]
                         });
                     });
