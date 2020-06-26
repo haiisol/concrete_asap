@@ -2013,6 +2013,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2038,6 +2042,10 @@ __webpack_require__.r(__webpack_exports__);
             "order": [],
             "dom": "Bfrtip",
             "buttons": ['csv', 'excel']
+          });
+          jQuery("#show_all_job").click(function () {
+            var table = $('#dataTableDisplayVue').DataTable();
+            table.columns(3).search("").draw();
           });
           jQuery("#canceled_job").click(function () {
             var table = $('#dataTableDisplayVue').DataTable();
@@ -38278,23 +38286,37 @@ var staticRenderFns = [
         _vm._v("Bids Table")
       ]),
       _vm._v(" "),
-      _c(
-        "h4",
-        {
-          staticClass: "font-bold d-inline-block mx-2",
-          attrs: { id: "canceled_job" }
-        },
-        [_vm._v("Canceled")]
-      ),
-      _vm._v(" "),
-      _c(
-        "h4",
-        {
-          staticClass: "font-bold d-inline-block mx-2",
-          attrs: { id: "complete_job" }
-        },
-        [_vm._v("Complete")]
-      )
+      _c("div", { staticClass: "show_button mb-3" }, [
+        _c(
+          "button",
+          {
+            staticClass:
+              "dt-button buttons-csv buttons-html5 d-inline-block mr-2",
+            attrs: { id: "show_all_job" }
+          },
+          [_vm._v("Show All")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "dt-button buttons-csv buttons-html5 d-inline-block mx-2 ",
+            attrs: { id: "canceled_job" }
+          },
+          [_vm._v("Cancelled")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "dt-button buttons-csv buttons-html5 d-inline-block mx-2",
+            attrs: { id: "complete_job" }
+          },
+          [_vm._v("Complete")]
+        )
+      ])
     ])
   }
 ]

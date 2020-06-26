@@ -3,8 +3,12 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h4 class="font-bold d-inline-block" >Bids Table</h4>
-                <h4 class="font-bold d-inline-block mx-2" id="canceled_job">Canceled</h4>
-                <h4 class="font-bold d-inline-block mx-2" id="complete_job">Complete</h4>
+
+                <div class="show_button mb-3">
+                    <button class="dt-button buttons-csv buttons-html5 d-inline-block mr-2" id="show_all_job">Show All</button>
+                    <button class="dt-button buttons-csv buttons-html5 d-inline-block mx-2 " id="canceled_job">Cancelled</button>
+                    <button class="dt-button buttons-csv buttons-html5 d-inline-block mx-2" id="complete_job">Complete</button>
+                </div>
             </div>
             <div class="col-md-12">
                 <table class="table table-striped table-bordered table-responsive-sm" id="dataTableDisplayVue" style="width:100%">
@@ -61,6 +65,11 @@
                             ]
                         });
 
+
+                        jQuery("#show_all_job").click(function(){
+                            var table = $('#dataTableDisplayVue').DataTable();
+                            table.columns(3).search("").draw();
+                        }); 
                         jQuery("#canceled_job").click(function(){
                             var table = $('#dataTableDisplayVue').DataTable();
                             table.columns(3).search("Cancelled").draw();
