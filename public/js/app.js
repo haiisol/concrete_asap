@@ -2037,15 +2037,15 @@ __webpack_require__.r(__webpack_exports__);
             "info": false,
             "order": [],
             "dom": "Bfrtip",
-            "buttons": ['copy', 'csv', 'excel', 'pdf']
+            "buttons": ['csv', 'excel']
           });
           jQuery("#canceled_job").click(function () {
-            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("Cancelled");
-            self.dataTable.fnFilter("cancel");
+            var table = $('#dataTableDisplayVue').DataTable();
+            table.columns(3).search("Cancelled").draw();
           });
           jQuery("#complete_job").click(function () {
-            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("Complete");
-            self.dataTable.fnFilter("complete");
+            var table = $('#dataTableDisplayVue').DataTable();
+            table.columns(3).search("Complete").draw();
           });
         });
       });
