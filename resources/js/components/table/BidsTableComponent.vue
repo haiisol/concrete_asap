@@ -63,11 +63,11 @@
 
                         jQuery("#canceled_job").click(function(){
                             jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("cancel")
-                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').focus();
+                            jQuery(".dataTableDisplayVue_filter").click();
                         });        
                         jQuery("#complete_job").click(function(){
                             jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("complete")
-                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').focus();
+                            jQuery(".dataTableDisplayVue_filter").click();
                         });
                     });
                 });
