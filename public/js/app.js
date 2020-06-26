@@ -1974,11 +1974,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!***********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/table/BidsTableComponent.vue?vue&type=script&lang=js& ***!
   \***********************************************************************************************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
 //
 //
 //
@@ -2011,38 +2009,53 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      isFirstDataLoaded: false,
-      headers: ["Job Id", "Rep Name", "Contractor Name", "Status", "Created At", "Actions"],
-      data: []
-    };
-  },
-  methods: {
-    init: function init() {
-      var _this = this;
-
-      var self = this;
-      axios.get('api/bids/getAllBids').then(function (response) {
-        //console.log(response.data);
-        _this.data = response.data;
-        self.isFirstDataLoaded = true;
-        Vue.nextTick(function () {
-          self.dataTable = jQuery('#dataTableDisplayVue').DataTable({
-            "paging": true,
-            "pageLength": 10,
-            "info": false,
-            "order": []
-          });
-        });
-      });
-    }
-  },
-  created: function created() {
-    this.dataTable = null;
-    this.init();
-  }
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+jQuery(document).ready(function ($) {
+  $("#canceled_job").click(function () {
+    $('#dataTableDisplayVue_wrapper input[type="search"]').val("Cancel");
+  });
+  $("#complete_job").click(function () {
+    $('#dataTableDisplayVue_wrapper input[type="search"]').val("complete");
+  });
 });
 
 /***/ }),
@@ -38262,7 +38275,29 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-md-12" }, [
-      _c("h4", { staticClass: "font-bold" }, [_vm._v("Bids Table")])
+      _c("h4", { staticClass: "font-bold", staticStyle: {} }, [
+        _vm._v("Bids Table")
+      ]),
+      _vm._v(" "),
+      _c(
+        "h4",
+        {
+          staticClass: "font-bold",
+          staticStyle: {},
+          attrs: { id: "canceled_job" }
+        },
+        [_vm._v("Canceled")]
+      ),
+      _vm._v(" "),
+      _c(
+        "h4",
+        {
+          staticClass: "font-bold",
+          staticStyle: {},
+          attrs: { id: "complete_job" }
+        },
+        [_vm._v("Complete")]
+      )
     ])
   }
 ]
@@ -51295,14 +51330,15 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************!*\
   !*** ./resources/js/components/table/BidsTableComponent.vue ***!
   \**************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _BidsTableComponent_vue_vue_type_template_id_4f7915d1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./BidsTableComponent.vue?vue&type=template&id=4f7915d1& */ "./resources/js/components/table/BidsTableComponent.vue?vue&type=template&id=4f7915d1&");
 /* harmony import */ var _BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BidsTableComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/table/BidsTableComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -51332,13 +51368,15 @@ component.options.__file = "resources/js/components/table/BidsTableComponent.vue
 /*!***************************************************************************************!*\
   !*** ./resources/js/components/table/BidsTableComponent.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./BidsTableComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/table/BidsTableComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BidsTableComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
