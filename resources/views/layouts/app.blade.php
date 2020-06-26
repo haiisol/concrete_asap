@@ -35,6 +35,9 @@
        </div>
     </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    
+    <script src="{{ asset('js/pdfmake.min.js') }}"></script>
+    <script src="{{ asset('js/vfs_fonts.js') }}"></script>
     <script src="{{ asset('js/datatables.min.js') }}"></script>
 
     <script>
