@@ -2040,12 +2040,12 @@ __webpack_require__.r(__webpack_exports__);
             "buttons": ['copy', 'csv', 'excel', 'pdf']
           });
           jQuery("#canceled_job").click(function () {
-            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("cancel");
-            jQuery(".dataTableDisplayVue_filter").click();
+            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("Cancelled");
+            self.dataTable.fnFilter("cancel");
           });
           jQuery("#complete_job").click(function () {
-            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("complete");
-            jQuery(".dataTableDisplayVue_filter").click();
+            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("Complete");
+            self.dataTable.fnFilter("complete");
           });
         });
       });

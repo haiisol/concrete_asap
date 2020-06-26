@@ -62,12 +62,12 @@
                         });
 
                         jQuery("#canceled_job").click(function(){
-                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("cancel")
-                            jQuery(".dataTableDisplayVue_filter").click();
+                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("Cancelled")
+                            self.dataTable.fnFilter("cancel");
                         });        
                         jQuery("#complete_job").click(function(){
-                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("complete")
-                            jQuery(".dataTableDisplayVue_filter").click();
+                            jQuery('#dataTableDisplayVue_wrapper input[type="search"]').val("Complete")
+                            self.dataTable.fnFilter("complete");
                         });
                     });
                 });
