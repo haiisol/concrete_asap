@@ -148,6 +148,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         if ($this->user->hasRole("contractor")) {
             //update order status
             $order->status = "Complete";
+            $order->completed_at = \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d"));
 
 
             //create new order review
