@@ -47,12 +47,12 @@
             $(".mobile-toggle").on("click", function(){
                 $(".sidebar").addClass("active-side");
             });
-
+            $("#mobile-navbar").on("click", function(){
+              $(".sidebar").addClass("active-side");
+            });
             $(".content").on("click", function(){
               if($(".sidebar").hasClass("active-side")) {
                 $(".sidebar").removeClass("active-side");
-              } else {
-                $(".sidebar").addClass("active-side");
               }
             });
             
