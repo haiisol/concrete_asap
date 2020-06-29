@@ -324,7 +324,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $orders = $this->user->orders()->with(["orderConcrete", "message", "user", "bids" => function ($query) {
             $query->with(["user" => function ($query) {
                 $query->with(["detail" => function ($query) {
-                    $query->select(["user_id", "company", "first_name", "last_name", "phone_number", "profile_image", "abn"]);
+                    $query->select(["user_id", "email", "company", "first_name", "last_name", "phone_number", "profile_image", "abn"])->join('users', 'users.id', '=', 'user_details.user_id');
                 }])->select(["id", "email"]);
             }])->where("status", "Accepted");
         }])->whereHas("bids", function ($query) {
