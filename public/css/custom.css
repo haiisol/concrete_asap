@@ -18,6 +18,7 @@
 	color: #14E22A;
 	font-weight: 600;
 	background: #fff;
+	border-bottom: 4px solid #14E22A;
 }
 @media(max-width: 767px){
 	.custom-tabs{
