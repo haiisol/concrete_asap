@@ -46,7 +46,7 @@ Vue.component('bids-details-table-component', require('./components/table/BidsDe
 
 Vue.filter('formatDate', function(value) {
     if (value) {
-        return moment(String(value)).format('Y-m-d')
+        return moment(String(value)).format('YYYY-MM-DD')
     }
 });
 
