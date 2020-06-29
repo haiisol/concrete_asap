@@ -12,15 +12,10 @@
 .custom-tabs .nav-item .nav-link {
 	color: #808080;
 	font-weight: 600;
+	background: #fafafa;
 }
 .custom-tabs .nav-item .nav-link.active {
 	color: #14E22A;
 	font-weight: 600;
-}
-.custom-tabs .nav-item{
-	background: #fafafa;
-}
-.custom-tabs .nav-item .nav-link.active{
 	background: #fff;
 }
-
