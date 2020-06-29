@@ -38483,7 +38483,7 @@ var staticRenderFns = [
         _vm._v("Bids Table")
       ]),
       _vm._v(" "),
-      _c("ul", { staticClass: "nav nav-tabs mb-3" }, [
+      _c("ul", { staticClass: "nav nav-tabs custom-tabs mb-3" }, [
         _c("li", { staticClass: "nav-item" }, [
           _c(
             "a",

@@ -5,3 +5,22 @@
 	max-width: 260px;
 	padding: 15px;
 }
+.custom-tabs .nav-item {
+    border: 1px solid #dee2e6;
+    margin-right: -1px;
+}
+.custom-tabs .nav-item a {
+	color: #808080;
+	font-weight: 600;
+}
+.custom-tabs.active .nav-item a {
+	color: #14E22A;
+	font-weight: 600;
+}
+.custom-tabs .nav-item{
+	background: #fafafa;
+}
+.custom-tabs.active .nav-item{
+	background: #fff;
+}
+

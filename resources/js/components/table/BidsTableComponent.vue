@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h4 class="font-bold d-inline-block" >Bids Table</h4>
-                <ul class="nav nav-tabs mb-3">
+                <ul class="nav nav-tabs custom-tabs mb-3">
                   <li class="nav-item">
                     <a class="nav-link active" href="javascript:;" id="show_all_job">Show All</a>
                   </li>
