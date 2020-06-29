@@ -19,3 +19,11 @@
 	font-weight: 600;
 	background: #fff;
 }
+@media(max-width: 767px){
+	.custom-tabs{
+		justify-content: center;
+	}
+	.custom-tabs .nav-item .nav-link {
+		font-size: 14px;
+	}
+}

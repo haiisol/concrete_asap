@@ -2608,6 +2608,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2661,14 +2666,20 @@ __webpack_require__.r(__webpack_exports__);
           jQuery("#show_all_job").click(function () {
             var table = $('#dataTableDisplayVue').DataTable();
             table.columns(1).search("").draw();
+            jQuery(".custom-tabs .nav-link").removeClass("active");
+            jQuery(this).addClass("active");
           });
           jQuery("#canceled_job").click(function () {
             var table = $('#dataTableDisplayVue').DataTable();
             table.columns(1).search("Cancelled").draw();
+            jQuery(".custom-tabs .nav-link").removeClass("active");
+            jQuery(this).addClass("active");
           });
           jQuery("#complete_job").click(function () {
             var table = $('#dataTableDisplayVue').DataTable();
             table.columns(1).search("Complete").draw();
+            jQuery(".custom-tabs .nav-link").removeClass("active");
+            jQuery(this).addClass("active");
           });
         });
       });
@@ -39100,36 +39111,39 @@ var staticRenderFns = [
     return _c("div", { staticClass: "col-md-12" }, [
       _c("h4", { staticClass: "font-bold" }, [_vm._v("Bids")]),
       _vm._v(" "),
-      _c("div", { staticClass: "show_button mb-3" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "dt-button buttons-csv buttons-html5 d-inline-block mr-2",
-            attrs: { id: "show_all_job" }
-          },
-          [_vm._v("Show All")]
-        ),
+      _c("ul", { staticClass: "nav nav-tabs custom-tabs mb-3" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: { href: "javascript:;", id: "show_all_job" }
+            },
+            [_vm._v("Show All")]
+          )
+        ]),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "dt-button buttons-csv buttons-html5 d-inline-block mx-2 ",
-            attrs: { id: "canceled_job" }
-          },
-          [_vm._v("Cancelled")]
-        ),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "javascript:;", id: "canceled_job" }
+            },
+            [_vm._v("Cancelled")]
+          )
+        ]),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "dt-button buttons-csv buttons-html5 d-inline-block mx-2",
-            attrs: { id: "complete_job" }
-          },
-          [_vm._v("Complete")]
-        )
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "javascript:;", id: "complete_job" }
+            },
+            [_vm._v("Complete")]
+          )
+        ])
       ])
     ])
   }
