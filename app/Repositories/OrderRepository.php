@@ -462,7 +462,8 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
                         'orders.id', 
                         'orders.job_id', 
                         'orders.status',
-                        'orders.created_at')
+                        'orders.created_at',
+                        'orders.completed_at')
                 ->join('user_details AS ud1', 'ud1.user_id', '=', 'orders.user_id')
                 ->where([['orders.status', '=', 'Complete']])
                 ->orderByDesc('orders.id')
