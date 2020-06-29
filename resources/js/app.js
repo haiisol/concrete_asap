@@ -3,6 +3,7 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
+import moment from 'moment';
 
 require('./bootstrap');
 
@@ -42,6 +43,12 @@ Vue.component('bids-details-table-component', require('./components/table/BidsDe
 //     'passport-personal-access-tokens',
 //     require('./components/passport/PersonalAccessTokens.vue').default
 // );
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('Y-m-d')
+    }
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
