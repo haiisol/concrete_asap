@@ -233,7 +233,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         })->with(["message", "orderConcrete", "bids" => function ($query) {
             $query->with(["user" => function ($query) {
                 $query->with(["detail" => function ($query) {
-                    $query->select(["user_id", "company", "first_name", "last_name", "phone_number", "profile_image", "abn", "email"]);
+                    $query->select(["user_id", "company", "first_name", "last_name", "phone_number", "profile_image", "abn"]);
                 }])->select(["id", "email"]);
             }])->where("status", "Accepted");
         }])->whereIn("status", ["Accepted", "Released", "Paid","Waiting Payment Confirmation"])->orderBy("id", "DESC")->get();
@@ -324,7 +324,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $orders = $this->user->orders()->with(["orderConcrete", "message", "user", "bids" => function ($query) {
             $query->with(["user" => function ($query) {
                 $query->with(["detail" => function ($query) {
-                    $query->select(["user_id", "company", "first_name", "last_name", "phone_number", "profile_image", "abn", "email"]);
+                    $query->select(["user_id", "company", "first_name", "last_name", "phone_number", "profile_image", "abn"]);
                 }])->select(["id", "email"]);
             }])->where("status", "Accepted");
         }])->whereHas("bids", function ($query) {
