@@ -3,12 +3,17 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h4 class="font-bold d-inline-block" >Bids Table</h4>
-
-                <div class="show_button mb-3">
-                    <button class="dt-button buttons-csv buttons-html5 d-inline-block mr-2" id="show_all_job">Show All</button>
-                    <button class="dt-button buttons-csv buttons-html5 d-inline-block mx-2 " id="canceled_job">Cancelled</button>
-                    <button class="dt-button buttons-csv buttons-html5 d-inline-block mx-2" id="complete_job">Complete</button>
-                </div>
+                <ul class="nav nav-tabs mb-3">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="javascript:;" id="show_all_job">Show All</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:;" id="canceled_job">Cancelled</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="javascript:;" id="complete_job">Complete</a>
+                  </li>
+                </ul>
             </div>
             <div class="col-md-12">
                 <table class="table table-striped table-bordered table-responsive-sm" id="dataTableDisplayVue" style="width:100%">
