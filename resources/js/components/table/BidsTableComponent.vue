@@ -98,19 +98,19 @@
                             var table = $('#dataTableDisplayVue').DataTable();
                             table.columns(3).search("").draw();
                             jQuery(".custom-tabs .nav-link").removeClass("active");
-                            this.addClass("active");
+                            jQuery(this).addClass("active");
                         }); 
                         jQuery("#canceled_job").click(function(){
                             var table = $('#dataTableDisplayVue').DataTable();
                             table.columns(3).search("Cancelled").draw();
                             jQuery(".custom-tabs .nav-link").removeClass("active");
-                            this.addClass("active");
+                            jQuery(this).addClass("active");
                         });        
                         jQuery("#complete_job").click(function(){
                             var table = $('#dataTableDisplayVue').DataTable();
                             table.columns(3).search("Complete").draw();
                             jQuery(".custom-tabs .nav-link").removeClass("active");
-                            this.addClass("active");
+                            jQuery(this).addClass("active");
                         });
                     });
                 });
