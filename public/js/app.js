@@ -2383,11 +2383,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       isFirstDataLoaded: false,
-      headers: ["Job Id", "Contractor Name", "Status", "Created At", "Actions"],
+      headers: ["Job Id", "Contractor Name", "Status", "Job Started", "Job Ended", "Actions"],
       data: []
     };
   },
@@ -38842,7 +38843,17 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", [_vm._v(_vm._s(row.status))]),
                   _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(row.created_at))]),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(_vm.date("Y-m-d", _vm.strtotime(row.created_at)))
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _vm._v(
+                      _vm._s(_vm.date("Y-m-d", _vm.strtotime(row.completed_at)))
+                    )
+                  ]),
                   _vm._v(" "),
                   _c("td", { staticStyle: { "text-align": "center" } }, [
                     _c("a", { attrs: { href: "/order/" + row.id } }, [

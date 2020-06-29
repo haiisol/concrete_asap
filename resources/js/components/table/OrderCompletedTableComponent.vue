@@ -18,7 +18,8 @@
                             <td>{{row.job_id}}</td>
                             <td>{{row.contractor_name}}</td>
                             <td>{{row.status}}</td>
-                            <td>{{row.created_at}}</td>
+                            <td>{{date('Y-m-d', strtotime(row.created_at))}}</td>
+                            <td>{{date('Y-m-d', strtotime(row.completed_at))}}</td>
                             <td style="text-align:center;">
                                 <a :href="'/order/'+row.id">Details</a>
                             </td>
@@ -34,7 +35,7 @@
         data:function(){
             return {
                 isFirstDataLoaded: false,
-                headers:["Job Id","Contractor Name","Status","Created At","Actions"],
+                headers:["Job Id","Contractor Name","Status","Job Started","Job Ended","Actions"],
                 data:[]
             }
         },
