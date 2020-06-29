@@ -72656,7 +72656,7 @@ Vue.component('bids-details-table-component', __webpack_require__(/*! ./componen
 
 Vue.filter('formatDate', function (value) {
   if (value) {
-    return moment__WEBPACK_IMPORTED_MODULE_0___default()(String(value)).format('Y-m-d');
+    return moment__WEBPACK_IMPORTED_MODULE_0___default()(String(value)).format('YYYY-MM-DD');
   }
 });
 /**
