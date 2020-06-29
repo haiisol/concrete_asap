@@ -289,7 +289,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         })->with(["order" => function ($query) {
             $query->has("orderConcrete")->with(["orderConcrete", "user" => function ($query) {
                 $query->with(['detail' => function ($query) {
-                    $query->select(["user_id", "phone_number", "company", "first_name", "last_name", "state", "city", "abn", "profile_image"])->join('users', 'users.id', '=', 'user_details.user_id');
+                    $query->select(["user_id", "email", "phone_number", "company", "first_name", "last_name", "state", "city", "abn", "profile_image"])->join('users', 'users.id', '=', 'user_details.user_id');
                 }])->select([
                     'id',
                     "email"
