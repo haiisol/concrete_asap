@@ -2039,6 +2039,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38478,36 +38483,39 @@ var staticRenderFns = [
         _vm._v("Bids Table")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "show_button mb-3" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "dt-button buttons-csv buttons-html5 d-inline-block mr-2",
-            attrs: { id: "show_all_job" }
-          },
-          [_vm._v("Show All")]
-        ),
+      _c("ul", { staticClass: "nav nav-tabs mb-3" }, [
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link active",
+              attrs: { href: "javascript:;", id: "show_all_job" }
+            },
+            [_vm._v("Show All")]
+          )
+        ]),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "dt-button buttons-csv buttons-html5 d-inline-block mx-2 ",
-            attrs: { id: "canceled_job" }
-          },
-          [_vm._v("Cancelled")]
-        ),
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "javascript:;", id: "canceled_job" }
+            },
+            [_vm._v("Cancelled")]
+          )
+        ]),
         _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass:
-              "dt-button buttons-csv buttons-html5 d-inline-block mx-2",
-            attrs: { id: "complete_job" }
-          },
-          [_vm._v("Complete")]
-        )
+        _c("li", { staticClass: "nav-item" }, [
+          _c(
+            "a",
+            {
+              staticClass: "nav-link",
+              attrs: { href: "javascript:;", id: "complete_job" }
+            },
+            [_vm._v("Complete")]
+          )
+        ])
       ])
     ])
   }
