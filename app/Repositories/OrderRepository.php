@@ -233,7 +233,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         })->with(["message", "orderConcrete", "bids" => function ($query) {
             $query->with(["user" => function ($query) {
                 $query->with(["detail" => function ($query) {
-                    $query->select(["user_id", "company", "first_name", "last_name", "phone_number", "profile_image", "abn"])->join('users', 'users.id', '=', 'user_details.user_id');
+                    $query->select(["email", "user_id", "company", "first_name", "last_name", "phone_number", "profile_image", "abn"])->join('users', 'users.id', '=', 'user_details.user_id');
                 }])->select(["id", "email"]);
             }])->where("status", "Accepted");
         }])->whereIn("status", ["Accepted", "Released", "Paid","Waiting Payment Confirmation"])->orderBy("id", "DESC")->get();
