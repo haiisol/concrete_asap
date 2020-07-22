@@ -80,7 +80,7 @@ class PaymentController extends Controller
                     "invoice_url"=>"",
                     "approved"=>true
                 ];
-                $date_delivery=isset($request["date_delivery"])?$request["date_delivery"]:"";
+                $date_delivery=isset($request["date_delivery"])?"":"";
                 $time_delivery=isset($request["time_delivery"])?$request["time_delivery"]:"";
                 $result=$this->bid_repo->save($request["price"],$request["order_id"],$this->user->id,$transaction,$date_delivery,$time_delivery);
                 if(isset($result["job_id"])){
