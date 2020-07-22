@@ -8,6 +8,7 @@ use App\Models\Order\Order;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 // use Hashids\Hashids;
 
 class BidRepository implements Interfaces\BidRepositoryInterface
@@ -184,14 +185,14 @@ class BidRepository implements Interfaces\BidRepositoryInterface
         $order_id = $bid->order_id; 
         $find_order = Order::find($order_id);
 
-        // $bid->update(["date_delivery" =>"Paid"]);
-
         $pref_concrete = $find_order->orderConcrete->preference;
 
         if( $pref_concrete === "On Call" ) {
             if(!$bid->isDayOfPour()){
                 throw new \Exception("Job can only be released on scheduled day of pour ".$bid);
             }
+        } else {
+            $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
         }
 
         if($bid->isCompleteOrCancelled()){
