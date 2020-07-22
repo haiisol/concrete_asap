@@ -189,6 +189,7 @@ class BidRepository implements Interfaces\BidRepositoryInterface
 
         if( $pref_concrete === "On Call" ) {
             if(!$bid->isDayOfPour()){
+                $bid->update(["released" => 5 ]);
                 throw new \Exception("Job can only be released on scheduled day of pour");
             }
         }
