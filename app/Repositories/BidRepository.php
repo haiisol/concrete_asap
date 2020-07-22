@@ -182,12 +182,14 @@ class BidRepository implements Interfaces\BidRepositoryInterface
         $order = $bid->order;
         
         $order_id = $bid->order_id; 
-        $find_order=Order::find($order_id);
+        $find_order = Order::find($order_id);
 
-        $order_concrete=$find_order->orderConcrete->preference;
+        $pref_concrete = $find_order->orderConcrete->preference;
 
-        if(!$bid->isDayOfPour()){
-            throw new \Exception("Job can only be released on scheduled day of pour test".$order_concrete);
+        if( $pref_concrete === "On Call" ) {
+            if(!$bid->isDayOfPour()){
+                throw new \Exception("Job can only be released on scheduled day of pour");
+            }
         }
 
         if($bid->isCompleteOrCancelled()){
