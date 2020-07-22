@@ -189,8 +189,11 @@ class BidRepository implements Interfaces\BidRepositoryInterface
 
         if( $pref_concrete === "On Call" ) {
             if(!$bid->isDayOfPour()){
+                $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
                 throw new \Exception("Job can only be released on scheduled day of pour ".$bid);
             }
+        } else {
+            $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
         }
 
         if($bid->isCompleteOrCancelled()){
@@ -206,9 +209,6 @@ class BidRepository implements Interfaces\BidRepositoryInterface
         }
 
         if ($bid->save()) {
-            if( $pref_concrete === "On Site" ) {
-                $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
-            }
             $order->status = "Released";
             $order->save();
             return ["order" => $order, "order_type" => $bid->getOrderType(), "job_id" => $order->job_id];
