@@ -192,6 +192,8 @@ class BidRepository implements Interfaces\BidRepositoryInterface
                 $bid->update(["date_delivery" => "2020-02-01" ]);
                 throw new \Exception("Job can only be released on scheduled day of pour");
             }
+        } else {
+            $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney') ]);
         }
 
         if($bid->isCompleteOrCancelled()){
@@ -213,7 +215,7 @@ class BidRepository implements Interfaces\BidRepositoryInterface
         }
 
         if( $pref_concrete === "On Site" ) {
-            $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
+            // $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
         }
     }
 
