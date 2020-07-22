@@ -182,7 +182,7 @@ class BidRepository implements Interfaces\BidRepositoryInterface
         $order = $bid->order;
 
         if(!$bid->isDayOfPour()){
-            throw new \Exception("Job can only be released on scheduled day of pour".$bid->isDayOfPour());
+            throw new \Exception("Job can only be released on scheduled day of pour test".$bid->isDayOfPour());
         }
 
         if($bid->isCompleteOrCancelled()){
