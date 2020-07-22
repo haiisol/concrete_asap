@@ -189,12 +189,10 @@ class BidRepository implements Interfaces\BidRepositoryInterface
 
         if( $pref_concrete === "On Call" ) {
             if(!$bid->isDayOfPour()){
-                $bid->date_delivery = \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d");
-                $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney') ]);
                 throw new \Exception("Job can only be released on scheduled day of pour");
             }
         } else {
-            $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney') ]);
+            $bid->date_delivery = \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d");
         }
 
         if($bid->isCompleteOrCancelled()){
@@ -213,10 +211,6 @@ class BidRepository implements Interfaces\BidRepositoryInterface
             $order->status = "Released";
             $order->save();
             return ["order" => $order, "order_type" => $bid->getOrderType(), "job_id" => $order->job_id];
-        }
-
-        if( $pref_concrete === "On Site" ) {
-            // $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
         }
     }
 
