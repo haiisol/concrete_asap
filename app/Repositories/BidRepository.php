@@ -189,8 +189,8 @@ class BidRepository implements Interfaces\BidRepositoryInterface
 
         if( $pref_concrete === "On Call" ) {
             if(!$bid->isDayOfPour()){
-                $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
-                throw new \Exception("Job can only be released on scheduled day of pour ".$bid);
+                $result = $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
+                throw new \Exception("Job can only be released on scheduled day of pour ".$result);
             }
         } else {
             $bid->update(["date_delivery" => \Illuminate\Support\Carbon::now('Australia/Sydney')->format("Y-m-d") ]);
