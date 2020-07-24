@@ -10,6 +10,7 @@ use App\Models\Order\orderMessage;
 use App\Models\Order\orderReview;
 use App\User;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -67,17 +68,29 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $order_concrete->colours = isset($order_request["colours"]) ? $order_request["colours"] : "";
         $order_concrete->delivery_instructions = isset($order_request["delivery_instructions"]) ? $order_request["delivery_instructions"] : "";
         $order_concrete->special_instructions = isset($order_request["special_instructions"]) ? $order_request["special_instructions"] : "";
-        $order_concrete->order_id = $order->id;
-        $order_concrete->touch();
+        
+        $hash_code_check = Hash::make($order_concrete);
+        $order_concrete->submit_hash = Hash::make($order_concrete);
+        
+        $query_hash = DB::table('order_concretes')->where('submit_hash', '=', $hash_code_check)->count();
 
-        try {
-            DB::beginTransaction();
-            $order->save();
-            $order->orderConcrete()->save($order_concrete);
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            $order=null;
+        if( $query_hash > 0 ) {
+            $order = null;
+        } 
+        else {
+
+            $order_concrete->order_id = $order->id;
+            $order_concrete->touch();
+
+            try {
+                DB::beginTransaction();
+                $order->save();
+                $order->orderConcrete()->save($order_concrete);
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollback();
+                $order=null;
+            }
         }
         return $order;
     }

@@ -88,7 +88,7 @@ class OrderController extends Controller
         ]);
 
         if (!$validator->fails()) {
-            $order=$this->orderRep->createConcrete($request->all());
+            $order = $this->orderRep->createConcrete($request->all());
             if (!is_null($order)) {
                 $notification = [
                     "msg" => "New job request {$order->job_id} has been posted.",
