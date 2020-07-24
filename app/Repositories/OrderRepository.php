@@ -69,8 +69,8 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $order_concrete->delivery_instructions = isset($order_request["delivery_instructions"]) ? $order_request["delivery_instructions"] : "";
         $order_concrete->special_instructions = isset($order_request["special_instructions"]) ? $order_request["special_instructions"] : "";
         
-        $hash_code_check = Hash::make($order_concrete);
-        $order_concrete->submit_hash = Hash::make($order_concrete);
+        $hash_code_check = Hash::make($order_request);
+        $order_concrete->submit_hash = Hash::make($order_request);
         
         $query_hash = DB::table('order_concretes')->where('submit_hash', '=', $hash_code_check)->count();
 
