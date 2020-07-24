@@ -71,6 +71,9 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         
         $hash_code_check = sha1($order_request);
         $order_concrete->submit_hash = sha1($order_request);
+
+        var_dump($order_request);
+        exit;
         
         $query_hash = DB::table('order_concretes')->where('submit_hash', '=', $hash_code_check)->count();
 
