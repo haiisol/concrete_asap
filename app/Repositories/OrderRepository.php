@@ -69,8 +69,8 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $order_concrete->delivery_instructions = isset($order_request["delivery_instructions"]) ? $order_request["delivery_instructions"] : "";
         $order_concrete->special_instructions = isset($order_request["special_instructions"]) ? $order_request["special_instructions"] : "";
         
-        $hash_code_check = sha1($order_request);
-        $order_concrete->submit_hash = sha1($order_request);
+        $hash_code_check = sha1($order_concrete);
+        $order_concrete->submit_hash = sha1($order_concrete);
 
         var_dump($order_request);
         exit;
