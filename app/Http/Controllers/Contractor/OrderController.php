@@ -90,13 +90,15 @@ class OrderController extends Controller
         if (!$validator->fails()) {
             $order = $this->orderRep->createConcrete($request->all());
             if (!is_null($order)) {
-                $notification = [
-                    "msg" => "New job request {$order->job_id} has been posted.",
-                    "route" => "Bid Order List",
-                    "params"=>[]
-                ];
-                $concrete_reps=(Role::find(2))->users;
-                Notification::send($concrete_reps, new AppNotification($notification));
+                if($order != "duplicate"){
+                    $notification = [
+                        "msg" => "New job request {$order->job_id} has been posted.",
+                        "route" => "Bid Order List",
+                        "params"=>[]
+                    ];
+                    $concrete_reps=(Role::find(2))->users;
+                    Notification::send($concrete_reps, new AppNotification($notification));
+                }
                 return response()->json(array("message" => "The Job has been placed"), 200);
             }
             else{
