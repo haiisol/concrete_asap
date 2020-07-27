@@ -67,8 +67,15 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $order_concrete->colours = isset($order_request["colours"]) ? $order_request["colours"] : "";
         $order_concrete->delivery_instructions = isset($order_request["delivery_instructions"]) ? $order_request["delivery_instructions"] : "";
         $order_concrete->special_instructions = isset($order_request["special_instructions"]) ? $order_request["special_instructions"] : "";
+
+        // hash request
+        $hash_request = json_encode($order_concrete);
+        $hash_request_hashed = Hash::make($hash_request);
+        $order_concrete->submit_hash = $hash_request_hashed;
+
         $order_concrete->order_id = $order->id;
         $order_concrete->touch();
+
 
         try {
             DB::beginTransaction();
