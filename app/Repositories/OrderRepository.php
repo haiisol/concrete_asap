@@ -71,22 +71,31 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
 
         // hash request
         $hash_request = json_encode($order_request);
-        // $hash_request_hashed = Hash::make($hash_request);
-        $order_concrete->submit_hash = $hash_request;
+        $hash_request_hashed = sha1($hash_request);
+        $order_concrete->submit_hash = $hash_request_hashed;
 
-        $order_concrete->order_id = $order->id;
-        $order_concrete->touch();
+         $query_hash = DB::table('order_concretes')->where('submit_hash', '=', $hash_request_hashed)->count();
+
+        if( $query_hash > 0 ) {
+            $order = null;
+        } 
+        else {
+
+            $order_concrete->order_id = $order->id;
+            $order_concrete->touch();
 
 
-        try {
-            DB::beginTransaction();
-            $order->save();
-            $order->orderConcrete()->save($order_concrete);
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            $order=null;
+            try {
+                DB::beginTransaction();
+                $order->save();
+                $order->orderConcrete()->save($order_concrete);
+                DB::commit();
+            } catch (\Exception $e) {
+                DB::rollback();
+                $order=null;
+            }
         }
+        
         return $order;
     }
 
