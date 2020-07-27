@@ -76,7 +76,7 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
          $query_hash = DB::table('order_concretes')->where('submit_hash', '=', $hash_request_hashed)->count();
 
         if( $query_hash > 0 ) {
-            $order = null;
+            $order = true;
         } 
         else {
 
