@@ -10,6 +10,7 @@ use App\Models\Order\orderMessage;
 use App\Models\Order\orderReview;
 use App\User;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
