@@ -70,9 +70,9 @@ class OrderRepository implements Interfaces\OrderRepositoryInterface
         $order_concrete->special_instructions = isset($order_request["special_instructions"]) ? $order_request["special_instructions"] : "";
 
         // hash request
-        $hash_request = sha1($order_request);
-        $hash_request_hashed = Hash::make($hash_request);
-        $order_concrete->submit_hash = $hash_request_hashed;
+        $hash_request = json_encode($order_request);
+        // $hash_request_hashed = Hash::make($hash_request);
+        $order_concrete->submit_hash = $hash_request;
 
         $order_concrete->order_id = $order->id;
         $order_concrete->touch();
