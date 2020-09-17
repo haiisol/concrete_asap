@@ -56,7 +56,7 @@ class PaymentController extends Controller
 
             //amount must be set in cents
             $charge_details=[
-                'amount' => 16.50,
+                'amount' => 1650,
                 'currency' => 'aud'
             ];
             $customer="";
