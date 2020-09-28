@@ -60,6 +60,10 @@ class AppNotification extends Notification
         if(isset($this->notification_data["params"])){
             $one_signal=$one_signal->setData("params",$this->notification_data["params"]);
         }
+        
+        // Add count notifications
+        $one_signal=$one_signal->setData("badge","3");
+        
         return $one_signal
             ->setBody($this->notification_data["msg"]);
     }
