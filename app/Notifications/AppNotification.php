@@ -62,7 +62,7 @@ class AppNotification extends Notification
         }
         
         // Add count notifications
-        $one_signal=$one_signal->setData("badge","3");
+        $one_signal=$one_signal->setData("badge","1");
         
         return $one_signal
             ->setBody($this->notification_data["msg"]);
