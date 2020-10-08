@@ -22,7 +22,8 @@
         "rebing/graphql-laravel": "*",
         "s-ichikawa/laravel-sendgrid-driver": "^2.1",
         "stripe/stripe-php": "^7.2",
-        "tymon/jwt-auth": "1.0.*"
+        "tymon/jwt-auth": "1.0.*",
+        "predis/predis": "~1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
